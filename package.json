@@ -2,7 +2,7 @@
   "name": "tpdp-damage-calc",
   "private": true,
   "description": "The unofficial damage calculator for Touhou Puppet Dance Performance, Shard of Dreams",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "test": "eslint --cache ."
   },

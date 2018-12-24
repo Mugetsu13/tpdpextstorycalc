@@ -282,11 +282,11 @@ function getDamageResult(attacker, defender, move, field) {
 		description.attackerAbility = atkAbility;
 	} else if ((atkAbility === "Surprise Tactics" && field.weather === "Heavy Fog" && move.category === "Spread") || //50% Increase
 		       (atkAbility === "Recalibration" && field.weather === "Calm" && move.category === "Spread") ||
-	           (atkAbility === "Desperation" && attacker.status === "Poisoned" && move.category === "Focus") ||
-		       (atkAbility === "Mind's Eye" && attacker.status !== "Healthy" && move.category === "Focus") ||
+	           (atkAbility === "Desperation" && attacker.status.indexOf("Poisoned") !== -1 && move.category === "Focus") ||
+		       (atkAbility === "Mind's Eye" && attacker.status !== ["None", "None"] && move.category === "Focus") ||
 		       (atkAbility === "Brutality" && move.category === "Spread") ||
 	           (atkAbility === "Daredevil" && move.category === "Focus") ||
-	           (atkAbility === "Pride" && attacker.status !== "Healthy" && move.category === "Spread")) {
+	           (atkAbility === "Pride" && attacker.status !== ["None", "None"] && move.category === "Spread")) {
 		atMods.push(1.5);
 		description.attackerAbility = atkAbility;
 	} else if ((atkAbility === "Sand Force" && field.weather === "Dust Storm" && move.category === "Focus") || //30% Increase
@@ -297,6 +297,15 @@ function getDamageResult(attacker, defender, move, field) {
                (atkAbility === "Placid" && move.category === "Spread")) {
 		atMods.push(0.5);
 		description.attackerAbility = atkAbility;
+	}
+
+	//Status-related
+	if (attacker.status.indexOf("Blinded") !== -1 && move.category === "Focus" && atkAbility !== "Mind's Eye") {
+		atMods.push(0.5);
+		description.isBlinded = true;
+	} else if (attacker.status.indexOf("Afraid") !== -1 && move.category === "Spread" && atkAbility !== "Pride") {
+		atMods.push(0.5);
+		description.isAfraid = true;
 	}
 
 	//Item-related(?)
@@ -329,11 +338,11 @@ function getDamageResult(attacker, defender, move, field) {
 		description.moveBP = basePower;
 		break;
 	case "Blow from Calamity":
-		basePower = move.bp * (attacker.status !== "Healthy" ? 2 : 1);
+		basePower = move.bp * (attacker.status !== ["None", "None"] ? 2 : 1);
 		description.moveBP = basePower;
 		break;
 	case "Love or Pain":
-		basePower = move.bp * (defender.status !== "Healthy" ? 2 : 1);
+		basePower = move.bp * (defender.status !== ["None", "None"] ? 2 : 1);
 		description.moveBP = basePower;
 		break;
 	case "Final Tribulation":
@@ -341,7 +350,7 @@ function getDamageResult(attacker, defender, move, field) {
 		description.moveBP = basePower;
 		break;
 	case "Mysterious Liquid":
-		basePower = move.bp * (defender.status === "Poisoned" ? 2 : 1);
+		basePower = move.bp * (defender.status.indexOf("Poisoned") !== -1 ? 2 : 1);
 		description.moveBP = basePower;
 		break;
 	case "Fire Wall":
@@ -450,7 +459,7 @@ function getDamageResult(attacker, defender, move, field) {
 	} else if ((defAbility === "Aurora Grace" && field.weather === "Aurora" && defenseStat === SD) ||
 		       (defAbility === "Recalibration" && field.weather === "Calm" && defenseStat === SD) ||
 		       (defAbility === "Breather" && field.weather === "Calm" && defenseStat === FD) ||
-		       (defAbility === "Last Defense" && defender.status !== "Healthy" && defenseStat === FD)) {
+		       (defAbility === "Last Defense" && defender.status !== ["None", "None"] && defenseStat === FD)) {
 		dfMods.push(1.5);
 		description.defenderAbility = defAbility;
 	}
@@ -565,7 +574,6 @@ function getDamageResult(attacker, defender, move, field) {
 		finalMods.push(typeEffectiveness < 1 ? 0.5 : 2);
 		description.defenderItem = defender.item;
 	}
-
 
 	//Prepare Ability modifications (INCLUDING ones that make moves more "powerful")
 	//Offense-related abilities
@@ -897,8 +905,10 @@ function buildDescription(description) {
 	output = appendIfSet(output, description.attackPP);
 	output = appendIfSet(output, description.attackerItem);
 	output = appendIfSet(output, description.attackerAbility);
-	if (description.isBurned) {
-		output += "burned ";
+	if (description.isBlinded) {
+		output += "blinded ";
+	} else if (description.isAfraid) {
+		output += "afraid ";
 	}
 	output += description.attackerName + " ";
 	output += description.moveName + " ";
