@@ -1,4 +1,4 @@
-﻿function getKOChanceText(damage, attacker, defender, field, move, hits, isBadDreams) {
+﻿function getKOChanceText(damage, attacker, defender, field, move, hits, isDreamWorld) {
 	if (isNaN(damage[0])) {
 		return 'something broke; please tell Austin';
 	}
@@ -11,26 +11,21 @@
 
 	var hazards = 0;
 	var hazardText = [];
-	if (field.isSR && ['Magic Guard', 'Mountaineer'].indexOf(defender.ability) === -1) {
-		var effectiveness = typeChart['Rock'][defender.type1] * (defender.type2 ? typeChart['Rock'][defender.type2] : 1);
+	if (field.isST && defender.ability !== "Imposing Stance") {
+		var effectiveness = typeChart['Steel'][defender.type1] * (defender.type2 ? typeChart['Steel'][defender.type2] : 1);
 		hazards += Math.floor(effectiveness * defender.maxHP / 8);
-		hazardText.push('Stealth Rock');
+		hazardText.push('Stealth Trap');
 	}
-	if (!defender.hasType('Flying') &&
-		['Magic Guard', 'Levitate'].indexOf(defender.ability) === -1 && defender.item !== 'Air Balloon') {
-		if (field.spikes === 1) {
+	if (!defender.hasType('Wind') && defender.ability !== "Air Cushion" && defender.item !== "Floating Stone") {
+		if (field.mines === 1) {
 			hazards += Math.floor(defender.maxHP / 8);
-			if (gen === 2) {
-				hazardText.push('Spikes');
-			} else {
-				hazardText.push('1 layer of Spikes');
-			}
-		} else if (field.spikes === 2) {
+			hazardText.push('1 Mine Trap');
+		} else if (field.mines === 2) {
 			hazards += Math.floor(defender.maxHP / 6);
-			hazardText.push('2 layers of Spikes');
-		} else if (field.spikes === 3) {
+			hazardText.push('2 Mine Traps');
+		} else if (field.mines === 3) {
 			hazards += Math.floor(defender.maxHP / 4);
-			hazardText.push('3 layers of Spikes');
+			hazardText.push('3 Mine Traps');
 		}
 	}
 	if (isNaN(hazards)) {
@@ -38,118 +33,138 @@
 	}
 
 	var eot = 0;
+	var eotGain = 0;
 	var eotText = [];
-	if (field.weather === 'Sun' || field.weather === "Harsh Sunshine") {
-		if (defender.ability === 'Dry Skin' || defender.ability === 'Solar Power') {
-			eot -= Math.floor(defender.maxHP / 8);
-			eotText.push(defender.ability + ' damage');
-		}
-	} else if (field.weather.indexOf("Rain") !== -1) {
-		if (defender.ability === 'Dry Skin') {
-			eot += Math.floor(defender.maxHP / 8);
-			eotText.push('Dry Skin recovery');
-		} else if (defender.ability === 'Rain Dish') {
-			eot += Math.floor(defender.maxHP / 16);
-			eotText.push('Rain Dish recovery');
-		}
-	} else if (field.weather === 'Sand') {
-		if (['Rock', 'Ground', 'Steel'].indexOf(defender.type1) === -1 &&
-                ['Rock', 'Ground', 'Steel'].indexOf(defender.type2) === -1 &&
-                ['Magic Guard', 'Overcoat', 'Sand Force', 'Sand Rush', 'Sand Veil'].indexOf(defender.ability) === -1 &&
-                defender.item !== 'Safety Goggles') {
-			eot -= Math.floor(defender.maxHP / 16);
-			eotText.push('sandstorm damage');
-		}
-	} else if (field.weather === 'Hail') {
-		if (defender.ability === 'Ice Body') {
-			eot += Math.floor(defender.maxHP / 16);
-			eotText.push('Ice Body recovery');
-		} else if (defender.type1 !== 'Ice' && defender.type2 !== 'Ice' &&
-                ['Magic Guard', 'Overcoat', 'Snow Cloak'].indexOf(defender.ability) === -1 &&
-                defender.item !== 'Safety Goggles') {
-			eot -= Math.floor(defender.maxHP / 16);
-			eotText.push('hail damage');
-		}
+	var eotRecovery = [];
+	var eotDamage = [];
+	//Weather Related
+	if (field.weather === 'Aurora' && defender.ability === 'Aurora Grace') {
+		eotGain += Math.floor(defender.maxHP / 16);
+		eotRecovery.push('Aurora Grace');
+		eotDamage.push(''); //keep the sequential order of these events intact
+	} else if (field.weather === 'Heavy Fog' && defender.ability === 'Surprise Tactics') {
+		eot -= Math.floor(defender.maxHP / 8);
+		eotDamage.push('Surprise Tactics');
+		eotRecovery.push('');
+	} else if (field.weather === 'Dust Storm' &&
+		       ['Earth', 'Steel'].indexOf(defender.type1) === -1 &&
+		       ['Earth', 'Steel'].indexOf(defender.type2) === -1 &&
+		       ['Weather Resist', 'Sand Mask', 'Sand Force', 'Sand Devil'].indexOf(defender.ability) === -1) {
+		eot -= Math.floor(defender.maxHP / 16);
+		eotDamage.push('Dust Storm');
+		eotRecovery.push('');
+	} else if (field.weather === 'Calm' && ['Zen', 'Breather'].indexOf(defender.ability) !== -1) {
+		eotGain += Math.floor(defender.maxHP / 16);
+		eotRecovery.push(defender.ability);
+		eotDamage.push('');
 	}
-	var loseItem = move.name === "Knock Off" && defender.ability !== 'Sticky Hold';
-	if (defender.item === 'Leftovers' && !loseItem) {
-		eot += Math.floor(defender.maxHP / 16);
-		eotText.push('Leftovers recovery');
-	} else if (defender.item === 'Black Sludge' && !loseItem) {
+
+	//Misc. Ability-Related
+	if (defender.ability === 'Auto Heal') {
+		eotGain += Math.floor(defender.maxHP / 16);
+		eotRecovery.push('Auto Heal');
+		eotDamage.push('');
+	}
+	if (defender.ability === 'Full Power') {
+		eot -= Math.floor(defender.maxHP / 10);
+		eotDamage.push('Full Power');
+		eotRecovery.push('');
+	}
+
+	//Item-Related
+	var loseItem = (move.name === "Fire Wall" || move.name === "Panic Call" || move.name === "St. Elmo's Fire") && defender.ability !== "Collectomaniac";
+	if (defender.item === 'Food Rations' && !loseItem) {
+		eotGain += Math.floor(defender.maxHP / 16);
+		eotRecovery.push('Food Rations');
+		eotDamage.push('');
+	} else if (defender.item === 'Jar of Poison' && !loseItem) {
 		if (defender.type1 === 'Poison' || defender.type2 === 'Poison') {
-			eot += Math.floor(defender.maxHP / 16);
-			eotText.push('Black Sludge recovery');
-		} else if (defender.ability !== 'Magic Guard' && defender.ability !== 'Klutz') {
+			eotGain += Math.floor(defender.maxHP / 16);
+			eotRecovery.push('Jar of Poison');
+			eotDamage.push('');
+		} else {
 			eot -= Math.floor(defender.maxHP / 8);
-			eotText.push('Black Sludge damage');
+			eotDamage.push('Jar of Poison');
+			eotRecovery.push('');
 		}
-	} else if (defender.item === 'Sticky Barb') {
-		eot -= Math.floor(defender.maxHP / 8);
-		eotText.push('Sticky Barb damage');
 	}
+
+	//Drain Seed
 	if (field.isDefenderSeeded) {
-		if (defender.ability !== 'Magic Guard') {
-			eot -= gen >= 2 ? Math.floor(defender.maxHP / 8) : Math.floor(defender.maxHP / 16); // 1/16 in gen 1, 1/8 in gen 2 onwards
-			eotText.push('Leech Seed damage');
-		}
+		eot -= Math.floor(defender.maxHP / 8);
+		eotDamage.push('Drain Seed');
+		eotRecovery.push('');
 	}
-	if (field.isAttackerSeeded && attacker.ability !== "Magic Guard") {
-		if (attacker.ability === "Liquid Ooze") {
-			eot -= gen >= 2 ? Math.floor(attacker.maxHP / 8) : Math.floor(attacker.maxHP / 16);
-			eotText.push("Liquid Ooze damage");
+	if (field.isAttackerSeeded && attacker.ability !== "Imposing Stance") {
+		eotGain += Math.floor(attacker.maxHP / 8);
+		eotRecovery.push('Drain Seed');
+		eotDamage.push('');
+	}
+
+	var heavyCounter = 0;
+	//Poison Handler
+	if (defender.status.indexOf("Poisoned") !== -1) {
+		if (defender.ability === 'Inverse Toxin') {
+			eotGain += Math.floor(defender.maxHP / 8);
+			eotRecovery.push('Inverse Toxin');
+			eotDamage.push('');
+		} else if (defender.status[0] === defender.status[1]) { //Heavy Status Case
+			heavyCounter = defender.heavyCounter;
+			eotDamage.push('poison');
+			eotRecovery.push('');
 		} else {
-			eot += gen >= 2 ? Math.floor(attacker.maxHP / 8) : Math.floor(attacker.maxHP / 16);
-			eotText.push("Leech Seed recovery");
-		}
-	}
-	if (field.terrain === "Grassy") {
-		if (isGroundedForCalc(defender, field)) {
-			eot += Math.floor(defender.maxHP / 16);
-			eotText.push('Grassy Terrain recovery');
-		}
-	}
-	var toxicCounter = 0;
-	if (defender.status === 'Poisoned') {
-		if (defender.ability === 'Poison Heal') {
-			eot += Math.floor(defender.maxHP / 8);
-			eotText.push('Poison Heal');
-		} else if (defender.ability !== 'Magic Guard') {
 			eot -= Math.floor(defender.maxHP / 8);
-			eotText.push('poison damage');
+			eotDamage.push('poison');
+			eotRecovery.push('');
 		}
-	} else if (defender.status === 'Badly Poisoned') {
-		if (defender.ability === 'Poison Heal') {
-			eot += Math.floor(defender.maxHP / 8);
-			eotText.push('Poison Heal');
-		} else if (defender.ability !== 'Magic Guard') {
-			eotText.push('toxic damage');
-			toxicCounter = defender.toxicCounter;
-		}
-	} else if (defender.status === 'Burned') {
-		if (defender.ability === 'Heatproof') {
-			eot -= gen > 6 ? Math.floor(defender.maxHP / 32) : Math.floor(defender.maxHP / 16);
-			eotText.push('reduced burn damage');
-		} else if (defender.ability !== 'Magic Guard') {
-			eot -= gen > 6 ? Math.floor(defender.maxHP / 16) : Math.floor(defender.maxHP / 8);
-			eotText.push('burn damage');
-		}
-	} else if ((defender.status === 'Asleep' || defender.ability === 'Comatose') && isBadDreams && defender.ability !== 'Magic Guard') {
-		eot -= Math.floor(defender.maxHP / 8);
-		eotText.push('Bad Dreams');
 	}
-	if (['Bind', 'Clamp', 'Fire Spin', 'Infestation', 'Magma Storm', 'Sand Tomb', 'Whirlpool', 'Wrap'].indexOf(move.name) !== -1 && defender.ability !== 'Magic Guard') {
-		if (attacker.item === "Binding Band") {
-			eot -= gen > 5 ? Math.floor(defender.maxHP / 6) : Math.floor(defender.maxHP / 8);
-			eotText.push('trapping damage');
+	//Burn handler
+	if (defender.status.indexOf("Burned") !== -1) {
+		if (defender.status[0] === defender.status[1]) { //Heavy Status Case
+			heavyCounter = defender.heavyCounter;
+			eotDamage.push('burn');
+			eotRecovery.push('');
 		} else {
-			eot -= gen > 5 ? Math.floor(defender.maxHP / 8) : Math.floor(defender.maxHP / 16);
-			eotText.push('trapping damage');
+			eot -= Math.floor(defender.maxHP / 8);
+			eotDamage.push('burn');
+			eotRecovery.push('');
 		}
 	}
-	if ((move.name === 'Fire Pledge (Grass Pledge Boosted)' || move.name === 'Grass Pledge (Fire Pledge Boosted)') && [defender.type1, defender.type2].indexOf("Fire") === -1 && defender.ability !== 'Magic Guard') {
+	//Dream World
+	if (defender.status === 'Asleep' && attacker.ability === "Dream World") {
 		eot -= Math.floor(defender.maxHP / 8);
-		eotText.push('Sea of Fire damage');
+		eotDamage.push('Dream World');
 	}
+
+	//Partial Trapping moves
+	if (move.partialTrapping) {
+		eot -= Math.floor(defender.maxHP / 8);
+		eotDamage.push('trapping');
+		eotRecovery.push('');
+	}
+
+	//Final EoT calculation
+	if (defender.ability === "Imposing Stance" && eot < 0) { //Nullify all damage accumulated
+		eot = 0;
+		eotDamage = [];
+	}
+	if (field.terrain === "Suzaku" && eotGain > 0) {
+		if (defender.ability === "Imposing Stance") { //Assume: Imposing Stance nullifies damage caused by Suzaku
+			eotGain = 0;
+			eotRecovery = [];
+		}
+		eot -= eotGain;
+	} else if (eotGain > 0) {
+		eot += eotGain;
+	}
+	for (var i = 0; i < eotDamage.length; i++) {
+		if (eotDamage[i] || eotRecovery[i] && field.terrain === "Suzaku") {
+			eotText.push((eotDamage[i] ? eotDamage[i] : eotRecovery[i]) + " damage");
+		} else if (eotRecovery[i]) {
+			eotText.push(eotRecovery[i] + " recovery");
+		}
+	}
+
 	// multi-hit moves have too many possibilities for brute-forcing to work, so reduce it to an approximate distribution
 	var qualifier = '';
 	if (hits > 1) {
@@ -159,7 +174,7 @@
 	var c;
 	var afterText = hazardText.length > 0 || eotText.length > 0 ? ' after ' + serializeText(hazardText.concat(eotText)) : '';
 	if ((move.usedTimes === 1 && move.metronomeCount === 1) || move.isZ) {
-		c = getKOChance(damage, defender.curHP - hazards, 0, 1, 1, defender.maxHP, toxicCounter);
+		c = getKOChance(damage, defender.curHP - hazards, 0, 1, 1, defender.maxHP, heavyCounter);
 		if (c === 1) {
 			return 'guaranteed OHKO' + afterText;
 		} else if (c > 0) {
@@ -168,7 +183,7 @@
 		var i;
 
 		for (i = 2; i <= 4; i++) {
-			c = getKOChance(damage, defender.curHP - hazards, eot, i, 1, defender.maxHP, toxicCounter);
+			c = getKOChance(damage, defender.curHP - hazards, eot, i, 1, defender.maxHP, heavyCounter);
 			if (c === 1) {
 				return 'guaranteed ' + i + 'HKO' + afterText;
 			} else if (c > 0) {
@@ -177,23 +192,23 @@
 		}
 
 		for (i = 5; i <= 9; i++) {
-			if (predictTotal(damage[0], eot, i, 1, toxicCounter, defender.maxHP) >= defender.curHP - hazards) {
+			if (predictTotal(damage[0], eot, i, 1, heavyCounter, defender.maxHP) >= defender.curHP - hazards) {
 				return 'guaranteed ' + i + 'HKO' + afterText;
-			} else if (predictTotal(damage[damage.length - 1], eot, i, 1, toxicCounter, defender.maxHP) >= defender.curHP - hazards) {
+			} else if (predictTotal(damage[damage.length - 1], eot, i, 1, heavyCounter, defender.maxHP) >= defender.curHP - hazards) {
 				return 'possible ' + i + 'HKO' + afterText;
 			}
 		}
 
 	} else {
-		c = getKOChance(damage, defender.maxHP - hazards, eot, move.usedTimes || 1, move.usedTimes || 1, defender.maxHP, toxicCounter);
+		c = getKOChance(damage, defender.maxHP - hazards, eot, move.usedTimes || 1, move.usedTimes || 1, defender.maxHP, heavyCounter);
 		if (c === 1) {
 			return 'guaranteed KO in ' + move.usedTimes + ' turns' + afterText;
 		} else if (c > 0) {
 			return qualifier + Math.round(c * 1000) / 10 + '% chance to ' + move.usedTimes + 'HKO' + afterText;
 		}
-		if (predictTotal(damage[0], eot, move.usedTimes, move.usedTimes, toxicCounter, defender.maxHP) >= defender.curHP - hazards) {
+		if (predictTotal(damage[0], eot, move.usedTimes, move.usedTimes, heavyCounter, defender.maxHP) >= defender.curHP - hazards) {
 			return 'guaranteed KO in ' + move.usedTimes + ' turns' + afterText;
-		} else if (predictTotal(damage[damage.length - 1], eot, move.usedTimes, move.usedTimes, toxicCounter, defender.maxHP) >= defender.curHP - hazards) {
+		} else if (predictTotal(damage[damage.length - 1], eot, move.usedTimes, move.usedTimes, heavyCounter, defender.maxHP) >= defender.curHP - hazards) {
 			return 'possible KO in ' + move.usedTimes + ' turns' + afterText;
 		}
 		return 'not a KO';
@@ -202,7 +217,7 @@
 	return 'possibly the worst move ever';
 }
 
-function getKOChance(damage, hp, eot, hits, moveHits, maxHP, toxicCounter) {
+function getKOChance(damage, hp, eot, hits, moveHits, maxHP, heavyCounter) {
 	var n = damage.length;
 	var minDamage = damage[0];
 	var maxDamage = damage[n - 1];
@@ -220,19 +235,19 @@ function getKOChance(damage, hp, eot, hits, moveHits, maxHP, toxicCounter) {
 			}
 		}
 	}
-	if (predictTotal(maxDamage, eot, hits, moveHits, toxicCounter, maxHP) < hp) {
+	if (predictTotal(maxDamage, eot, hits, moveHits, heavyCounter, maxHP) < hp) {
 		return 0;
-	} else if (predictTotal(minDamage, eot, hits, moveHits, toxicCounter, maxHP) >= hp) {
+	} else if (predictTotal(minDamage, eot, hits, moveHits, heavyCounter, maxHP) >= hp) {
 		return 1;
 	}
 	var toxicDamage = 0;
-	if (toxicCounter > 0) {
-		toxicDamage = Math.floor(toxicCounter * maxHP / 16);
-		toxicCounter++;
+	if (heavyCounter > 0) {
+		toxicDamage = Math.floor(heavyCounter * maxHP / 16);
+		heavyCounter++;
 	}
 	var sum = 0;
 	for (i = 0; i < n; i++) {
-		var c = getKOChance(damage, hp - damage[i] + eot - toxicDamage, eot, hits - 1, moveHits, maxHP, toxicCounter);
+		var c = getKOChance(damage, hp - damage[i] + eot - toxicDamage, eot, hits - 1, moveHits, maxHP, heavyCounter);
 		if (c === 1) {
 			sum += (n - i);
 			break;
@@ -243,11 +258,11 @@ function getKOChance(damage, hp, eot, hits, moveHits, maxHP, toxicCounter) {
 	return sum / n;
 }
 
-function predictTotal(damage, eot, hits, moveHits, toxicCounter, maxHP) {
+function predictTotal(damage, eot, hits, moveHits, heavyCounter, maxHP) {
 	var toxicDamage = 0;
-	if (toxicCounter > 0) {
+	if (heavyCounter > 0) {
 		for (var i = 0; i < hits - 1; i++) {
-			toxicDamage += Math.floor((toxicCounter + i) * maxHP / 16);
+			toxicDamage += Math.floor((heavyCounter + i) * maxHP / 16);
 		}
 	}
 	if (hits > 1 && moveHits === 1) {
@@ -267,35 +282,35 @@ function squashMultihit(d, hits) {
 			r[i] = d[i] * hits;
 		}
 		return r;
-	} else if (d.length === 16) {
+	} else if (d.length === 15) {
 		switch (hits) {
 		case 2:
 			return [
 				2 * d[0], d[2] + d[3], d[4] + d[4], d[4] + d[5],
 				d[5] + d[6], d[6] + d[6], d[6] + d[7], d[7] + d[7],
 				d[8] + d[8], d[8] + d[9], d[9] + d[9], d[9] + d[10],
-				d[10] + d[11], d[11] + d[11], d[12] + d[13], 2 * d[15]
+				d[10] + d[11], d[11] + d[11], d[12] + d[13], 2 * d[14]
 			];
 		case 3:
 			return [
 				3 * d[0], d[3] + d[3] + d[4], d[4] + d[4] + d[5], d[5] + d[5] + d[6],
 				d[5] + d[6] + d[6], d[6] + d[6] + d[7], d[6] + d[7] + d[7], d[7] + d[7] + d[8],
 				d[7] + d[8] + d[8], d[8] + d[8] + d[9], d[8] + d[9] + d[9], d[9] + d[9] + d[10],
-				d[9] + d[10] + d[10], d[10] + d[11] + d[11], d[11] + d[12] + d[12], 3 * d[15]
+				d[9] + d[10] + d[10], d[10] + d[11] + d[11], d[11] + d[12] + d[12], 3 * d[14]
 			];
 		case 4:
 			return [
 				4 * d[0], 4 * d[4], d[4] + d[5] + d[5] + d[5], d[5] + d[5] + d[6] + d[6],
 				4 * d[6], d[6] + d[6] + d[7] + d[7], 4 * d[7], d[7] + d[7] + d[7] + d[8],
 				d[7] + d[8] + d[8] + d[8], 4 * d[8], d[8] + d[8] + d[9] + d[9], 4 * d[9],
-				d[9] + d[9] + d[10] + d[10], d[10] + d[10] + d[10] + d[11], 4 * d[11], 4 * d[15]
+				d[9] + d[9] + d[10] + d[10], d[10] + d[10] + d[10] + d[11], 4 * d[11], 4 * d[14]
 			];
 		case 5:
 			return [
 				5 * d[0], d[4] + d[4] + d[4] + d[5] + d[5], d[5] + d[5] + d[5] + d[5] + d[6], d[5] + d[6] + d[6] + d[6] + d[6],
 				d[6] + d[6] + d[6] + d[6] + d[7], d[6] + d[6] + d[7] + d[7] + d[7], 5 * d[7], d[7] + d[7] + d[7] + d[8] + d[8],
 				d[7] + d[7] + d[8] + d[8] + d[8], 5 * d[8], d[8] + d[8] + d[8] + d[9] + d[9], d[8] + d[9] + d[9] + d[9] + d[9],
-				d[9] + d[9] + d[9] + d[9] + d[10], d[9] + d[10] + d[10] + d[10] + d[10], d[10] + d[10] + d[11] + d[11] + d[11], 5 * d[15]
+				d[9] + d[9] + d[9] + d[9] + d[10], d[9] + d[10] + d[10] + d[10] + d[10], d[10] + d[10] + d[11] + d[11] + d[11], 5 * d[14]
 			];
 		default:
 			console.log("Unexpected # of hits: " + hits);

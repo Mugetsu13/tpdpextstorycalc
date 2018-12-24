@@ -1,22 +1,27 @@
 {
-  "name": "pokemon-showdown-damage-calc",
+  "name": "tpdp-damage-calc",
   "private": true,
-  "description": "The official damage calculator for the Pokémon Showdown battle simulator",
-  "version": "0.3.0",
+  "description": "The unofficial damage calculator for Touhou Puppet Dance Performance, Shard of Dreams",
+  "version": "0.0.1",
   "scripts": {
     "test": "eslint --cache ."
   },
   "homepage": "http://pokemonshowdown.com/calc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zarel/honko-damagecalc.git"
+    "url": "https://github.com/Pikachuun/tpdpcalc.git"
   },
   "author": {
-    "name": "Guangcong Luo",
-    "email": "zarel@zarel.com",
-    "url": "http://guangcongluo.com"
+    "name": "Choon Iweleth",
+    "email": "pikachuun@gmail.com",
+    "url": ""
   },
   "contributors": [
+    { //original author
+      "name": "Guangcong Luo",
+      "email": "zarel@zarel.com",
+      "url": "http://guangcongluo.com"
+    },
     {
       "name": "Mathieu Dias-Martins",
       "email": "marty@hisemail.com"

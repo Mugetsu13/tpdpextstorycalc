@@ -5,11 +5,11 @@ a img {
 .header {
     margin: 0 0 30px 0;
 
-    background: #E5ECFB;
-    background: -webkit-gradient(linear, left top, left bottom, from(#E8EEFC), to(#D7DEEA));
-    background: -moz-linear-gradient(top,  #E8EEFC,  #D7DEEA);
-    background: linear-gradient(top,  #E8EEFC,  #D7DEEA);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#E8EEFC', endColorstr='#D7DEEA');
+    background: #fbe5ef;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fce0e7), to(#ead7e0));
+    background: -moz-linear-gradient(top,  #fce0e7,  #ead7e0);
+    background: linear-gradient(top,  #fce0e7,  #ead7e0);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#fce0e7', endColorstr='#ead7e0');
 
     border-bottom: 1px solid #AAA;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .6), 0px 2px 2px rgba(0, 0, 0, .15);
@@ -44,7 +44,7 @@ a img {
 .nav .button img {
     position: absolute;
     top: -8px;
-    left: -150px;
+    left: -130px;
 }
 .nav .button.cur,
 .nav .button.cur:hover {
@@ -146,7 +146,7 @@ div.wrapper > div > span {
 }
 fieldset {
     float: left;
-    background-color: #F1F4F9;
+    background-color: #f9edf2;
     border: 1px solid #AAAAAA;
 }
 legend {
@@ -208,6 +208,9 @@ th {
 }
 .btn-wide {
     width: 7em;
+}
+.btn-kwide {
+    width: 7.5em;
 }
 .btn-xwide {
     width: 8em;
@@ -307,7 +310,7 @@ th {
     margin: 0 0 5px;
 }
 
-/* pokemon info */
+/* puppet info */
 .poke-info label {
     display: inline-block;
     width: 6em;
@@ -329,7 +332,7 @@ th {
 .info-selectors select {
     width: 8em;
 }
-select.toxic-counter {
+select.heavy-counter {
     width: 4.5em;
 }
 .move-selector, .move-bp, .move-type, .move-cat, .move-hits {

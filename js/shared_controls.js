@@ -31,8 +31,8 @@ if (!Array.prototype.indexOf) {
 var bounds = {
 	"level": [0, 100],
 	"base": [1, 255],
-	"evs": [0, 252],
-	"ivs": [0, 31],
+	"pp": [0, 64],
+	"ranks": [0, 15],
 	"dvs": [0, 15],
 	"move-bp": [0, 999]
 };
@@ -54,69 +54,30 @@ $(".level").keyup(function () {
 	calcHP(poke);
 	calcStats(poke);
 });
-$(".nature").bind("keyup change", function () {
+$(".mark").bind("keyup change", function () {
 	calcStats($(this).closest(".poke-info"));
 });
-$(".hp .base, .hp .evs, .hp .ivs").bind("keyup change", function () {
+$(".hp .base, .hp .pp, .hp .ranks").bind("keyup change", function () {
 	calcHP($(this).closest(".poke-info"));
 });
-$(".at .base, .at .evs, .at .ivs").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'at');
+$(".fa .base, .fa .pp, .fa .ranks").bind("keyup change", function () {
+	calcStat($(this).closest(".poke-info"), 'fa');
 });
-$(".df .base, .df .evs, .df .ivs").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'df');
+$(".fd .base, .fd .pp, .fd .ranks").bind("keyup change", function () {
+	calcStat($(this).closest(".poke-info"), 'fd');
 });
-$(".sa .base, .sa .evs, .sa .ivs").bind("keyup change", function () {
+$(".sa .base, .sa .pp, .sa .ranks").bind("keyup change", function () {
 	calcStat($(this).closest(".poke-info"), 'sa');
 });
-$(".sd .base, .sd .evs, .sd .ivs").bind("keyup change", function () {
+$(".sd .base, .sd .pp, .sd .ranks").bind("keyup change", function () {
 	calcStat($(this).closest(".poke-info"), 'sd');
 });
-$(".sp .base, .sp .evs, .sp .ivs").bind("keyup change", function () {
+$(".sp .base, .sp .pp, .sp .ranks").bind("keyup change", function () {
 	calcStat($(this).closest(".poke-info"), 'sp');
 });
 $(".sl .base").keyup(function () {
 	calcStat($(this).closest(".poke-info"), 'sl');
 });
-$(".at .dvs").keyup(function () {
-	var poke = $(this).closest(".poke-info");
-	calcStat(poke, 'at');
-	poke.find(".hp .dvs").val(getHPDVs(poke));
-	calcHP(poke);
-});
-$(".df .dvs").keyup(function () {
-	var poke = $(this).closest(".poke-info");
-	calcStat(poke, 'df');
-	poke.find(".hp .dvs").val(getHPDVs(poke));
-	calcHP(poke);
-});
-$(".sa .dvs").keyup(function () {
-	var poke = $(this).closest(".poke-info");
-	calcStat(poke, 'sa');
-	poke.find(".sd .dvs").val($(this).val());
-	calcStat(poke, 'sd');
-	poke.find(".hp .dvs").val(getHPDVs(poke));
-	calcHP(poke);
-});
-$(".sp .dvs").keyup(function () {
-	var poke = $(this).closest(".poke-info");
-	calcStat(poke, 'sp');
-	poke.find(".hp .dvs").val(getHPDVs(poke));
-	calcHP(poke);
-});
-$(".sl .dvs").keyup(function () {
-	var poke = $(this).closest(".poke-info");
-	calcStat(poke, 'sl');
-	poke.find(".hp .dvs").val(getHPDVs(poke));
-	calcHP(poke);
-});
-
-function getHPDVs(poke) {
-	return (~~poke.find(".at .dvs").val() % 2) * 8 +
-(~~poke.find(".df .dvs").val() % 2) * 4 +
-(~~poke.find(".sp .dvs").val() % 2) * 2 +
-(~~poke.find(gen === 1 ? ".sl .dvs" : ".sa .dvs").val() % 2);
-}
 
 function calcStats(poke) {
 	for (var i = 0; i < STATS.length; i++) {
@@ -172,44 +133,40 @@ $("#p1 .ability").bind("keyup change", function () {
 var lastManualWeather = "";
 var lastAutoWeather = ["", ""];
 function autosetWeather(ability, i) {
-	var currentWeather = $("input:radio[name='weather']:checked").val();
+	var currentWeather = $("input:checkbox[name='weather']:checked").val() || "No weather";
 	if (lastAutoWeather.indexOf(currentWeather) === -1) {
 		lastManualWeather = currentWeather;
 		lastAutoWeather[1 - i] = "";
 	}
+	// weather input uses checkbox instead of radio, need to uncheck all first
+	$("input:checkbox[name='weather']:checked").prop("checked", false);
 	switch (ability) {
-	case "Drought":
-		lastAutoWeather[i] = "Sun";
-		$("#sun").prop("checked", true);
+	case "Sanguine":
+		lastAutoWeather[i] = "Aurora";
+		$("#aurora").prop("checked", true);
 		break;
-	case "Drizzle":
-		lastAutoWeather[i] = "Rain";
-		$("#rain").prop("checked", true);
+	case "Melancholic":
+		lastAutoWeather[i] = "Heavy Fog";
+		$("#fog").prop("checked", true);
 		break;
-	case "Sand Stream":
-		lastAutoWeather[i] = "Sand";
-		$("#sand").prop("checked", true);
+	case "Supine":
+		lastAutoWeather[i] = "Sunshower";
+		$("#sunshower").prop("checked", true);
 		break;
-	case "Snow Warning":
-		lastAutoWeather[i] = "Hail";
-		$("#hail").prop("checked", true);
+	case "Choleric":
+		lastAutoWeather[i] = "Dust Storm";
+		$("#duststorm").prop("checked", true);
 		break;
-	case "Desolate Land":
-		lastAutoWeather[i] = "Harsh Sunshine";
-		$("#harsh-sunshine").prop("checked", true);
-		break;
-	case "Primordial Sea":
-		lastAutoWeather[i] = "Heavy Rain";
-		$("#heavy-rain").prop("checked", true);
-		break;
-	case "Delta Stream":
-		lastAutoWeather[i] = "Strong Winds";
-		$("#strong-winds").prop("checked", true);
+	case "Phlegmatic":
+		lastAutoWeather[i] = "Calm";
+		$("#calm").prop("checked", true);
 		break;
 	default:
 		lastAutoWeather[i] = "";
-		var newWeather = lastAutoWeather[1 - i] !== "" ? lastAutoWeather[1 - i] : "";
-		$("input:radio[name='weather'][value='" + newWeather + "']").prop("checked", true);
+		var newWeather = lastAutoWeather[1 - i] !== "" ? lastAutoWeather[1 - i] : lastManualWeather;
+		if ("No weather" !== newWeather) {
+			$("input:checkbox[name='weather'][value='" + newWeather + "']").prop("checked", true);
+		}
 		break;
 	}
 }
@@ -255,37 +212,43 @@ $("#p1 .item").bind("keyup change", function () {
 	autosetStatus("#p1", $(this).val());
 });
 
-var lastManualStatus = {"#p1": "Healthy"};
-var lastAutoStatus = {"#p1": "Healthy"};
+var lastManualStatus = {"#p1": ["None", "None"]};
+var lastAutoStatus = {"#p1": ["None", "None"]};
 function autosetStatus(p, item) {
-	var currentStatus = $(p + " .status").val();
+	var teamside = p.substring(p.length - 1);
+	var currentStatus = [$("input:checkbox[name='status" + teamside + "L']:checked").val(), $("input:checkbox[name='status" + teamside + "R']:checked").val()];
 	if (currentStatus !== lastAutoStatus[p]) {
 		lastManualStatus[p] = currentStatus;
 	}
-	if (item === "Flame Orb") {
-		lastAutoStatus[p] = "Burned";
-		$(p + " .status").val("Burned");
-		$(p + " .status").change();
-	} else if (item === "Toxic Orb") {
-		lastAutoStatus[p] = "Badly Poisoned";
-		$(p + " .status").val("Badly Poisoned");
-		$(p + " .status").change();
+	if (item === "Burning Stone") {
+		lastAutoStatus[p] = ["Burned", "Burned"];
+		$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() === "Burned"; }).prop("checked", true);
+		$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() !== "Burned"; }).prop("checked", false);
+		$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() === "Burned"; }).prop("checked", true);
+		$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() !== "Burned"; }).prop("checked", false);
+		$(p + " .heavy-counter").show();
+	} else if (item === "Wolfsbane Root") {
+		lastAutoStatus[p] = ["Poisoned", "Poisoned"];
+		$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() === "Poisoned"; }).prop("checked", true);
+		$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() !== "Poisoned"; }).prop("checked", false);
+		$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() === "Poisoned"; }).prop("checked", true);
+		$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() !== "Poisoned"; }).prop("checked", false);
+		$(p + " .heavy-counter").show();
 	} else {
-		lastAutoStatus[p] = "Healthy";
-		if (currentStatus !== lastManualStatus[p]) {
-			$(p + " .status").val(lastManualStatus[p]);
-			$(p + " .status").change();
+		lastAutoStatus[p] = ["None", "None"];
+		if (currentStatus !== lastManualStatus[p] && lastManualStatus[p]) {
+			$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() === lastManualStatus[p][0]; }).prop("checked", true);
+			$("input:checkbox[name='status" + teamside + "L']").filter(function (i, e) { return $(e).val() !== lastManualStatus[p][0]; }).prop("checked", false);
+			$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() === lastManualStatus[p][1]; }).prop("checked", true);
+			$("input:checkbox[name='status" + teamside + "R']").filter(function (i, e) { return $(e).val() !== lastManualStatus[p][1]; }).prop("checked", false);
+			if (lastManualStatus[p][0] === lastManualStatus[p][1] && ["Poisoned", "Burned"].indexOf(lastManualStatus[p][0]) !== -1) {
+				$(p + " .heavy-counter").show();
+			} else {
+				$(p + " .heavy-counter").hide();
+			}
 		}
 	}
 }
-
-$(".status").bind("keyup change", function () {
-	if ($(this).val() === 'Badly Poisoned') {
-		$(this).parent().children(".toxic-counter").show();
-	} else {
-		$(this).parent().children(".toxic-counter").hide();
-	}
-});
 
 var lockerMove = "";
 // auto-update move details on select
@@ -301,8 +264,7 @@ $(".move-selector").change(function () {
 	if (move.isMultiHit) {
 		moveGroupObj.children(".stat-drops").hide();
 		moveGroupObj.children(".move-hits").show();
-		moveGroupObj.children(".move-hits").val($(this).closest(".poke-info").find(".ability").val() === 'Skill Link' ? 5 : 3);
-		moveGroupObj.children(".move-hits").val($(this).closest(".poke-info").find(".item").val() === 'Grip Claw' ? 5 : 3);
+		moveGroupObj.children(".move-hits").val($(this).closest(".poke-info").find(".ability").val() === 'Salvo' ? 5 : 3);
 	} else if (move.dropsStats) {
 		moveGroupObj.children(".move-hits").hide();
 		moveGroupObj.children(".stat-drops").show();
@@ -326,111 +288,94 @@ $(".item").change(function () {
 // auto-update set details on select
 $(".set-selector").change(function () {
 	var fullSetName = $(this).val();
-	var pokemonName, setName;
-	pokemonName = fullSetName.substring(0, fullSetName.indexOf(" ("));
+	var puppetName, setName;
+	puppetName = fullSetName.substring(0, fullSetName.indexOf(" ("));
 	setName = fullSetName.substring(fullSetName.indexOf("(") + 1, fullSetName.lastIndexOf(")"));
-	var pokemon = pokedex[pokemonName];
-	if (pokemon) {
-		var pokeObj = $(this).closest(".poke-info");
-		if (stickyMoves.getSelectedSide() === pokeObj.prop("id")) {
+	var puppet = puppetdex[puppetName];
+	if (puppet) {
+		var puppObj = $(this).closest(".poke-info");
+		if (stickyMoves.getSelectedSide() === puppObj.prop("id")) {
 			stickyMoves.clearStickyMove();
 		}
-		pokeObj.find(".type1").val(pokemon.t1);
-		pokeObj.find(".type2").val(pokemon.t2);
-		pokeObj.find(".hp .base").val(pokemon.bs.hp);
+		puppObj.find(".type1").val(puppet.t1);
+		puppObj.find(".type2").val(puppet.t2);
+		puppObj.find(".hp .base").val(puppet.bs.hp);
 		var i;
 		for (i = 0; i < STATS.length; i++) {
-			pokeObj.find("." + STATS[i] + " .base").val(pokemon.bs[STATS[i]]);
+			puppObj.find("." + STATS[i] + " .base").val(puppet.bs[STATS[i]]);
 		}
-		pokeObj.find(".weight").val(pokemon.w);
-		pokeObj.find(".boost").val(0);
-		pokeObj.find(".percent-hp").val(100);
-		pokeObj.find(".status").val("Healthy");
+		puppObj.find(".cost").val(puppet.c);
+		puppObj.find(".boost").val(0);
+		puppObj.find(".percent-hp").val(100);
+		puppObj.find(".status").val("Healthy");
 		$(".status").change();
 		var moveObj;
-		var abilityObj = pokeObj.find(".ability");
-		var itemObj = pokeObj.find(".item");
-		if (pokemonName in setdex && setName in setdex[pokemonName]) {
-			var set = setdex[pokemonName][setName];
-			pokeObj.find(".level").val(set.level);
-			pokeObj.find(".hp .evs").val((set.evs && set.evs.hp !== undefined) ? set.evs.hp : 0);
-			pokeObj.find(".hp .ivs").val((set.ivs && set.ivs.hp !== undefined) ? set.ivs.hp : 31);
-			pokeObj.find(".hp .dvs").val((set.dvs && set.dvs.hp !== undefined) ? set.dvs.hp : 15);
+		var abilityObj = puppObj.find(".ability");
+		var itemObj = puppObj.find(".item");
+		if (puppetName in setdex && setName in setdex[puppetName]) {
+			var set = setdex[puppetName][setName];
+			puppObj.find(".level").val(set.level);
+			puppObj.find(".hp .pp").val((set.pp && set.pp.hp !== undefined) ? set.pp.hp : 0);
+			puppObj.find(".hp .ranks").val((set.ranks && set.ranks.hp !== undefined) ? set.ranks.hp : 15);
+			puppObj.find(".hp .dvs").val((set.dvs && set.dvs.hp !== undefined) ? set.dvs.hp : 15);
 			for (i = 0; i < STATS.length; i++) {
-				pokeObj.find("." + STATS[i] + " .evs").val((set.evs && set.evs[STATS[i]] !== undefined) ? set.evs[STATS[i]] : 0);
-				pokeObj.find("." + STATS[i] + " .ivs").val((set.ivs && set.ivs[STATS[i]] !== undefined) ? set.ivs[STATS[i]] : 31);
-				pokeObj.find("." + STATS[i] + " .dvs").val((set.dvs && set.dvs[STATS[i]] !== undefined) ? set.dvs[STATS[i]] : 15);
+				puppObj.find("." + STATS[i] + " .pp").val((set.pp && set.pp[STATS[i]] !== undefined) ? set.pp[STATS[i]] : 0);
+				puppObj.find("." + STATS[i] + " .ranks").val((set.ranks && set.ranks[STATS[i]] !== undefined) ? set.ranks[STATS[i]] : 15);
+				puppObj.find("." + STATS[i] + " .dvs").val((set.dvs && set.dvs[STATS[i]] !== undefined) ? set.dvs[STATS[i]] : 15);
 			}
-			setSelectValueIfValid(pokeObj.find(".nature"), set.nature, "Hardy");
-			setSelectValueIfValid(abilityObj, pokemon.ab ? pokemon.ab : set.ability, "");
+			setSelectValueIfValid(puppObj.find(".mark"), set.mark, "Red");
+			setSelectValueIfValid(abilityObj, puppet.ab ? puppet.ab : set.ability, "");
 			setSelectValueIfValid(itemObj, set.item, "");
 			for (i = 0; i < 4; i++) {
-				moveObj = pokeObj.find(".move" + (i + 1) + " select.move-selector");
+				moveObj = puppObj.find(".move" + (i + 1) + " select.move-selector");
 				setSelectValueIfValid(moveObj, set.moves[i], "(No Move)");
 				moveObj.change();
 			}
 		} else {
-			pokeObj.find(".level").val(100);
-			pokeObj.find(".hp .evs").val(0);
-			pokeObj.find(".hp .ivs").val(31);
-			pokeObj.find(".hp .dvs").val(15);
+			puppObj.find(".level").val(100);
+			puppObj.find(".hp .pp").val(0);
+			puppObj.find(".hp .ranks").val(15);
+			puppObj.find(".hp .dvs").val(15);
 			for (i = 0; i < STATS.length; i++) {
-				pokeObj.find("." + STATS[i] + " .evs").val(0);
-				pokeObj.find("." + STATS[i] + " .ivs").val(31);
-				pokeObj.find("." + STATS[i] + " .dvs").val(15);
+				puppObj.find("." + STATS[i] + " .pp").val(0);
+				puppObj.find("." + STATS[i] + " .ranks").val(15);
+				puppObj.find("." + STATS[i] + " .dvs").val(15);
 			}
-			pokeObj.find(".nature").val("Hardy");
-			setSelectValueIfValid(abilityObj, pokemon.ab, "");
+			puppObj.find(".mark").val("Red");
+			setSelectValueIfValid(abilityObj, puppet.ab, "");
 			itemObj.val("");
 			for (i = 0; i < 4; i++) {
-				moveObj = pokeObj.find(".move" + (i + 1) + " select.move-selector");
+				moveObj = puppObj.find(".move" + (i + 1) + " select.move-selector");
 				moveObj.val("(No Move)");
 				moveObj.change();
 			}
 		}
 		if (typeof getSelectedTiers === "function") { // doesn't exist when in 1vs1 mode
 			var format = getSelectedTiers()[0];
-			if (format === "LC") pokeObj.find(".level").val(5);
-			if (_.startsWith(format, "VGC")) pokeObj.find(".level").val(50);
+			if (format === "LC") puppObj.find(".level").val(5);
+			if (_.startsWith(format, "VGC")) puppObj.find(".level").val(50);
 		}
 		var formeObj = $(this).siblings().find(".forme").parent();
 		itemObj.prop("disabled", false);
-		if (pokemon.formes) {
-			showFormes(formeObj, setName, pokemonName, pokemon);
+		if (puppet.formes) {
+			showFormes(formeObj, setName, puppetName, puppet);
 		} else {
 			formeObj.hide();
 		}
-		calcHP(pokeObj);
-		calcStats(pokeObj);
+		calcHP(puppObj);
+		calcStats(puppObj);
 		abilityObj.change();
 		itemObj.change();
-		if (pokemon.gender === "genderless") {
-			pokeObj.find(".gender").parent().hide();
-			pokeObj.find(".gender").val("");
-		} else pokeObj.find(".gender").parent().show();
+		if (puppet.gender === "genderless") {
+			puppObj.find(".gender").parent().hide();
+			puppObj.find(".gender").val("");
+		} else puppObj.find(".gender").parent().show();
 	}
 });
 
-function showFormes(formeObj, setName, pokemonName, pokemon) {
+function showFormes(formeObj, setName, puppetName, puppet) {
 	var defaultForme = 0;
-
-	if (setName !== 'Blank Set') {
-		var set = setdex[pokemonName][setName];
-		if (set.item) {
-			// Repurpose the previous filtering code to provide the "different default" logic
-			if ((set.item.indexOf('ite') !== -1 && set.item.indexOf('ite Y') === -1) ||
-	            (pokemonName === "Groudon" && set.item.indexOf("Red Orb") !== -1) ||
-	            (pokemonName === "Kyogre" && set.item.indexOf("Blue Orb") !== -1) ||
-	            (pokemonName === "Meloetta" && set.moves.indexOf("Relic Song") !== -1) ||
-	            (pokemonName === "Rayquaza" && set.moves.indexOf("Dragon Ascent") !== -1)) {
-				defaultForme = 1;
-			} else if (set.item.indexOf('ite Y') !== -1) {
-				defaultForme = 2;
-			}
-		}
-	}
-
-	var formeOptions = getSelectOptions(pokemon.formes, false, defaultForme);
+	var formeOptions = getSelectOptions(puppet.formes, false, defaultForme);
 	formeObj.children("select").find("option").remove().end().append(formeOptions).change();
 	formeObj.show();
 }
@@ -440,82 +385,71 @@ function setSelectValueIfValid(select, value, fallback) {
 }
 
 $(".forme").change(function () {
-	var altForme = pokedex[$(this).val()],
+	var altForme = puppetdex[$(this).val()],
 		container = $(this).closest(".info-group").siblings(),
 		fullSetName = container.find(".select2-chosen").first().text(),
-		pokemonName = fullSetName.substring(0, fullSetName.indexOf(" (")),
+		puppetName = fullSetName.substring(0, fullSetName.indexOf(" (")),
 		setName = fullSetName.substring(fullSetName.indexOf("(") + 1, fullSetName.lastIndexOf(")"));
 
 	$(this).parent().siblings().find(".type1").val(altForme.t1);
 	$(this).parent().siblings().find(".type2").val(altForme.t2 ? altForme.t2 : "");
-	$(this).parent().siblings().find(".weight").val(altForme.w);
+	$(this).parent().siblings().find(".cost").val(altForme.c);
 
 	for (var i = 0; i < STATS.length; i++) {
 		var baseStat = container.find("." + STATS[i]).find(".base");
 		baseStat.val(altForme.bs[STATS[i]]);
 		baseStat.keyup();
 	}
-	var chosenSet = setdex[pokemonName][setName];
+	var chosenSet = {}; //bugfix (can't believe this wasn't here in the initial code lmao)
+	if (setdex[puppetName]) {
+		chosenSet = setdex[puppetName][setName];
+	}
 	if (abilities.indexOf(altForme.ab) !== -1) {
 		container.find(".ability").val(altForme.ab);
 	} else {
 		container.find(".ability").val(chosenSet.ability);
 	}
 	container.find(".ability").keyup();
-
-	if ($(this).val().indexOf("-Mega") !== -1 && $(this).val() !== "Rayquaza-Mega") {
-		container.find(".item").val("").keyup();
-	} else {
-		container.find(".item").prop("disabled", false);
-	}
+	container.find(".item").prop("disabled", false);
 });
 
 
-function Pokemon(pokeInfo) {
-	if (typeof pokeInfo === "string") { // in this case, pokeInfo is the id of an individual setOptions value whose moveset's tier matches the selected tier(s)
-		this.name = pokeInfo.substring(0, pokeInfo.indexOf(" ("));
-		var setName = pokeInfo.substring(pokeInfo.indexOf("(") + 1, pokeInfo.lastIndexOf(")"));
-		var pokemon = pokedex[this.name];
-		this.type1 = pokemon.t1;
-		this.type2 = (pokemon.t2 && typeof pokemon.t2 !== "undefined") ? pokemon.t2 : "";
+function Puppet(puppInfo) {
+	if (typeof puppInfo === "string") { // in this case, puppInfo is the id of an individual setOptions value whose moveset's tier matches the selected tier(s)
+		this.name = puppInfo.substring(0, puppInfo.indexOf(" ("));
+		var setName = puppInfo.substring(puppInfo.indexOf("(") + 1, puppInfo.lastIndexOf(")"));
+		var puppet = puppetdex[this.name];
+		this.type1 = puppet.t1;
+		this.type2 = (puppet.t2 && typeof puppet.t2 !== "undefined") ? puppet.t2 : "";
 		this.rawStats = [];
 		this.boosts = [];
 		this.stats = [];
-		this.evs = [];
+		this.pp = [];
 
 		var set = setdex[this.name][setName];
 		this.level = set.level;
-		this.HPEVs = (set.evs && typeof set.evs.hp !== "undefined") ? set.evs.hp : 0;
-		if (gen < 3) {
-			var HPDVs = 15;
-			this.maxHP = ~~(((pokemon.bs.hp + HPDVs) * 2 + 63) * this.level / 100) + this.level + 10;
-		} else if (pokemon.bs.hp === 1) {
+		this.HPPP = (set.pp && typeof set.pp.hp !== "undefined") ? set.pp.hp : 0;
+		if (puppet.bs.hp === 1) {
 			this.maxHP = 1;
 		} else {
-			var HPIVs = 31;
-			this.maxHP = ~~((pokemon.bs.hp * 2 + HPIVs + ~~(this.HPEVs / 4)) * this.level / 100) + this.level + 10;
+			var HPRank = 15;
+			this.maxHP = ~~((puppet.bs.hp * 2 + HPRank + ~~(this.HPPP / 4)) * this.level / 100) + this.level + 10;
 		}
 		this.curHP = this.maxHP;
-		this.nature = set.nature;
+		this.mark = set.mark;
 		for (var i = 0; i < STATS.length; i++) {
 			var stat = STATS[i];
 			this.boosts[stat] = 0;
-			this.evs[stat] = (set.evs && typeof set.evs[stat] !== "undefined") ? set.evs[stat] : 0;
-			if (gen < 3) {
-				var dvs = 15;
-				this.rawStats[stat] = ~~(((pokemon.bs[stat] + dvs) * 2 + 63) * this.level / 100) + 5;
-			} else {
-				var ivs = (set.ivs && typeof set.ivs[stat] !== "undefined") ? set.ivs[stat] : 31;
-				var natureMods = NATURES[this.nature];
-				var nature = natureMods[0] === stat ? 1.1 : natureMods[1] === stat ? 0.9 : 1;
-				this.rawStats[stat] = ~~((~~((pokemon.bs[stat] * 2 + ivs + ~~(this.evs[stat] / 4)) * this.level / 100) + 5) * nature);
-			}
+			this.pp[stat] = (set.pp && typeof set.pp[stat] !== "undefined") ? set.pp[stat] : 0;
+			var rank = (set.ranks && typeof set.ranks[stat] !== "undefined") ? set.ranks[stat] : 15;
+			var mark = MARKS[this.mark] === stat ? 1.1 : 1;
+			this.rawStats[stat] = ~~((~~((puppet.bs[stat] * 2 + rank + ~~(this.pp[stat] / 4)) * this.level / 100) + 5) * mark);
 		}
 		this.ability = (set.ability && typeof set.ability !== "undefined") ? set.ability :
-			(pokemon.ab && typeof pokemon.ab !== "undefined") ? pokemon.ab : "";
-		this.item = (set.item && typeof set.item !== "undefined" && (set.item === "Eviolite" || set.item.indexOf("ite") < 0)) ? set.item : "";
-		this.status = "Healthy";
-		this.toxicCounter = 0;
+			           (puppet.ab && typeof puppet.ab !== "undefined") ? puppet.ab : "";
+		this.item = (set.item && typeof set.item !== "undefined") ? set.item : "";
+		this.status = ["None", "None"];
+		this.heavyCounter = 0;
 		this.moves = [];
 		for (var i = 0; i < 4; i++) {
 			var moveName = set.moves[i];
@@ -525,49 +459,58 @@ function Pokemon(pokeInfo) {
 				bp: defaultDetails.bp,
 				type: defaultDetails.type,
 				category: defaultDetails.category,
+				acc100: defaultDetails.acc100,
+				alwaysHits: defaultDetails.alwaysHits,
+				defenseStat: defaultDetails.defenseStat,
 				isCrit: !!defaultDetails.alwaysCrit,
-				hits: defaultDetails.isMultiHit ? ((this.ability === "Skill Link" || this.item === "Grip Claw") ? 5 : 3) : defaultDetails.isTwoHit ? 2 : 1,
+				hits: defaultDetails.isMultiHit ? ((this.ability === "Salvo") ? 5 : 3) : defaultDetails.isTwoHit ? 2 : 1,
 				usedTimes: defaultDetails.usedTimes
 			}));
 		}
-		this.weight = pokemon.w;
-		this.gender = pokemon.gender ? "genderless" : "Male";
+		this.cost = puppet.c;
 	} else {
-		var setName = pokeInfo.find("input.set-selector").val();
+		var setName = puppInfo.find("input.set-selector").val();
+		var teamside = puppInfo.selector.substring(puppInfo.selector.length - 1);
 		if (setName.indexOf("(") === -1) {
 			this.name = setName;
 		} else {
-			var pokemonName = setName.substring(0, setName.indexOf(" ("));
-			this.name = (pokedex[pokemonName].formes) ? pokeInfo.find(".forme").val() : pokemonName;
+			var puppetName = setName.substring(0, setName.indexOf(" ("));
+			this.name = (puppetdex[puppetName].formes) ? puppInfo.find(".forme").val() : puppetName;
 		}
-		this.type1 = pokeInfo.find(".type1").val();
-		this.type2 = pokeInfo.find(".type2").val();
-		this.level = ~~pokeInfo.find(".level").val();
-		this.maxHP = ~~pokeInfo.find(".hp .total").text();
-		this.curHP = ~~pokeInfo.find(".current-hp").val();
-		this.HPEVs = ~~pokeInfo.find(".hp .evs").val();
+		this.type1 = puppInfo.find(".type1").val();
+		this.type2 = puppInfo.find(".type2").val();
+		this.level = ~~puppInfo.find(".level").val();
+		this.maxHP = ~~puppInfo.find(".hp .total").text();
+		this.curHP = ~~puppInfo.find(".current-hp").val();
+		this.HPPP = ~~puppInfo.find(".hp .pp").val();
 		this.rawStats = [];
 		this.boosts = [];
 		this.stats = [];
-		this.evs = [];
+		this.pp = [];
 		for (var i = 0; i < STATS.length; i++) {
-			this.rawStats[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .total").text();
-			this.boosts[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .boost").val();
-			this.evs[STATS[i]] = ~~pokeInfo.find("." + STATS[i] + " .evs").val();
+			this.rawStats[STATS[i]] = ~~puppInfo.find("." + STATS[i] + " .total").text();
+			this.boosts[STATS[i]] = ~~puppInfo.find("." + STATS[i] + " .boost").val();
+			this.pp[STATS[i]] = ~~puppInfo.find("." + STATS[i] + " .pp").val();
 		}
-		this.nature = pokeInfo.find(".nature").val();
-		this.ability = pokeInfo.find(".ability").val();
-		this.item = pokeInfo.find(".item").val();
-		this.status = pokeInfo.find(".status").val();
-		this.toxicCounter = this.status === 'Badly Poisoned' ? ~~pokeInfo.find(".toxic-counter").val() : 0;
+		this.mark = puppInfo.find(".mark").val();
+		this.ability = puppInfo.find(".ability").val();
+		this.item = puppInfo.find(".item").val();
+		this.status = ["None", "None"];
+		if ($("input:checkbox[name='status" + teamside + "L']:checked").val()) {
+			this.status[0] = $("input:checkbox[name='status" + teamside + "L']:checked").val();
+		}
+		if ($("input:checkbox[name='status" + teamside + "R']:checked").val()) {
+			this.status[1] = $("input:checkbox[name='status" + teamside + "R']:checked").val();
+		}
+		this.heavyCounter = this.status[0] === this.status[1] && ["Poisoned", "Burned"].indexOf(this.status[0]) !== -1 ? ~~puppInfo.find(".heavy-counter").val() : 0;
 		this.moves = [
-			getMoveDetails(pokeInfo.find(".move1"), this.item),
-			getMoveDetails(pokeInfo.find(".move2"), this.item),
-			getMoveDetails(pokeInfo.find(".move3"), this.item),
-			getMoveDetails(pokeInfo.find(".move4"), this.item)
+			getMoveDetails(puppInfo.find(".move1"), this.item),
+			getMoveDetails(puppInfo.find(".move2"), this.item),
+			getMoveDetails(puppInfo.find(".move3"), this.item),
+			getMoveDetails(puppInfo.find(".move4"), this.item)
 		];
-		this.weight = +pokeInfo.find(".weight").val();
-		this.gender = pokeInfo.find(".gender").is(":visible") ? pokeInfo.find(".gender").val() : "genderless";
+		this.cost = +puppInfo.find(".cost").val();
+		this.gender = puppInfo.find(".gender").is(":visible") ? puppInfo.find(".gender").val() : "genderless";
 	}
 
 	this.hasType = function (type) {
@@ -580,184 +523,81 @@ function getMoveDetails(moveInfo, item) {
 	var defaultDetails = moves[moveName];
 	var isZMove = gen >= 7 && moveInfo.find("input.move-z").prop("checked");
 
-	// If z-move is checked but there isn't a corresponding z-move, use the original move
-	if (isZMove && "zp" in defaultDetails) {
-		var zMoveName = getZMoveName(moveName, defaultDetails.type, item);
-		return $.extend({}, moves[zMoveName], {
-			name: zMoveName,
-			bp: moves[zMoveName].bp === 1 ? defaultDetails.zp : moves[zMoveName].bp,
-			category: defaultDetails.category,
-			isCrit: moveInfo.find(".move-crit").prop("checked"),
-			hits: 1
-		});
-	} else {
-		return $.extend({}, defaultDetails, {
-			name: moveName,
-			bp: ~~moveInfo.find(".move-bp").val(),
-			type: moveInfo.find(".move-type").val(),
-			category: moveInfo.find(".move-cat").val(),
-			isCrit: moveInfo.find(".move-crit").prop("checked"),
-			hits: defaultDetails.isMultiHit ? ~~moveInfo.find(".move-hits").val() : defaultDetails.isTwoHit ? 2 : 1,
-			usedTimes: defaultDetails.dropsStats ? ~~moveInfo.find(".stat-drops").val() : 1,
-			metronomeCount: moveInfo.find(".metronome").is(':visible') ? ~~moveInfo.find(".metronome").val() : 1
-		});
-	}
-}
-
-function getZMoveName(moveName, moveType, item) {
-	return moveName.indexOf("Hidden Power") !== -1 ? "Breakneck Blitz" : // Hidden Power will become Breakneck Blitz
-		moveName === "Clanging Scales" && item === "Kommonium Z" ? "Clangorous Soulblaze" :
-			moveName === "Darkest Lariat" && item === "Incinium Z" ? "Malicious Moonsault" :
-				moveName === "Giga Impact" && item === "Snorlium Z" ? "Pulverizing Pancake" :
-					moveName === "Moongeist Beam" && item === "Lunalium Z" ? "Menacing Moonraze Maelstrom" :
-						moveName === "Photon Geyser" && item === "Ultranecrozium Z" ? "Light That Burns the Sky" :
-							moveName === "Play Rough" && item === "Mimikium Z" ? "Let's Snuggle Forever" :
-								moveName === "Psychic" && item === "Mewnium Z" ? "Genesis Supernova" :
-									moveName === "Sparkling Aria" && item === "Primarium Z" ? "Oceanic Operetta" :
-										moveName === "Spectral Thief" && item === "Marshadium Z" ? "Soul-Stealing 7-Star Strike" :
-											moveName === "Spirit Shackle" && item === "Decidium Z" ? "Sinister Arrow Raid" :
-												moveName === "Stone Edge" && item === "Lycanium Z" ? "Splintered Stormshards" :
-													moveName === "Sunsteel Strike" && item === "Solganium Z" ? "Searing Sunraze Smash" :
-														moveName === "Thunderbolt" && item === "Aloraichium Z" ? "Stoked Sparksurfer" :
-															moveName === "Thunderbolt" && item === "Pikashunium Z" ? "10,000,000 Volt Thunderbolt" :
-																moveName === "Volt Tackle" && item === "Pikanium Z" ? "Catastropika" :
-																	moveName === "Nature's Madness" && item === "Tapunium Z" ? "Guardian of Alola" :
-																		ZMOVES_TYPING[moveType];
+	return $.extend({}, defaultDetails, {
+		name: moveName,
+		bp: ~~moveInfo.find(".move-bp").val(),
+		type: moveInfo.find(".move-type").val(),
+		category: moveInfo.find(".move-cat").val(),
+		acc100: defaultDetails.acc100,
+		alwaysHits: defaultDetails.alwaysHits,
+		defenseStat: defaultDetails.defenseStat,
+		isCrit: moveInfo.find(".move-crit").prop("checked"),
+		hits: defaultDetails.isMultiHit ? ~~moveInfo.find(".move-hits").val() : defaultDetails.isTwoHit ? 2 : 1,
+		usedTimes: defaultDetails.dropsStats ? ~~moveInfo.find(".stat-drops").val() : 1,
+		metronomeCount: moveInfo.find(".metronome").is(':visible') ? ~~moveInfo.find(".metronome").val() : 1
+	});
 }
 
 function Field() {
 	var format = $("input:radio[name='format']:checked").val();
-	var isGravity = $("#gravity").prop("checked");
-	var isSR = [$("#srL").prop("checked"), $("#srR").prop("checked")];
-	var weather;
-	var spikes;
-	if (gen === 2) {
-		spikes = [$("#gscSpikesL").prop("checked") ? 1 : 0, $("#gscSpikesR").prop("checked") ? 1 : 0];
-		weather = $("input:radio[name='gscWeather']:checked").val();
-	} else {
-		weather = $("input:radio[name='weather']:checked").val();
-		spikes = [~~$("input:radio[name='spikesL']:checked").val(), ~~$("input:radio[name='spikesR']:checked").val()];
-	}
+	var isST = [$("#stL").prop("checked"), $("#stR").prop("checked")];
+	var weather = ($("input:checkbox[name='weather']:checked").val()) ? $("input:checkbox[name='weather']:checked").val() : "";
+	var mines = [~~$("input:radio[name='minesL']:checked").val(), ~~$("input:radio[name='minesR']:checked").val()];
 	var terrain = ($("input:checkbox[name='terrain']:checked").val()) ? $("input:checkbox[name='terrain']:checked").val() : "";
-	var isReflect = [$("#reflectL").prop("checked"), $("#reflectR").prop("checked")];
-	var isLightScreen = [$("#lightScreenL").prop("checked"), $("#lightScreenR").prop("checked")];
+	var isFieldProtect = [$("#fieldProtectL").prop("checked"), $("#fieldProtectR").prop("checked")];
+	var isFieldBarrier = [$("#fieldBarrierL").prop("checked"), $("#fieldBarrierR").prop("checked")];
 	var isProtected = [$("#protectL").prop("checked"), $("#protectR").prop("checked")];
-	var isSeeded = [$("#leechSeedL").prop("checked"), $("#leechSeedR").prop("checked")];
-	var isForesight = [$("#foresightL").prop("checked"), $("#foresightR").prop("checked")];
-	var isHelpingHand = [$("#helpingHandR").prop("checked"), $("#helpingHandL").prop("checked")]; // affects attacks against opposite side
-	var isFriendGuard = [$("#friendGuardL").prop("checked"), $("#friendGuardR").prop("checked")];
-	var isAuroraVeil = [$("#auroraVeilL").prop("checked"), $("#auroraVeilR").prop("checked")];
+	var isSeeded = [$("#drainSeedL").prop("checked"), $("#drainSeedR").prop("checked")];
+	var isReversed = [$("#reverseL").prop("checked"), $("#reverseR").prop("checked")];
+	var isGhost = [$("#ghostChaseL").prop("checked"), $("#ghostChaseR").prop("checked")];
 
 	this.getWeather = function () {
 		return weather;
 	};
+	this.getTerrain = function () {
+		return terrain;
+	};
 	this.clearWeather = function () {
 		weather = "";
 	};
+	this.clearTerrain = function () {
+		terrain = "";
+	};
 	this.getSide = function (i) {
-		return new Side(format, terrain, weather, isGravity, isSR[i], spikes[i], isReflect[i], isLightScreen[i], isProtected[i], isSeeded[1 - i], isSeeded[i], isForesight[i], isHelpingHand[i], isFriendGuard[i], isAuroraVeil[i]);
+		return new Side(format, terrain, weather, isST[i], mines[i], isFieldProtect[i], isFieldBarrier[i], isProtected[i], isSeeded[1 - i], isSeeded[i], isReversed[i], isGhost[i]);
 	};
 }
 
-function Side(format, terrain, weather, isGravity, isSR, spikes, isReflect, isLightScreen, isProtected, isAttackerSeeded, isDefenderSeeded, isForesight, isHelpingHand, isFriendGuard, isAuroraVeil) {
+function Side(format, terrain, weather, isST, mines, isFieldProtect, isFieldBarrier, isProtected, isAttackerSeeded, isDefenderSeeded, isReversed, isGhost) {
 	this.format = format;
 	this.terrain = terrain;
 	this.weather = weather;
-	this.isGravity = isGravity;
-	this.isSR = isSR;
-	this.spikes = spikes;
-	this.isReflect = isReflect;
-	this.isLightScreen = isLightScreen;
+	this.isST = isST;
+	this.mines = mines;
+	this.isFieldProtect = isFieldProtect;
+	this.isFieldBarrier = isFieldBarrier;
 	this.isProtected = isProtected;
 	this.isAttackerSeeded = isAttackerSeeded;
 	this.isDefenderSeeded = isDefenderSeeded;
-	this.isForesight = isForesight;
-	this.isHelpingHand = isHelpingHand;
-	this.isFriendGuard = isFriendGuard;
-	this.isAuroraVeil = isAuroraVeil;
+	this.isReversed = isReversed;
+	this.isGhost = isGhost;
 }
 
-var gen, genWasChanged, notation, pokedex, setdex, typeChart, moves, abilities, items, STATS, calcHP, calcStat;
+var gen, genWasChanged, notation, puppetdex, setdex, typeChart, moves, abilities, items, STATS, calcHP, calcStat;
 $(".gen").change(function () {
 	var gen = ~~$(this).val();
 	var genWasChanged = true;
 	switch (gen) {
-	case 1:
-		pokedex = POKEDEX_RBY;
-		setdex = SETDEX_RBY;
-		typeChart = TYPE_CHART_RBY;
-		moves = MOVES_RBY;
-		items = [];
-		abilities = [];
-		STATS = STATS_RBY;
-		calcHP = CALC_HP_RBY;
-		calcStat = CALC_STAT_RBY;
-		break;
-	case 2:
-		pokedex = POKEDEX_GSC;
-		setdex = SETDEX_GSC;
-		typeChart = TYPE_CHART_GSC;
-		moves = MOVES_GSC;
-		items = ITEMS_GSC;
-		abilities = [];
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_RBY;
-		calcStat = CALC_STAT_RBY;
-		break;
-	case 3:
-		pokedex = POKEDEX_ADV;
-		setdex = SETDEX_ADV;
-		typeChart = TYPE_CHART_GSC;
-		moves = MOVES_ADV;
-		items = ITEMS_ADV;
-		abilities = ABILITIES_ADV;
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		break;
-	case 4:
-		pokedex = POKEDEX_DPP;
-		setdex = SETDEX_DPP;
-		typeChart = TYPE_CHART_GSC;
-		moves = MOVES_DPP;
-		items = ITEMS_DPP;
-		abilities = ABILITIES_DPP;
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		break;
-	case 5:
-		pokedex = POKEDEX_BW;
-		setdex = SETDEX_BW;
-		typeChart = TYPE_CHART_GSC;
-		moves = MOVES_BW;
-		items = ITEMS_BW;
-		abilities = ABILITIES_BW;
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		break;
-	case 6:
-		pokedex = POKEDEX_XY;
-		setdex = SETDEX_XY;
-		typeChart = TYPE_CHART_XY;
-		moves = MOVES_XY;
-		items = ITEMS_XY;
-		abilities = ABILITIES_XY;
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
-		break;
 	default:
-		pokedex = POKEDEX_SM;
-		setdex = SETDEX_SM;
-		typeChart = TYPE_CHART_XY;
-		moves = MOVES_SM;
-		items = ITEMS_SM;
-		abilities = ABILITIES_SM;
-		STATS = STATS_GSC;
-		calcHP = CALC_HP_ADV;
-		calcStat = CALC_STAT_ADV;
+		puppetdex = PUPPETDEX_YNK;
+		setdex = SETDEX_YNK;
+		typeChart = TYPE_CHART_YNK;
+		moves = MOVES_YNK;
+		items = ITEMS_YNK;
+		abilities = ABILITIES_YNK;
+		STATS = STATS_ALL;
+		calcHP = CALC_HP_ALL;
+		calcStat = CALC_STAT_ALL;
 	}
 	clearField();
 	$("#importedSets").prop("checked", false);
@@ -785,37 +625,30 @@ $(".notation").change(function () {
 function clearField() {
 	$("#singles-format").prop("checked", true);
 	$("#clear").prop("checked", true);
-	$("#gscClear").prop("checked", true);
-	$("#gravity").prop("checked", false);
-	$("#srL").prop("checked", false);
-	$("#srR").prop("checked", false);
-	$("#spikesL0").prop("checked", true);
-	$("#spikesR0").prop("checked", true);
-	$("#gscSpikesL").prop("checked", false);
-	$("#gscSpikesR").prop("checked", false);
-	$("#reflectL").prop("checked", false);
-	$("#reflectR").prop("checked", false);
-	$("#lightScreenL").prop("checked", false);
-	$("#lightScreenR").prop("checked", false);
+	$("#stL").prop("checked", false);
+	$("#stR").prop("checked", false);
+	$("#minesL0").prop("checked", true);
+	$("#minesR0").prop("checked", true);
+	$("#fieldProtectL").prop("checked", false);
+	$("#fieldProtectR").prop("checked", false);
+	$("#fieldBarrierL").prop("checked", false);
+	$("#fieldBarrierR").prop("checked", false);
 	$("#protectL").prop("checked", false);
 	$("#protectR").prop("checked", false);
-	$("#leechSeedL").prop("checked", false);
-	$("#leechSeedR").prop("checked", false);
-	$("#foresightL").prop("checked", false);
-	$("#foresightR").prop("checked", false);
-	$("#helpingHandL").prop("checked", false);
-	$("#helpingHandR").prop("checked", false);
-	$("#friendGuardL").prop("checked", false);
-	$("#friendGuardR").prop("checked", false);
-	$("#auroraVeilL").prop("checked", false);
-	$("#auroraVeilR").prop("checked", false);
+	$("#drainSeedL").prop("checked", false);
+	$("#drainSeedR").prop("checked", false);
+	$("#reversedL").prop("checked", false);
+	$("#reversedR").prop("checked", false);
+	$("#ghostChaseL").prop("checked", false);
+	$("#ghostChaseR").prop("checked", false);
+	$("input:checkbox[name='weather']").prop("checked", false);
 	$("input:checkbox[name='terrain']").prop("checked", false);
 }
 
 function getSetOptions(sets) {
 	var setsHolder = sets;
 	if (setsHolder === undefined) {
-		setsHolder = pokedex;
+		setsHolder = puppetdex;
 	}
 	var pokeNames = Object.keys(setsHolder);
 	pokeNames.sort();
@@ -824,7 +657,7 @@ function getSetOptions(sets) {
 	for (var i = 0; i < pokeNames.length; i++) {
 		var pokeName = pokeNames[i];
 		setOptions.push({
-			pokemon: pokeName,
+			puppet: pokeName,
 			text: pokeName
 		});
 		if (pokeName in setdex) {
@@ -832,7 +665,7 @@ function getSetOptions(sets) {
 			for (var j = 0; j < setNames.length; j++) {
 				var setName = setNames[j];
 				setOptions.push({
-					pokemon: pokeName,
+					puppet: pokeName,
 					set: setName,
 					text: pokeName + " (" + setName + ")",
 					id: pokeName + " (" + setName + ")",
@@ -842,7 +675,7 @@ function getSetOptions(sets) {
 			}
 		}
 		setOptions.push({
-			pokemon: pokeName,
+			puppet: pokeName,
 			set: "Blank Set",
 			text: pokeName + " (Blank Set)",
 			id: pokeName + " (Blank Set)"
@@ -893,64 +726,89 @@ var stickyMoves = (function () {
 	};
 })();
 
-function isGrounded(pokeInfo) {
-	return $("#gravity").prop("checked") || (
-		pokeInfo.find(".type1").val() !== "Flying" &&
-        pokeInfo.find(".type2").val() !== "Flying" &&
-        pokeInfo.find(".ability").val() !== "Levitate" &&
-        pokeInfo.find(".item").val() !== "Air Balloon"
+function isGrounded(puppInfo) {
+	return (
+		puppInfo.find(".type1").val() !== "Wind" &&
+        puppInfo.find(".type2").val() !== "Wind" &&
+        puppInfo.find(".ability").val() !== "Air Cushion" &&
+        puppInfo.find(".item").val() !== "Floating Stone"
 	);
 }
 
-function getTerrainEffects() {
+function handleWeatherExclusivity() {
 	var className = $(this).prop("className");
 	className = className.substring(0, className.indexOf(" "));
 	switch (className) {
 	case "type1":
 	case "type2":
 	case "item":
-		var id = $(this).closest(".poke-info").prop("id");
-		var terrainValue = $("input:checkbox[name='terrain']:checked").val();
-		if (terrainValue === "Electric") {
-			$("#" + id).find("[value='Asleep']").prop("disabled", isGrounded($("#" + id)));
-		} else if (terrainValue === "Misty") {
-			$("#" + id).find(".status").prop("disabled", isGrounded($("#" + id)));
-		}
-		break;
 	case "ability":
-		// with autoset, ability change may cause terrain change, need to consider both sides
-		var terrainValue = $("input:checkbox[name='terrain']:checked").val();
-		if (terrainValue === "Electric") {
-			$("#p1").find(".status").prop("disabled", false);
-			$("#p2").find(".status").prop("disabled", false);
-			$("#p1").find("[value='Asleep']").prop("disabled", isGrounded($("#p1")));
-			$("#p2").find("[value='Asleep']").prop("disabled", isGrounded($("#p2")));
-		} else if (terrainValue === "Misty") {
-			$("#p1").find(".status").prop("disabled", isGrounded($("#p1")));
-			$("#p2").find(".status").prop("disabled", isGrounded($("#p2")));
-		} else {
-			$("#p1").find("[value='Asleep']").prop("disabled", false);
-			$("#p1").find(".status").prop("disabled", false);
-			$("#p2").find("[value='Asleep']").prop("disabled", false);
-			$("#p2").find(".status").prop("disabled", false);
-		}
+		break;
+	default:
+		$("input:checkbox[name='weather']").not(this).prop("checked", false);
+		break;
+	}
+}
+function handleTerrainExclusivity() {
+	var className = $(this).prop("className");
+	className = className.substring(0, className.indexOf(" "));
+	switch (className) {
+	case "type1":
+	case "type2":
+	case "item":
+	case "ability":
 		break;
 	default:
 		$("input:checkbox[name='terrain']").not(this).prop("checked", false);
-		if ($(this).prop("checked") && $(this).val() === "Electric") {
-			// need to enable status because it may be disabled by Misty Terrain before.
-			$("#p1").find(".status").prop("disabled", false);
-			$("#p2").find(".status").prop("disabled", false);
-			$("#p1").find("[value='Asleep']").prop("disabled", isGrounded($("#p1")));
-			$("#p2").find("[value='Asleep']").prop("disabled", isGrounded($("#p2")));
-		} else if ($(this).prop("checked") && $(this).val() === "Misty") {
-			$("#p1").find(".status").prop("disabled", isGrounded($("#p1")));
-			$("#p2").find(".status").prop("disabled", isGrounded($("#p2")));
+		break;
+	}
+}
+function handleStatusSlots() {
+	var className = $(this).prop("className");
+	className = className.substring(0, className.indexOf(" "));
+	switch (className) {
+	case "type1":
+	case "type2":
+	case "ability":
+		break;
+	case "item":
+		break;
+	default:
+		var slot = $(this).prop("name");
+		var slotPos = slot.substring(0, slot.length - 1);
+		var teamside = slotPos.substring(slotPos.length - 1);
+		var slotID = slot.substring(slot.length - 1);
+		var clicked = $(this).val();
+		if (["Blinded", "Afraid"].indexOf(clicked) !== -1) { //Special cases: can only occupy one slot. TODO: Implement base-game Weakened case
+			if (slotID === "L" ? $("input:checkbox[name='" + slotPos + "R']:checked").val() === clicked : $("input:checkbox[name='" + slotPos + "L']:checked").val() === clicked) {
+				//console.log("trying to uncheck the correct thing in " + slot);
+				$("input:checkbox[name='" + slot + "']").filter(this).prop("checked", false);
+			} else {
+				//console.log("trying to uncheck everything in " + slot);
+				$("input:checkbox[name='" + slot + "']").not(this).prop("checked", false);
+			}
+		} else if (clicked === "Stopped") { //Special case: must occupy both slots
+			$("input:checkbox[name='" + slot + "']").not(this).prop("checked", false);
+			$("input:checkbox[name='" + slotPos + (slotID === "L" ? "R']" : "L']")).prop("checked", false);
+			$("input:checkbox[name='" + slotPos + (slotID === "L" ? "R']" : "L']")).filter(function (i, e) { return $(e).val() === "Stopped"; }).prop("checked", true);
 		} else {
-			$("#p1").find("[value='Asleep']").prop("disabled", false);
-			$("#p1").find(".status").prop("disabled", false);
-			$("#p2").find("[value='Asleep']").prop("disabled", false);
-			$("#p2").find(".status").prop("disabled", false);
+			$("input:checkbox[name='" + slot + "']").not(this).prop("checked", false);
+		}
+		//Handle only one slot being Stopped, which would only happen if another option was selected or Stopped was deselected
+		if ($("input:checkbox[name='" + slotPos + "L']:checked").val() === "Stopped" ? $("input:checkbox[name='" + slotPos + "R']:checked").val() !== "Stopped" : $("input:checkbox[name='" + slotPos + "R']:checked").val() === "Stopped") {
+			$("input:checkbox[name='" + slotPos + (slotID === "L" ? "R']" : "L']")).prop("checked", false);
+		}
+		//Handle the right slot being the only one selected, which isn't possible ingame
+		if (!($("input:checkbox[name='" + slotPos + "L']:checked").val()) && $("input:checkbox[name='" + slotPos + "R']:checked").val()) {
+			$("input:checkbox[name='" + slotPos + "L']").filter(function (i, e) { return $(e).val() === $("input:checkbox[name='" + slotPos + "R']:checked").val(); }).prop("checked", true);
+			$("input:checkbox[name='" + slotPos + "R']").prop("checked", false);
+		}
+
+		//Handle Badly Poisoned/Burned
+		if ($("input:checkbox[name='" + slotPos + "L']:checked").val() === $("input:checkbox[name='" + slotPos + "R']:checked").val() && ["Poisoned", "Burned"].indexOf($("input:checkbox[name='" + slotPos + "L']:checked").val()) !== -1) {
+			$("#p" + teamside + " .heavy-counter").show();
+		} else {
+			$("#p" + teamside + " .heavy-counter").hide();
 		}
 		break;
 	}
@@ -964,7 +822,7 @@ function loadDefaultLists() {
 		query: function (query) {
 			var pageSize = 30;
 			var results = _.filter(getSetOptions(), function (option) {
-				var pokeName = option.pokemon.toUpperCase();
+				var pokeName = option.puppet.toUpperCase();
 				return !query.term || query.term.toUpperCase().split(" ").every(function (term) {
 					return pokeName.indexOf(term) === 0 || pokeName.indexOf("-" + term) >= 0 || pokeName.indexOf(" " + term) >= 0;
 				});
@@ -981,7 +839,7 @@ function loadDefaultLists() {
 	});
 }
 
-function bothPokemon(selector) {
+function bothPuppets(selector) {
 	return "#p1 " + selector + ", #p2 " + selector;
 }
 
@@ -990,13 +848,13 @@ function loadCustomList(id) {
 	var customSetsOptions = getSetOptions(customSets);
 	$("#" + id + " .set-selector").select2({
 		formatResult: function (set) {
-			return (set.nickname ? set.pokemon + " (" + set.nickname + ")" : set.id);
+			return (set.nickname ? set.puppet + " (" + set.nickname + ")" : set.id);
 		},
 		query: function (query) {
 			var pageSize = 20;
 			var results = _.filter(getSetOptions(), function (option) {
 				if (option.isCustom) {
-					return (option.nickname ? option.pokemon + " (" + option.nickname + ")" : option.id);
+					return (option.nickname ? option.puppet + " (" + option.nickname + ")" : option.id);
 				}
 			});
 			query.callback({
@@ -1026,5 +884,7 @@ $(document).ready(function () {
 	});
 	$(".set-selector").val(getSetOptions()[gen < 3 ? 3 : 1].id);
 	$(".set-selector").change();
-	$(".terrain-trigger").bind("change keyup", getTerrainEffects);
+	$(".weather-trigger").bind("change keyup", handleWeatherExclusivity);
+	$(".terrain-trigger").bind("change keyup", handleTerrainExclusivity);
+	$(".status-trigger").bind("change keyup", handleStatusSlots);
 });

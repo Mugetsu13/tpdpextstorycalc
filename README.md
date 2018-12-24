@@ -1,19 +1,18 @@
-Honko Damage Calculator
+Honko Damage Calculator (Fork)
 =======================
 
-Damage Calculator for Pokemon cartridge battles, Gen 1-7.
+Damage Calculator for Touhou Puppet Dance Performance - Shard of Dreams.
+(original game TBA whenever I feel like doing it)
 
-If you are currently looking at Zarel/honko-damagecalc and not a fork, this
-is the official repository for the Pokemon Showdown damage calculator:
-https://pokemonshowdown.com/damagecalc/
-
-Most notable for having all-vs-one (wall) and one-vs-all (sweeper) calcs.
-
+This is NOT the official repository for the Pokemon Showdown damage calculator.
+However, it uses said calculator as a base. As a result, it has essentially the same features.
+You may find the original here: https://github.com/Zarel/honko-damagecalc
 
 Instructions
 ------------
 
-Double-click `index.template.html`.
+Double-click `index.html`.
+(used to be template but this is also the site hosting it sooooooo)
 
 
 Credits and license
@@ -21,6 +20,9 @@ Credits and license
 
 MIT License.
 
-Written by Honko. ORAS update by gamut-was-taken. USUM update by Austin. PS theme by Zarel. Other
+Modification by Choon.
+
+Original calculator written by Honko. ORAS update by gamut-was-taken. USUM
+update by Austin. PS theme by Zarel, which was tweaked by Choon. Other
 contributions by other people; see the repo's commit history and contributor
 list for the full list.
