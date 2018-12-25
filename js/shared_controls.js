@@ -289,8 +289,8 @@ $(".item").change(function () {
 $(".set-selector").change(function () {
 	var fullSetName = $(this).val();
 	var puppetName, setName;
-	puppetName = fullSetName.substring(0, fullSetName.indexOf(" ("));
-	setName = fullSetName.substring(fullSetName.indexOf("(") + 1, fullSetName.lastIndexOf(")"));
+	puppetName = fullSetName.substring(0, fullSetName.lastIndexOf(" ("));
+	setName = fullSetName.substring(fullSetName.lastIndexOf("(") + 1, fullSetName.lastIndexOf(")"));
 	var puppet = puppetdex[puppetName];
 	if (puppet) {
 		var puppObj = $(this).closest(".poke-info");
@@ -388,8 +388,8 @@ $(".forme").change(function () {
 	var altForme = puppetdex[$(this).val()],
 		container = $(this).closest(".info-group").siblings(),
 		fullSetName = container.find(".select2-chosen").first().text(),
-		puppetName = fullSetName.substring(0, fullSetName.indexOf(" (")),
-		setName = fullSetName.substring(fullSetName.indexOf("(") + 1, fullSetName.lastIndexOf(")"));
+		puppetName = fullSetName.substring(0, fullSetName.lastIndexOf(" (")),
+		setName = fullSetName.substring(fullSetName.lastIndexOf("(") + 1, fullSetName.lastIndexOf(")"));
 
 	$(this).parent().siblings().find(".type1").val(altForme.t1);
 	$(this).parent().siblings().find(".type2").val(altForme.t2 ? altForme.t2 : "");
@@ -416,8 +416,10 @@ $(".forme").change(function () {
 
 function Puppet(puppInfo) {
 	if (typeof puppInfo === "string") { // in this case, puppInfo is the id of an individual setOptions value whose moveset's tier matches the selected tier(s)
-		this.name = puppInfo.substring(0, puppInfo.indexOf(" ("));
-		var setName = puppInfo.substring(puppInfo.indexOf("(") + 1, puppInfo.lastIndexOf(")"));
+		console.log("call remake");
+		console.log(JSON.stringify(puppInfo));
+		this.name = puppInfo.substring(0, puppInfo.lastIndexOf(" ("));
+		var setName = puppInfo.substring(puppInfo.lastIndexOf("(") + 1, puppInfo.lastIndexOf(")"));
 		var puppet = puppetdex[this.name];
 		this.type1 = puppet.t1;
 		this.type2 = (puppet.t2 && typeof puppet.t2 !== "undefined") ? puppet.t2 : "";
@@ -474,7 +476,7 @@ function Puppet(puppInfo) {
 		if (setName.indexOf("(") === -1) {
 			this.name = setName;
 		} else {
-			var puppetName = setName.substring(0, setName.indexOf(" ("));
+			var puppetName = setName.substring(0, setName.lastIndexOf(" ("));
 			this.name = (puppetdex[puppetName].formes) ? puppInfo.find(".forme").val() : puppetName;
 		}
 		this.type1 = puppInfo.find(".type1").val();
