@@ -106,7 +106,7 @@
     </div>
     
     <div aria-label="Puppet 1" class="panel" role="region">
-        <fieldset class="poke-info" id="p1">
+        <fieldset class="puppet-info" id="p1">
             <legend align="center">Puppet 1</legend>
             <input type="text" class="set-selector calc-trigger" />
             <span id="importedSetsOptions" style="width:auto; display:none">
@@ -785,18 +785,33 @@
                                 <label class="btn btn-xwide" for="ghostChaseR">Ghost Chase</label>
                             </div></td>
                         </tr>
+                        <tr>
+                            <td><div class="left" title="Export the leftmost Puppet set">
+                                <button id="exportL">Export</button>
+                            </div></td>
+                            <td style="width:3.5%"></td>
+                            <td><div class="right" title="Export the rightmost Puppet set">
+                                <button id="exportR">Export</button>
+                            </div></td>
+                        </tr>
                     </tbody>
                 </table>
             </fieldset>
         </div>
         <div aria-label="Import team" role="region">
-            <fieldset class="poke-import">
-                <legend align="center">import machine broke</legend>
+            <fieldset class="puppet-import">
+                <legend align="center">import/export machine fixed</legend>
+                <div id="import-1_wrapper" class="dataTables_wrapper no-footer">
+                    <form class="import-team">
+                        <textarea class="import-team-text"></textarea>
+                        <!--<button style='position:absolute' class='bs-btn bs-btn-default'>Import</button>-->
+                    </form>
+                </div>
             </fieldset>
         </div>
     </div>
     <div aria-label="Puppet 2" role="region" class="panel">
-        <fieldset class="poke-info" id="p2">
+        <fieldset class="puppet-info" id="p2">
             <legend align="center">Puppet 2</legend>
             <input type="text" class="set-selector calc-trigger" />
             <span id="importedSetsOptions" style="width:auto; display:none">
@@ -1365,7 +1380,7 @@
 		<p><a href="https://github.com/Pikachuun/honko-damagecalc/contributors" target="_blank">Contributors</a></p>
         <p><a href="https://github.com/Pikachuun/honko-damagecalc" target="_blank">GitHub repository</a></p>
 		<p><a href="https://github.com/Zarel/honko-damagecalc" target="_blank">Original GitHub repository</a></p>
-        <p><font size="-4">(version 0.0.4)</font></p>
+        <p><font size="-4">(version 1.0.0)</font></p>
 	</div>
 
 </body>

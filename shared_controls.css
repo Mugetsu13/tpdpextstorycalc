@@ -177,10 +177,10 @@ th {
     float: left;
     display: inline-block;
 }
-.poke-info {
+.puppet-info {
     width: 30em;
 }
-.field-info, .poke-import {
+.field-info, .puppet-import {
     text-align: center;
     width: 27.5em;
 }
@@ -311,15 +311,15 @@ th {
 }
 
 /* puppet info */
-.poke-info label {
+.puppet-info label {
     display: inline-block;
     width: 6em;
 }
-.poke-info input:not([type]), .poke-info input[type="text"], .poke-info span {
+.puppet-info input:not([type]), .puppet-info input[type="text"], .puppet-info span {
     display: inline-block;
     width: 2.5em;
 }
-.poke-info input[type="number"] {
+.puppet-info input[type="number"] {
     display: inline-block;
     width: 3em;
 }
@@ -341,7 +341,7 @@ select.heavy-counter {
 .move-selector {
     width: 8.5em;
 }
-.poke-info input.move-bp {
+.puppet-info input.move-bp {
     width: 2em;
 }
 .move-type {
@@ -353,13 +353,13 @@ select.heavy-counter {
 .move-hits {
     width: 4.5em;
 }
-.poke-info .crit-btn {
+.puppet-info .crit-btn {
     font-size: 0.8em;
     width: 2.5em;
     height: 1em;
     padding: 3px 3px;
 }
-.poke-info .z-btn {
+.puppet-info .z-btn {
     font-size: 0.8em;
     width: 1.5em;
     height: 1em;

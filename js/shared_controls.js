@@ -50,33 +50,33 @@ function validate(obj, min, max) {
 
 // auto-calc stats and current HP on change
 $(".level").keyup(function () {
-	var poke = $(this).closest(".poke-info");
+	var poke = $(this).closest(".puppet-info");
 	calcHP(poke);
 	calcStats(poke);
 });
 $(".mark").bind("keyup change", function () {
-	calcStats($(this).closest(".poke-info"));
+	calcStats($(this).closest(".puppet-info"));
 });
 $(".hp .base, .hp .pp, .hp .ranks").bind("keyup change", function () {
-	calcHP($(this).closest(".poke-info"));
+	calcHP($(this).closest(".puppet-info"));
 });
 $(".fa .base, .fa .pp, .fa .ranks").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'fa');
+	calcStat($(this).closest(".puppet-info"), 'fa');
 });
 $(".fd .base, .fd .pp, .fd .ranks").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'fd');
+	calcStat($(this).closest(".puppet-info"), 'fd');
 });
 $(".sa .base, .sa .pp, .sa .ranks").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'sa');
+	calcStat($(this).closest(".puppet-info"), 'sa');
 });
 $(".sd .base, .sd .pp, .sd .ranks").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'sd');
+	calcStat($(this).closest(".puppet-info"), 'sd');
 });
 $(".sp .base, .sp .pp, .sp .ranks").bind("keyup change", function () {
-	calcStat($(this).closest(".poke-info"), 'sp');
+	calcStat($(this).closest(".puppet-info"), 'sp');
 });
 $(".sl .base").keyup(function () {
-	calcStat($(this).closest(".poke-info"), 'sl');
+	calcStat($(this).closest(".puppet-info"), 'sl');
 });
 
 function calcStats(poke) {
@@ -122,7 +122,7 @@ $(".percent-hp").keyup(function () {
 });
 
 $(".ability").bind("keyup change", function () {
-	$(this).closest(".poke-info").find(".move-hits").val($(this).val() === 'Skill Link' ? 5 : 3);
+	$(this).closest(".puppet-info").find(".move-hits").val($(this).val() === 'Skill Link' ? 5 : 3);
 });
 
 $("#p1 .ability").bind("keyup change", function () {
@@ -264,7 +264,7 @@ $(".move-selector").change(function () {
 	if (move.isMultiHit) {
 		moveGroupObj.children(".stat-drops").hide();
 		moveGroupObj.children(".move-hits").show();
-		moveGroupObj.children(".move-hits").val($(this).closest(".poke-info").find(".ability").val() === 'Salvo' ? 5 : 3);
+		moveGroupObj.children(".move-hits").val($(this).closest(".puppet-info").find(".ability").val() === 'Salvo' ? 5 : 3);
 	} else if (move.dropsStats) {
 		moveGroupObj.children(".move-hits").hide();
 		moveGroupObj.children(".stat-drops").show();
@@ -277,7 +277,7 @@ $(".move-selector").change(function () {
 
 $(".item").change(function () {
 	var itemName = $(this).val();
-	var $metronomeControl = $(this).closest('.poke-info').find('.metronome');
+	var $metronomeControl = $(this).closest('.puppet-info').find('.metronome');
 	if (itemName === "Metronome") {
 		$metronomeControl.show();
 	} else {
@@ -293,7 +293,7 @@ $(".set-selector").change(function () {
 	setName = fullSetName.substring(fullSetName.lastIndexOf("(") + 1, fullSetName.lastIndexOf(")"));
 	var puppet = puppetdex[puppetName];
 	if (puppet) {
-		var puppObj = $(this).closest(".poke-info");
+		var puppObj = $(this).closest(".puppet-info");
 		if (stickyMoves.getSelectedSide() === puppObj.prop("id")) {
 			stickyMoves.clearStickyMove();
 		}
