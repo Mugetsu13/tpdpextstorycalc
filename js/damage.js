@@ -25,9 +25,16 @@ function CALCULATE_ALL_MOVES_ALL(p1, p2, field) {
 	checkInfiltrator(p1, side1);
 	checkInfiltrator(p2, side2);
 	var results = [[], []];
+	var p1Will = false;
+	var p2Will = false;
 	for (var i = 0; i < 4; i++) {
-		results[0][i] = getDamageResult(p1, p2, p1.moves[i], side1);
-		results[1][i] = getDamageResult(p2, p1, p2.moves[i], side2);
+		if (!p1.moves[i] || p1.moves[i].name === "(No Move)") { p1Will = true; }
+		if (!p2.moves[i] || p2.moves[i].name === "(No Move)") { p2Will = true; }
+		if (p1Will && p2Will) { break; }
+	}
+	for (var i = 0; i < 4; i++) {
+		results[0][i] = getDamageResult(p1, p2, p1.moves[i], side1, p2Will);
+		results[1][i] = getDamageResult(p2, p1, p2.moves[i], side2, p1Will);
 	}
 	return results;
 }
@@ -52,13 +59,20 @@ function CALCULATE_MOVES_OF_ATTACKER_ALL(attacker, defender, field) {
 	var defenderSide = field.getSide(~~(mode === "one-vs-all"));
 	checkInfiltrator(attacker, defenderSide);
 	var results = [];
+	var ironWill = false;
 	for (var i = 0; i < 4; i++) {
-		results[i] = getDamageResult(attacker, defender, attacker.moves[i], defenderSide);
+		if (!defender.moves[i] || defender.moves[i].name === "(No Move)") {
+			ironWill = true;
+			break;
+		}
+	}
+	for (var i = 0; i < 4; i++) {
+		results[i] = getDamageResult(attacker, defender, attacker.moves[i], defenderSide, ironWill);
 	}
 	return results;
 }
 
-function getDamageResult(attacker, defender, move, field) {
+function getDamageResult(attacker, defender, move, field, ironWill) {
 	var description = {
 		"attackerName": attacker.name,
 		"moveName": move.name,
@@ -494,7 +508,7 @@ function getDamageResult(attacker, defender, move, field) {
 	//Prepare STAB
 	var isSTAB = attacker.hasType(move.type);
 	var stabMod = 1;
-	if (atkAbility === "Infinite Changes") { //Infinite Changes will always have STABget
+	if (atkAbility === "Infinite Changes") { //Infinite Changes will always have STAB
 		isSTAB = true;
 		description.attackerAbility = atkAbility;
 	}
@@ -555,9 +569,8 @@ function getDamageResult(attacker, defender, move, field) {
 	} else if (atkItem === "Red Ring" && move.category === "Focus" || atkItem === "Blue Earrings" && move.category === "Spread" || atkItem === "Dream Shard") {
 		finalMods.push(1.1);
 		description.attackerItem = attacker.item;
-	}/*else if (atkItem === "Sturdy Rope") {
-		Sturdy Rope has an unknown power boost...
-	}*/
+	}
+
 	//Defense Items
 	if (move.type === defItemType && atkItem.indexOf("Charm") !== -1) { //Type-based charm item
 		finalMods.push(0.5);
@@ -565,6 +578,9 @@ function getDamageResult(attacker, defender, move, field) {
 	//TODO: do Golden Hairpin/similar actually increase defense, or does it affect damage in this step?
 	} else if (defender.item === "Golden Hairpin" && defenseStat === FD || defender.item === "Silver Hairpin" && defenseStat === SD || defender.item === "Boundary Trance") {
 		finalMods.push(2 / 3); //1/1.5 = 2/3
+		description.defenderItem = defender.item;
+	} else if (defender.item === "Iron Will Ribbon" && ironWill) {
+		finalMods.push(0.9);
 		description.defenderItem = defender.item;
 	} else if (defender.item === "Dream Shard") {
 		finalMods.push(10 / 11); //1/1.1 = 10/11
@@ -626,7 +642,7 @@ function getDamageResult(attacker, defender, move, field) {
 		pendingMod = 1.5;
 	} else if (defAbility === "Slow Tempo") {
 		pendingMod = 0.9;
-	} else if ((defAbility === "Known Limits" && !isSTAB) ||
+	} else if ((defAbility === "Known Limits" && !defender.hasType(move.type)) ||
 	           (defAbility === "Glamorous" && typeEffectiveness > 1)) {
 		pendingMod = 0.75;
 	} else if ((defAbility === "Inverse Reaction" && (move.type === "Light" || move.type === "Dark")) ||

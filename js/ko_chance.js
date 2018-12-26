@@ -138,8 +138,13 @@
 
 	//Partial Trapping moves
 	if (move.partialTrapping) {
-		eot -= Math.floor(defender.maxHP / 8);
-		eotDamage.push('trapping');
+		if (attacker.item === "Sturdy Rope") {
+			eot -= Math.floor(defender.maxHP / 6);
+			eotDamage.push('Sturdy Rope-boosted trapping');
+		} else {
+			eot -= Math.floor(defender.maxHP / 8);
+			eotDamage.push('trapping');
+		}
 		eotRecovery.push('');
 	}
 
