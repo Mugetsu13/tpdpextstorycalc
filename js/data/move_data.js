@@ -147,21 +147,24 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 85,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Tri-Effect": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Destruction": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 70,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Volley": {
 		type: "Void",
@@ -287,7 +290,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 80,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Yang Energy": {
 		type: "Dream",
@@ -379,39 +383,45 @@ var MOVES_YNK = {
 		type: "Fire",
 		category: "Focus",
 		bp: 120,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Holy Flare": {
 		type: "Fire",
 		category: "Focus",
 		isEN: true,
 		bp: 100,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Burn Strike": {
 		type: "Fire",
 		category: "Focus",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Exploding Blaze": {
 		type: "Fire",
 		category: "Focus",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Fire Javelin": {
 		type: "Fire",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Rising Sun": {
 		type: "Fire",
 		category: "Focus",
 		bp: 50,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Phoenix Waltz": {
 		type: "Fire",
@@ -439,19 +449,22 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Blaze Spear": {
 		type: "Fire",
 		category: "Spread",
 		bp: 100,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Blaze of Tenmei": {
 		type: "Fire",
 		category: "Spread",
 		bp: 100,
-		accuracy: 50
+		accuracy: 50,
+		hasSecondaryEffect: true
 	},
 	"Fire-Dragon Spiral": {
 		type: "Fire",
@@ -466,21 +479,24 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Flashover": {
 		type: "Fire",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Flame Wave": {
 		type: "Fire",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Fire Wall": {
 		type: "Fire",
@@ -518,28 +534,32 @@ var MOVES_YNK = {
 		type: "Fire",
 		category: "Focus",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Flame Pillar": {
 		type: "Fire",
 		category: "Focus",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Fiery Game": {
 		type: "Fire",
 		category: "Spread",
 		isEN: true,
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Flare": {
 		type: "Fire",
 		category: "Spread",
 		isEN: true,
 		bp: 70,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Fire Sign": {
 		type: "Fire",
@@ -577,13 +597,15 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Aqua Javelin": {
 		type: "Water",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Reverse Splash": {
 		type: "Water",
@@ -633,14 +655,16 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 80
+		accuracy: 80,
+		hasSecondaryEffect: true
 	},
 	"Ice Age": {
 		type: "Water",
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Frozen Prison": {
 		type: "Water",
@@ -653,7 +677,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Geyser": {
 		type: "Water",
@@ -720,7 +745,8 @@ var MOVES_YNK = {
 		type: "Water",
 		category: "Focus",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Foam Bubbles": {
 		type: "Water",
@@ -732,7 +758,8 @@ var MOVES_YNK = {
 		type: "Water",
 		category: "Spread",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Water Sign": {
 		type: "Water",
@@ -771,19 +798,22 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Natural Beauty": {
 		type: "Nature",
 		category: "Focus",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Grass Javelin": {
 		type: "Nature",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Power Drain": {
 		type: "Nature",
@@ -803,7 +833,8 @@ var MOVES_YNK = {
 		type: "Nature",
 		category: "Spread",
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Off-Season Bloom": {
 		type: "Nature",
@@ -834,7 +865,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Energy Absorb": {
 		type: "Nature",
@@ -941,7 +973,8 @@ var MOVES_YNK = {
 		type: "Nature",
 		category: "Spread",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Nature Sign": {
 		type: "Nature",
@@ -986,7 +1019,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 75,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Rock Drills": {
 		type: "Earth",
@@ -998,13 +1032,15 @@ var MOVES_YNK = {
 		type: "Earth",
 		category: "Focus",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Dust Cloud": {
 		type: "Earth",
 		category: "Focus",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Stone Throw": {
 		type: "Earth",
@@ -1032,14 +1068,16 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Unstable Horizon": {
 		type: "Earth",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Jewelry Storm": {
 		type: "Earth",
@@ -1057,7 +1095,8 @@ var MOVES_YNK = {
 		type: "Earth",
 		category: "Spread",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Mine Trap": {
 		type: "Earth",
@@ -1079,19 +1118,22 @@ var MOVES_YNK = {
 		type: "Earth",
 		category: "Focus",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Slingshot": {
 		type: "Earth",
 		category: "Spread",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Mudslide": {
 		type: "Earth",
 		category: "Spread",
 		bp: 75,
-		accuracy: 80
+		accuracy: 80,
+		hasSecondaryEffect: true
 	},
 	"Earth Sign": {
 		type: "Earth",
@@ -1114,7 +1156,8 @@ var MOVES_YNK = {
 		type: "Earth",
 		category: "Spread",
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Realm [Gold]": {
 		type: "Earth",
@@ -1156,7 +1199,8 @@ var MOVES_YNK = {
 		type: "Steel",
 		category: "Focus",
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Brandish": {
 		type: "Steel",
@@ -1168,7 +1212,8 @@ var MOVES_YNK = {
 		type: "Steel",
 		category: "Focus",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Killing Bite": {
 		type: "Steel",
@@ -1200,14 +1245,16 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Chrome Ray": {
 		type: "Steel",
 		category: "Spread",
 		isEN: true,
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Twin Gears": {
 		type: "Steel",
@@ -1274,7 +1321,8 @@ var MOVES_YNK = {
 		type: "Steel",
 		category: "Spread",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Steel Sign": {
 		type: "Steel",
@@ -1293,7 +1341,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Gensokyo Typhoon": {
 		type: "Wind",
@@ -1313,7 +1362,8 @@ var MOVES_YNK = {
 		type: "Wind",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Air Stamp": {
 		type: "Wind",
@@ -1355,7 +1405,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 80
+		accuracy: 80,
+		hasSecondaryEffect: true
 	},
 	"Swift Air-Raid": {
 		type: "Wind",
@@ -1369,14 +1420,16 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 75,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Dancing Wind": {
 		type: "Wind",
 		category: "Spread",
 		isEN: true,
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Smash Spin": {
 		type: "Wind",
@@ -1449,7 +1502,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Wind Sign": {
 		type: "Wind",
@@ -1467,14 +1521,16 @@ var MOVES_YNK = {
 		type: "Wind",
 		category: "Focus",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Spinning Air": {
 		type: "Wind",
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Realm [Serenity]": {
 		type: "Wind",
@@ -1492,53 +1548,61 @@ var MOVES_YNK = {
 		type: "Electric",
 		category: "Focus",
 		bp: 120,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Lightning Cut": {
 		type: "Electric",
 		category: "Focus",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Spark Javelin": {
 		type: "Electric",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Plasma Ball": {
 		type: "Electric",
 		category: "Focus",
 		bp: 20,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Thunderlord's Scorn": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Divine Thunder": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 50
+		accuracy: 50,
+		hasSecondaryEffect: true
 	},
 	"Thunder Force": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Stormcloud's Eye": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Charge Thief": {
 		type: "Electric",
@@ -1558,14 +1622,16 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Purple Lightning": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 50,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Lightning Charge": {
 		type: "Electric",
@@ -1594,28 +1660,32 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Graze Bolt": {
 		type: "Electric",
 		category: "Focus",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Lightning Strike": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Energy Bolt": {
 		type: "Electric",
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Electric Sign": {
 		type: "Electric",
@@ -1653,7 +1723,8 @@ var MOVES_YNK = {
 		type: "Light",
 		category: "Focus",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Atomic Energy": {
 		type: "Light",
@@ -1666,7 +1737,8 @@ var MOVES_YNK = {
 		type: "Light",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Sunbeam Dance": {
 		type: "Light",
@@ -1708,7 +1780,8 @@ var MOVES_YNK = {
 		type: "Light",
 		category: "Spread",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Field Barrier": {
 		type: "Light",
@@ -1770,7 +1843,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 70,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Light of Origin": {
 		type: "Light",
@@ -1784,7 +1858,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Light Sign": {
 		type: "Light",
@@ -1815,13 +1890,15 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 100,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Blackout": {
 		type: "Dark",
 		category: "Focus",
 		bp: 75,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Changeling": {
 		type: "Dark",
@@ -1869,7 +1946,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Eye of Laplace": {
 		type: "Dark",
@@ -1927,26 +2005,30 @@ var MOVES_YNK = {
 		type: "Dark",
 		category: "Focus",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Ominous Doll": {
 		type: "Dark",
 		category: "Focus",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Bad Moon": {
 		type: "Dark",
 		category: "Spread",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Bloody Storm": {
 		type: "Dark",
 		category: "Spread",
 		isEN: true,
 		bp: 70,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Dark Sign": {
 		type: "Dark",
@@ -1981,37 +2063,43 @@ var MOVES_YNK = {
 		type: "Poison",
 		category: "Focus",
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Dust Bomb": {
 		type: "Poison",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Poisoned Arrow": {
 		type: "Poison",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Venom Strike": {
 		type: "Poison",
 		category: "Spread",
 		bp: 120,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Poison Bomb": {
 		type: "Poison",
 		category: "Spread",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Venom Fang": {
 		type: "Poison",
 		category: "Spread",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Mysterious Liquid": {
 		type: "Poison",
@@ -2031,7 +2119,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 40,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Poison Trap": {
 		type: "Poison",
@@ -2049,26 +2138,30 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Slime Ball": {
 		type: "Poison",
 		category: "Focus",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Smog Shot": {
 		type: "Poison",
 		category: "Spread",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Toxic Haze": {
 		type: "Poison",
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Poison Sign": {
 		type: "Poison",
@@ -2128,7 +2221,8 @@ var MOVES_YNK = {
 		type: "Nether",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Soul Hound": {
 		type: "Nether",
@@ -2162,7 +2256,8 @@ var MOVES_YNK = {
 		type: "Nether",
 		category: "Spread",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Starving Spirit": {
 		type: "Nether",
@@ -2175,7 +2270,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Love or Pain": {
 		type: "Nether",
@@ -2187,7 +2283,8 @@ var MOVES_YNK = {
 		type: "Nether",
 		category: "Spread",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Call of the Dead": {
 		type: "Nether",
@@ -2226,25 +2323,29 @@ var MOVES_YNK = {
 		type: "Nether",
 		category: "Focus",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Specter Warning": {
 		type: "Nether",
 		category: "Focus",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Soul Walking": {
 		type: "Nether",
 		category: "Spread",
 		bp: 55,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Play Ghost": {
 		type: "Nether",
 		category: "Spread",
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Nether Sign": {
 		type: "Nether",
@@ -2262,7 +2363,8 @@ var MOVES_YNK = {
 		type: "Nether",
 		category: "Focus",
 		bp: 90,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Ghost Chase": {
 		type: "Nether",
@@ -2322,7 +2424,8 @@ var MOVES_YNK = {
 		type: "Fighting",
 		category: "Focus",
 		bp: 100,
-		accuracy: 50
+		accuracy: 50,
+		hasSecondaryEffect: true
 	},
 	"Heavenly Ascent": {
 		type: "Fighting",
@@ -2378,7 +2481,8 @@ var MOVES_YNK = {
 		type: "Fighting",
 		category: "Focus",
 		bp: 50,
-		accuracy: 90
+		accuracy: 90,
+		hasSecondaryEffect: true
 	},
 	"Strike Shot": {
 		type: "Fighting",
@@ -2399,20 +2503,23 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 120,
-		accuracy: 85
+		accuracy: 85,
+		hasSecondaryEffect: true
 	},
 	"Concussion": {
 		type: "Fighting",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Understep": {
 		type: "Fighting",
 		category: "Spread",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Twin Thrust": {
 		type: "Fighting",
@@ -2456,7 +2563,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 70,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Fighting Sign": {
 		type: "Fighting",
@@ -2503,7 +2611,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Sneak Attack": {
 		type: "Illusion",
@@ -2522,7 +2631,8 @@ var MOVES_YNK = {
 		type: "Illusion",
 		category: "Focus",
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"St. Elmo's Fire": {
 		type: "Illusion",
@@ -2574,21 +2684,24 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Glamor Pandemic": {
 		type: "Illusion",
 		category: "Spread",
 		isEN: true,
 		bp: 100,
-		accuracy: 50
+		accuracy: 50,
+		hasSecondaryEffect: true
 	},
 	"Unknown Flare": {
 		type: "Illusion",
 		category: "Spread",
 		isEN: true,
 		bp: 80,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Mysterious Wave": {
 		type: "Illusion",
@@ -2712,7 +2825,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 60,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Mysterious Flare": {
 		type: "Illusion",
@@ -2726,7 +2840,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Illusion Sign": {
 		type: "Illusion",
@@ -2764,13 +2879,15 @@ var MOVES_YNK = {
 		type: "Sound",
 		category: "Focus",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Dancing Rain": {
 		type: "Sound",
 		category: "Focus",
 		bp: 75,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Phantom Ensemble": {
 		type: "Sound",
@@ -2790,14 +2907,16 @@ var MOVES_YNK = {
 		type: "Sound",
 		category: "Spread",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Primal Noise": {
 		type: "Sound",
 		category: "Spread",
 		isEN: true,
 		bp: 75,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Fantasy Melody": {
 		type: "Sound",
@@ -2811,7 +2930,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 55,
-		accuracy: 95
+		accuracy: 95,
+		hasSecondaryEffect: true
 	},
 	"Infinite Scales": {
 		type: "Sound",
@@ -2927,7 +3047,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Soprano Voice": {
 		type: "Sound",
@@ -2941,7 +3062,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Sound Sign": {
 		type: "Sound",
@@ -2967,7 +3089,8 @@ var MOVES_YNK = {
 		type: "Warped",
 		category: "Focus",
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Alluring Maze": {
 		type: "Warped",
@@ -3003,7 +3126,8 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 95,
-		acc100: true
+		acc100: true,
+		hasSecondaryEffect: true
 	},
 	"Luscious Whisper": {
 		type: "Warped",
