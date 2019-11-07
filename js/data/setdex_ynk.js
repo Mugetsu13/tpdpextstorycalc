@@ -145,13 +145,17 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Damage from the TPDP Discord
 		"Sticky Web Setter": {"ability": "Invalidate", "level": 100, "pp": {"hp": 64, "fd": 64, "sd": 2}, "moves": ["Stealth Trap", "Bind Trap", "Encourage", "Miasma"], "mark": "Blue", "item": "Black Choker"},
 	},
-	"Extra Toyohime": {
-		//Below Contribution(s) by Damage from the TPDP Discord
-		"Silver Hairpin Pivot": {"ability": "Healing Power", "level": 100, "pp": {"hp": 64, "sd": 64, "fd": 2}, "moves": ["Energy Absorb", "Moonbow", "Smash Spin", "Smash Spin"], "mark": "White", "item": "Silver Hairpin"},
+	"Extra Sagume": {
+		//Below Contribution(s) by MQJinx from the TPDP Discord
+		"All-Out Attacker": {"level": 100, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Reverse Function", "item": "Silver Hairpin", "moves": ["Distortion Bomb", "Trickster", "High Tone Crush", "Clearing Mist"]},
 	},
 	"Extra Suwako": {
 		//Below Contribution(s) by Damage from the TPDP Discord
-		"Defensive": {"ability": "Negative Aura", "level": 100, "pp": {"hp": 64, "fd": 64, "sd": 2}, "moves": ["First Aid", "Acid Tears", "Poison Stream", "Distortion Bomb"], "mark": "Blue", "item": "Jar of Poison"},
+		"Defensive": {"level": 100, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ability": "Negative Aura", "moves": ["First Aid", "Acid Tears", "Poison Stream", "Distortion Bomb"], "mark": "Blue", "item": "Jar of Poison"},
+	},
+	"Extra Toyohime": {
+		//Below Contribution(s) by Damage from the TPDP Discord
+		"Silver Hairpin Pivot": {"level": 100, "pp": {"hp": 64, "sd": 64, "fd": 2}, "ability": "Healing Power", "moves": ["Energy Absorb", "Moonbow", "Smash Spin", "Smash Spin"], "mark": "White", "item": "Silver Hairpin"},
 	},
 	"Extra Wakasagi": {
 		//Below Contribution(s) by Damage from the TPDP Discord
@@ -159,10 +163,24 @@ var SETDEX_YNK = {
 	},
 	"Power Aya": {
 		//Below Contribution(s) by Damage from the TPDP Discord
-		"All out Attacker": {"ability": "Salvo", "level": 100, "pp": {"fa": 64, "sp": 64, "hp": 2}, "moves": ["Twister", "Shooting Arts", "Godstone Frenzy", "Lightning Speed"], "mark": "Green"}
+		"All-Out Attacker": {"level": 100, "pp": {"fa": 64, "sp": 64, "hp": 2}, "mark": "Green", "ability": "Salvo", "moves": ["Twister", "Shooting Arts", "Godstone Frenzy", "Lightning Speed"]},
+	},
+	"Power Konngara": {
+		//Below Contribution(s) by MQJinx from the TPDP Discord
+		"Hairpin": {"level": 100, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Benefit of Fire", "item": "Silver Hairpin", "moves": ["Heavenly Ascent", "Samurai Edge", "Waterfall Drop", "Strike Shot"]},
+		"Strenuous Stance": {"level": 100, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Red", "ability": "Benefit of Fire", "item": "Black Choker", "moves": ["Strenuous Stance", "Heavenly Ascent", "Samurai Edge", "Waterfall Drop"]},
+	},
+	"Power Sakuya": {
+		//Below Contribution(s) by MQJinx from the TPDP Discord
+		"All-Out Attacker": {"level": 100, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Strategist", "item": "Golden Hairpin", "moves": ["Overtake Strike", "Brandish", "Dancing Sword", "Changeling"]},
 	},
 	"Speed Junko": {
 		//Below Contribution(s) by MQJinx from the TPDP Discord
 		"All-Out Attacker": {"level": 100, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Hate Incarnate", "item": "Choice Earrings", "moves": ["Dark Sweets", "Moonbow", "Impulse", "Mysterious Wave"]},
+	},
+	"Speed Sanae": {
+		//Below Contribution(s) by MQJinx from the TPDP Discord
+		"Sharp Wind": {"level": 100, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Sharp Wind", "Waves of Earth", "Macroburst", "Pollen Mist"]},
+		"Choice Belt": {"level": 100, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Macroburst", "Earthen Feast", "Pollen Mist", "Unknown Flare"]},
 	},
 };

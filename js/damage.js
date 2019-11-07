@@ -297,10 +297,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if ((atkAbility === "Surprise Tactics" && field.weather === "Heavy Fog" && move.category === "Spread") || //50% Increase
 		       (atkAbility === "Recalibration" && field.weather === "Calm" && move.category === "Spread") ||
 	           (atkAbility === "Desperation" && attacker.status.indexOf("Poisoned") !== -1 && move.category === "Focus") ||
-		       (atkAbility === "Mind's Eye" && attacker.status !== ["None", "None"] && move.category === "Focus") ||
+		       (atkAbility === "Mind's Eye" && !(attacker.status[0] === "None" && attacker.status[1] === "None") && move.category === "Focus") ||
 		       (atkAbility === "Brutality" && move.category === "Spread") ||
 	           (atkAbility === "Daredevil" && move.category === "Focus") ||
-	           (atkAbility === "Pride" && attacker.status !== ["None", "None"] && move.category === "Spread")) {
+	           (atkAbility === "Pride" && !(attacker.status[0] === "None" && attacker.status[1] === "None") && move.category === "Spread")) {
 		atMods.push(1.5);
 		description.attackerAbility = atkAbility;
 	} else if ((atkAbility === "Sand Force" && field.weather === "Dust Storm" && move.category === "Focus") || //30% Increase
@@ -553,7 +553,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 
 	//Offense Items
 	if (move.type === atkItemType && atkItem.indexOf("Charm") === -1) { //Type-based boosting item
-		if (atkItem.indexOf("Hairpin") !== -1) {
+		if (atkItem.indexOf("Hairpin") === -1) {
 			finalMods.push(1.5); //might be 1.3?
 		} else {
 			finalMods.push(1.2); //might be 1.1?
