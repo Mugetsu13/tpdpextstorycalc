@@ -554,7 +554,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	//Offense Items
 	if (move.type === atkItemType && atkItem.indexOf("Charm") === -1) { //Type-based boosting item
 		if (atkItem.indexOf("Hairpin") === -1) {
-			finalMods.push(1.5); //might be 1.3?
+			finalMods.push(1.4); //might be 1.3?
 		} else {
 			finalMods.push(1.2); //might be 1.1?
 		}
@@ -622,7 +622,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (atkAbility === "Mindless Dance" && move.willLock) {
 		pendingMod = 0.9;
 	} else if (atkAbility === "Fast Talker" && move.willCharge && !(move.name === "Rainbow Flowers" && field.weather === "Aurora")) {
-		pendingMod = 0.8;
+		pendingMod = 0.9;
 	} else if (atkAbility === "Known Limits" && !isSTAB) {
 		pendingMod = 0.75;
 	} else if (doppelganger) { //Two of a Kind flag
