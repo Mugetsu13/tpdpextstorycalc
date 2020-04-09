@@ -623,9 +623,8 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 0.9;
 	} else if (atkAbility === "Fast Talker" && move.willCharge && !(move.name === "Rainbow Flowers" && field.weather === "Aurora")) {
 		pendingMod = 0.9;
-	} else if (atkAbility === "Known Limits" && !isSTAB) {
-		pendingMod = 0.75;
-	} else if (doppelganger) { //Two of a Kind flag
+	} else if ((atkAbility === "Known Limits" && !isSTAB) ||
+	           (doppelganger)) { //Two of a Kind flag
 		pendingMod = 0.6;
 	}
 	//Skip over the entire above section's power modifications if Ascertainment is present
@@ -642,9 +641,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 1.5;
 	} else if (defAbility === "Slow Tempo") {
 		pendingMod = 0.9;
-	} else if ((defAbility === "Known Limits" && !defender.hasType(move.type)) ||
-	           (defAbility === "Glamorous" && typeEffectiveness > 1)) {
+	} else if (defAbility === "Glamorous" && typeEffectiveness > 1) {
 		pendingMod = 0.75;
+	} else if (defAbility === "Known Limits" && !isSTAB) {
+		pendingMod = 0.6;
 	} else if ((defAbility === "Inverse Reaction" && (move.type === "Light" || move.type === "Dark")) ||
 		       (defAbility === "Yata no Kagami" && defender.curHP === defender.maxHP) ||
 	           (defAbility === "Unique Shield" && move.category === "Focus") ||
