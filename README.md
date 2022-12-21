@@ -8,7 +8,7 @@ However, it uses said calculator as a base. As a result, it has essentially the 
 You may find the original here: https://github.com/Zarel/honko-damagecalc
 
 Most of the framework of this calculator was done by Choon - I only added -Extended- elements 
-not present within he base calculator, as well as fixing a few minor bugs.
+not present within the base calculator, as well as fixing a few minor bugs.
 
 Instructions
 ------------
