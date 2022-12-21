@@ -3432,4 +3432,693 @@ var PUPPETDEX_YNK = {
 		ab: "Three Bodies",
 		isAlternateForme: true
 	},
+	"Normal Yorigami": {
+		t1: "Fire",
+		t2: "Fighting",
+		bs: {hp: 60, fa: 70, fd: 40, sa: 45, sd: 45, sp: 55},
+		c: 110,
+		ab: "Glamorous"
+	},
+	"Power Yorigami": {
+		t1: "Fire",
+		t2: "Fighting",
+		bs: {hp: 120, fa: 120, fd: 85, sa: 60, sd: 65, sp: 85},
+		c: 110,
+		ab: "Glamorous"
+	},
+	"Defense Yorigami": {
+		t1: "Fire",
+		t2: "Nether",
+		bs: {hp: 125, fa: 75, fd: 80, sa: 105, sd: 75, sp: 75},
+		c: 110,
+		ab: "Southern Expanse"
+	},
+	"Extra Yorigami": {
+		t1: "Steel",
+		t2: "Nether",
+		bs: {hp: 165, fa: 105, fd: 60, sa: 55, sd: 55, sp: 95},
+		c: 110,
+		ab: "Reckless"
+	},
+	"Normal Eternity": {
+		t1: "Nature",
+		bs: {hp: 40, fa: 55, fd: 35, sa: 35, sd: 55, sp: 55},
+		c: 80,
+		ab: "Peaceful"
+	},
+	"Speed Eternity": {
+		t1: "Nature",
+		t2: "Fire",
+		bs: {hp: 95, fa: 100, fd: 50, sa: 30, sd: 90, sp: 110},
+		c: 80,
+		ab: "Warning Shot"
+	},
+	"Assist Eternity": {
+		t1: "Wind",
+		t2: "Light",
+		bs: {hp: 90, fa: 35, fd: 90, sa: 85, sd: 95, sp: 80},
+		c: 80,
+		ab: "Deploy Smoke"
+	},
+	"Extra Eternity": {
+		t1: "Nature",
+		t2: "Illusion",
+		bs: {hp: 65, fa: 55, fd: 70, sa: 105, sd: 60, sp: 120},
+		c: 80,
+		ab: "Flash"
+	},
+	"Normal Nemuno": {
+		t1: "Steel",
+		bs: {hp: 45, fa: 70, fd: 40, sa: 45, sd: 40, sp: 65},
+		c: 100,
+		ab: "Good Management"
+	},
+	"Power Nemuno": {
+		t1: "Steel",
+		t2: "Water",
+		bs: {hp: 80, fa: 115, fd: 70, sa: 50, sd: 70, sp: 115},
+		c: 100,
+		ab: "Good Management"
+	},
+	"Defense Nemuno": {
+		t1: "Steel",
+		t2: "Fighting",
+		bs: {hp: 90, fa: 95, fd: 130, sa: 50, sd: 75, sp: 60},
+		c: 100,
+		ab: "Unbound"
+	},
+	"Extra Nemuno": {
+		t1: "Steel",
+		t2: "Wind",
+		bs: {hp: 70, fa: 55, fd: 65, sa: 125, sd: 70, sp: 115},
+		c: 100,
+		ab: "Imposing Stance"
+	},
+	"Normal Aunn": {
+		t1: "Light",
+		bs: {hp: 55, fa: 55, fd: 50, sa: 40, sd: 50, sp: 30},
+		c: 80,
+		ab: "Indomitable"
+	},
+	"Defense Aunn": {
+		t1: "Light",
+		t2: "Illusion",
+		bs: {hp: 85, fa: 85, fd: 125, sa: 40, sd: 90, sp: 55},
+		c: 80,
+		ab: "Indomitable"
+	},
+	"Power Aunn": {
+		t1: "Light",
+		t2: "Fighting",
+		bs: {hp: 85, fa: 110, fd: 80, sa: 65, sd: 80, sp: 60},
+		c: 80,
+		ab: "Indomitable"
+	},
+	"Extra Aunn": {
+		t1: "Light",
+		t2: "Steel",
+		bs: {hp: 70, fa: 105, fd: 75, sa: 70, sd: 80, sp: 80},
+		c: 80,
+		ab: "Two of a Kind"
+	},
+	"Normal Narumi": {
+		t1: "Light",
+		t2: "Earth",
+		bs: {hp: 55, fa: 35, fd: 45, sa: 55, sd: 65, sp: 45},
+		c: 90,
+		ab: "Invalidate"
+	},
+	"Defense Narumi": {
+		t1: "Light",
+		t2: "Earth",
+		bs: {hp: 80, fa: 50, fd: 60, sa: 95, sd: 150, sp: 60},
+		c: 90,
+		ab: "Invalidate"
+	},
+	"Power Narumi": {
+		t1: "Light",
+		t2: "Fire",
+		bs: {hp: 60, fa: 45, fd: 110, sa: 115, sd: 110, sp: 55},
+		c: 90,
+		ab: "Invalidate"
+	},
+	"Extra Narumi": {
+		t1: "Water",
+		t2: "Illusion",
+		bs: {hp: 70, fa: 125, fd: 80, sa: 55, sd: 75, sp: 90},
+		c: 90,
+		ab: "Empowered"
+	},
+	"Normal Teireida": {
+		t1: "Wind",
+		t2: "Illusion",
+		bs: {hp: 50, fa: 65, fd: 40, sa: 40, sd: 40, sp: 70},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Assist Teireida": {
+		t1: "Wind",
+		t2: "Illusion",
+		bs: {hp: 85, fa: 90, fd: 75, sa: 65, sd: 75, sp: 120},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Speed Teireida": {
+		t1: "Nature",
+		t2: "Sound",
+		bs: {hp: 70, fa: 45, fd: 75, sa: 120, sd: 75, sp: 125},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Extra Teireida": {
+		t1: "Dark",
+		t2: "Illusion",
+		bs: {hp: 55, fa: 130, fd: 60, sa: 130, sd: 60, sp: 75},
+		c: 100,
+		ab: "Charge!"
+	},
+	"Normal Satono": {
+		t1: "Illusion",
+		t2: "Wind",
+		bs: {hp: 70, fa: 40, fd: 40, sa: 65, sd: 40, sp: 50},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Assist Satono": {
+		t1: "Illusion",
+		t2: "Wind",
+		bs: {hp: 120, fa: 65, fd: 75, sa: 90, sd: 75, sp: 85},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Speed Satono": {
+		t1: "Nature",
+		t2: "Electric",
+		bs: {hp: 70, fa: 75, fd: 75, sa: 110, sd: 75, sp: 105},
+		c: 100,
+		ab: "Chaos Induction"
+	},
+	"Extra Satono": {
+		t1: "Sound",
+		t2: "Poison",
+		bs: {hp: 80, fa: 125, fd: 80, sa: 70, sd: 80, sp: 75},
+		c: 100,
+		ab: "First Hit"
+	},
+	"Normal Okina": {
+		t1: "Void",
+		bs: {hp: 60, fa: 70, fd: 50, sa: 70, sd: 50, sp: 45},
+		c: 120,
+		ab: "Weather Resist"
+	},
+	"Power Okina": {
+		t1: "Nature",
+		t2: "Illusion",
+		bs: {hp: 90, fa: 90, fd: 75, sa: 130, sd: 115, sp: 80},
+		c: 120,
+		ab: "Benefit of Fire"
+	},
+	"Defense Okina": {
+		t1: "Nature",
+		bs: {hp: 110, fa: 105, fd: 105, sa: 80, sd: 105, sp: 75},
+		c: 120,
+		ab: "Divine Festival"
+	},
+	"Extra Okina": {
+		t1: "Nature",
+		t2: "Dark",
+		bs: {hp: 105, fa: 70, fd: 90, sa: 130, sd: 95, sp: 90},
+		c: 120,
+		ab: "Secret Ceremony"
+	},
+	"Normal Eika": {
+		t1: "Nether",
+		t2: "Earth",
+		bs: {hp: 45, fa: 20, fd: 60, sa: 55, sd: 50, sp: 40},
+		c: 80,
+		ab: "Appeased Spirit"
+	},
+	"Defense Eika": {
+		t1: "Nether",
+		t2: "Earth",
+		bs: {hp: 75, fa: 35, fd: 125, sa: 90, sd: 115, sp: 40},
+		c: 80,
+		ab: "Appeased Spirit"
+	},
+	"Assist Eika": {
+		t1: "Void",
+		t2: "Nether",
+		bs: {hp: 80, fa: 95, fd: 130, sa: 45, sd: 60, sp: 70},
+		c: 80,
+		ab: "Appeased Spirit"
+	},
+	"Extra Eika": {
+		t1: "Nether",
+		t2: "Water",
+		bs: {hp: 90, fa: 35, fd: 105, sa: 80, sd: 105, sp: 65},
+		c: 80,
+		ab: "Stone Stacker"
+	},
+	"Normal Urumi": {
+		t1: "Water",
+		t2: "Earth",
+		bs: {hp: 70, fa: 40, fd: 40, sa: 60, sd: 45, sp: 40},
+		c: 90,
+		ab: "Warning Shot"
+	},
+	"Power Urumi": {
+		t1: "Water",
+		t2: "Earth",
+		bs: {hp: 110, fa: 60, fd: 70, sa: 115, sd: 70, sp: 60},
+		c: 90,
+		ab: "Warning Shot"
+	},
+	"Defense Urumi": {
+		t1: "Dark",
+		bs: {hp: 135, fa: 100, fd: 55, sa: 50, sd: 90, sp: 60},
+		c: 90,
+		ab: "Warning Shot"
+	},
+	"Extra Urumi": {
+		t1: "Dark",
+		t2: "Fighting",
+		bs: {hp: 95, fa: 125, fd: 80, sa: 60, sd: 70, sp: 60},
+		c: 90,
+		ab: "Warning Shot"
+	},
+	"Normal Kutaka": {
+		t1: "Water",
+		t2: "Light",
+		bs: {hp: 50, fa: 40, fd: 60, sa: 60, sd: 50, sp: 45},
+		c: 100,
+		ab: "Emergency Cure"
+	},
+	"Assist Kutaka": {
+		t1: "Water",
+		t2: "Light",
+		bs: {hp: 95, fa: 50, fd: 120, sa: 80, sd: 80, sp: 75},
+		c: 100,
+		ab: "Emergency Cure"
+	},
+	"Speed Kutaka": {
+		t1: "Sound",
+		t2: "Warped",
+		bs: {hp: 75, fa: 45, fd: 65, sa: 100, sd: 105, sp: 110},
+		c: 100,
+		ab: "Positive"
+	},
+	"Extra Kutaka": {
+		t1: "Nether",
+		t2: "Electric",
+		bs: {hp: 110, fa: 95, fd: 75, sa: 45, sd: 110, sp: 65},
+		c: 100,
+		ab: "Sound Absorb"
+	},
+	"Normal Yachie": {
+		t1: "Warped",
+		t2: "Fire",
+		bs: {hp: 60, fa: 40, fd: 50, sa: 60, sd: 65, sp: 30},
+		c: 110,
+		ab: "Ascertainment"
+	},
+	"Power Yachie": {
+		t1: "Warped",
+		t2: "Fire",
+		bs: {hp: 95, fa: 75, fd: 85, sa: 100, sd: 110, sp: 65},
+		c: 110,
+		ab: "Ascertainment"
+	},
+	"Defense Yachie": {
+		t1: "Water",
+		t2: "Nature",
+		bs: {hp: 115, fa: 60, fd: 80, sa: 90, sd: 135, sp: 50},
+		c: 110,
+		ab: "Ascertainment"
+	},
+	"Extra Yachie": {
+		t1: "Warped",
+		t2: "Fighting",
+		bs: {hp: 80, fa: 115, fd: 115, sa: 60, sd: 65, sp: 95},
+		c: 110,
+		ab: "Precise Aim"
+	},
+	"Normal Mayumi": {
+		t1: "Earth",
+		t2: "Fighting",
+		bs: {hp: 55, fa: 65, fd: 65, sa: 40, sd: 50, sp: 30},
+		c: 100,
+		ab: "Indomitable"
+	},
+	"Defense Mayumi": {
+		t1: "Earth",
+		t2: "Fighting",
+		bs: {hp: 95, fa: 110, fd: 95, sa: 55, sd: 90, sp: 75},
+		c: 100,
+		ab: "Indomitable"
+	},
+	"Speed Mayumi": {
+		t1: "Steel",
+		bs: {hp: 70, fa: 120, fd: 65, sa: 70, sd: 65, sp: 130},
+		c: 100,
+		ab: "Desolation Form"
+	},
+	"Extra Mayumi": {
+		t1: "Earth",
+		t2: "Warped",
+		bs: {hp: 75, fa: 80, fd: 95, sa: 120, sd: 70, sp: 80},
+		c: 100,
+		ab: "Master's Defense"
+	},
+	"Normal Keiki": {
+		t1: "Earth",
+		bs: {hp: 60, fa: 70, fd: 55, sa: 40, sd: 65, sp: 45},
+		c: 120,
+		ab: "Unjustness"
+	},
+	"Power Keiki": {
+		t1: "Earth",
+		t2: "Electric",
+		bs: {hp: 110, fa: 125, fd: 100, sa: 80, sd: 80, sp: 75},
+		c: 120,
+		ab: "Unjustness"
+	},
+	"Assist Keiki": {
+		t1: "Earth",
+		t2: "Water",
+		bs: {hp: 100, fa: 60, fd: 65, sa: 110, sd: 120, sp: 115},
+		c: 120,
+		ab: "Known Limits"
+	},
+	"Extra Keiki": {
+		t1: "Warped",
+		t2: "Electric",
+		bs: {hp: 100, fa: 125, fd: 75, sa: 105, sd: 75, sp: 90},
+		c: 120,
+		ab: "Phalanx"
+	},
+	"Normal Saki": {
+		t1: "Wind",
+		t2: "Fighting",
+		bs: {hp: 55, fa: 70, fd: 50, sa: 60, sd: 30, sp: 60},
+		c: 110,
+		ab: "Aggressive"
+	},
+	"Speed Saki": {
+		t1: "Wind",
+		t2: "Fighting",
+		bs: {hp: 80, fa: 105, fd: 65, sa: 105, sd: 65, sp: 110},
+		c: 110,
+		ab: "Aggressive"
+	},
+	"Power Saki": {
+		t1: "Wind",
+		t2: "Dark",
+		bs: {hp: 105, fa: 145, fd: 75, sa: 85, sd: 50, sp: 70},
+		c: 110,
+		ab: "Aggressive"
+	},
+	"Extra Saki": {
+		t1: "Electric",
+		bs: {hp: 75, fa: 75, fd: 80, sa: 120, sd: 75, sp: 105},
+		c: 110,
+		ab: "Vigorous"
+	},
+	"Normal Miyoi": {
+		t1: "Water",
+		bs: {hp: 60, fa: 30, fd: 50, sa: 60, sd: 50, sp: 30},
+		c: 80,
+		ab: "Active"
+	},
+	"Assist Miyoi": {
+		t1: "Water",
+		t2: "Poison",
+		bs: {hp: 60, fa: 115, fd: 70, sa: 75, sd: 110, sp: 50},
+		c: 80,
+		ab: "Active"
+	},
+	"Power Miyoi": {
+		t1: "Water",
+		t2: "Illusion",
+		bs: {hp: 70, fa: 40, fd: 130, sa: 120, sd: 65, sp: 55},
+		c: 80,
+		ab: "Wariness"
+	},
+	"Extra Miyoi": {
+		t1: "Nature",
+		bs: {hp: 130, fa: 30, fd: 75, sa: 100, sd: 75, sp: 70},
+		c: 80,
+		ab: "Strict Dosage"
+	},
+	"Normal Mike": {
+		t1: "Void",
+		bs: {hp: 40, fa: 50, fd: 40, sa: 40, sd: 40, sp: 65},
+		c: 80,
+		ab: "Lucky"
+	},
+	"Speed Mike": {
+		t1: "Void",
+		bs: {hp: 70, fa: 115, fd: 65, sa: 45, sd: 60, sp: 125},
+		c: 80,
+		ab: "Lucky"
+	},
+	"Assist Mike": {
+		t1: "Steel",
+		bs: {hp: 85, fa: 30, fd: 115, sa: 70, sd: 85, sp: 95},
+		c: 80,
+		ab: "Economist"
+	},
+	"Extra Mike": {
+		t1: "Steel",
+		t2: "Warped",
+		bs: {hp: 70, fa: 115, fd: 90, sa: 50, sd: 55, sp: 100},
+		c: 80,
+		ab: "Niche"
+	},
+	"Normal Takane": {
+		t1: "Nature",
+		bs: {hp: 65, fa: 40, fd: 35, sa: 65, sd: 55, sp: 40},
+		c: 90,
+		ab: "Overcompensate"
+	},
+	"Power Takane": {
+		t1: "Nature",
+		bs: {hp: 110, fa: 45, fd: 60, sa: 125, sd: 95, sp: 60},
+		c: 90,
+		ab: "Overcompensate"
+	},
+	"Speed Takane": {
+		t1: "Nature",
+		t2: "Steel",
+		bs: {hp: 70, fa: 115, fd: 60, sa: 65, sd: 60, sp: 125},
+		c: 90,
+		ab: "Seitei's Wood"
+	},
+	"Extra Takane": {
+		t1: "Nature",
+		t2: "Wind",
+		bs: {hp: 60, fa: 40, fd: 50, sa: 130, sd: 145, sp: 70},
+		c: 90,
+		ab: "Charge!"
+	},
+	"Normal Sannyo": {
+		t1: "Wind",
+		t2: "Poison",
+		bs: {hp: 55, fa: 60, fd: 60, sa: 45, sd: 30, sp: 55},
+		c: 100,
+		ab: "Deploy Smoke"
+	},
+	"Assist Sannyo": {
+		t1: "Wind",
+		t2: "Poison",
+		bs: {hp: 105, fa: 95, fd: 135, sa: 50, sd: 50, sp: 65},
+		c: 100,
+		ab: "Deploy Smoke"
+	},
+	"Power Sannyo": {
+		t1: "Wind",
+		t2: "Fire",
+		bs: {hp: 85, fa: 125, fd: 70, sa: 40, sd: 100, sp: 80},
+		c: 100,
+		ab: "Deploy Smoke"
+	},
+	"Extra Sannyo": {
+		t1: "Nature",
+		t2: "Poison",
+		bs: {hp: 70, fa: 70, fd: 70, sa: 110, sd: 80, sp: 100},
+		c: 100,
+		ab: "Fog Traveler"
+	},
+	"Normal Misumaru": {
+		t1: "Illusion",
+		t2: "Earth",
+		bs: {hp: 40, fa: 40, fd: 55, sa: 50, sd: 70, sp: 55},
+		c: 110,
+		ab: "Projection"
+	},
+	"Defense Misumaru": {
+		t1: "Illusion",
+		t2: "Earth",
+		bs: {hp: 75, fa: 60, fd: 105, sa: 95, sd: 120, sp: 75},
+		c: 110,
+		ab: "Projection"
+	},
+	"Power Misumaru": {
+		t1: "Illusion",
+		t2: "Earth",
+		bs: {hp: 70, fa: 65, fd: 65, sa: 125, sd: 115, sp: 90},
+		c: 110,
+		ab: "Projection"
+	},
+	"Extra Misumaru": {
+		t1: "Light",
+		t2: "Nether",
+		bs: {hp: 60, fa: 70, fd: 110, sa: 105, sd: 110, sp: 75},
+		c: 110,
+		ab: "Spirit of Yang"
+	},
+	"Normal Tsukasa": {
+		t1: "Sound",
+		t2: "Warped",
+		bs: {hp: 40, fa: 55, fd: 40, sa: 50, sd: 40, sp: 60},
+		c: 80,
+		ab: "Sniper"
+	},
+	"Speed Tsukasa": {
+		t1: "Sound",
+		t2: "Warped",
+		bs: {hp: 60, fa: 115, fd: 50, sa: 95, sd: 50, sp: 115},
+		c: 80,
+		ab: "Sniper"
+	},
+	"Assist Tsukasa": {
+		t1: "Sound",
+		t2: "Light",
+		bs: {hp: 85, fa: 95, fd: 90, sa: 45, sd: 80, sp: 90},
+		c: 80,
+		ab: "Curiosity"
+	},
+	"Extra Tsukasa": {
+		t1: "Sound",
+		t2: "Steel",
+		bs: {hp: 90, fa: 95, fd: 105, sa: 40, sd: 85, sp: 70},
+		c: 80,
+		ab: "Fox's Wedding"
+	},
+	"Normal Megumu": {
+		t1: "Wind",
+		t2: "Light",
+		bs: {hp: 60, fa: 65, fd: 40, sa: 35, sd: 50, sp: 70},
+		c: 120,
+		ab: "Up Tempo"
+	},
+	"Speed Megumu": {
+		t1: "Wind",
+		t2: "Light",
+		bs: {hp: 70, fa: 95, fd: 75, sa: 60, sd: 100, sp: 140},
+		c: 120,
+		ab: "Up Tempo"
+	},
+	"Power Megumu": {
+		t1: "Wind",
+		t2: "Electric",
+		bs: {hp: 80, fa: 90, fd: 80, sa: 125, sd: 80, sp: 85},
+		c: 120,
+		ab: "Up Tempo"
+	},
+	"Extra Megumu": {
+		t1: "Fighting",
+		t2: "Light",
+		bs: {hp: 80, fa: 100, fd: 70, sa: 100, sd: 70, sp: 120},
+		c: 120,
+		ab: "Flat Speed"
+	},
+	"Normal Chimata": {
+		t1: "Light",
+		t2: "Steel",
+		bs: {hp: 60, fa: 60, fd: 60, sa: 40, sd: 60, sp: 40},
+		c: 120,
+		ab: "Glamorous"
+	},
+	"Defense Chimata": {
+		t1: "Light",
+		t2: "Steel",
+		bs: {hp: 100, fa: 110, fd: 110, sa: 60, sd: 85, sp: 75},
+		c: 120,
+		ab: "Glamorous"
+	},
+	"Power Chimata": {
+		t1: "Void",
+		bs: {hp: 90, fa: 120, fd: 80, sa: 70, sd: 80, sp: 100},
+		c: 120,
+		ab: "Disjointed Blow"
+	},
+	"Extra Chimata": {
+		t1: "Light",
+		bs: {hp: 70, fa: 85, fd: 80, sa: 110, sd: 75, sp: 120},
+		c: 120,
+		ab: "Grand Opening"
+	},
+	"Normal Momoyo": {
+		t1: "Poison",
+		bs: {hp: 55, fa: 80, fd: 65, sa: 45, sd: 40, sp: 50},
+		c: 120,
+		ab: "Poison Body"
+	},
+	"Power Momoyo": {
+		t1: "Poison",
+		t2: "Steel",
+		bs: {hp: 70, fa: 165, fd: 90, sa: 105, sd: 80, sp: 60},
+		c: 120,
+		ab: "Poison Thorns"
+	},
+	"Speed Momoyo": {
+		t1: "Poison",
+		t2: "Earth",
+		bs: {hp: 95, fa: 105, fd: 105, sa: 125, sd: 50, sp: 90},
+		c: 120,
+		ab: "Poison Body"
+	},
+	"Extra Momoyo": {
+		t1: "Dark",
+		t2: "Earth",
+		bs: {hp: 75, fa: 110, fd: 125, sa: 90, sd: 75, sp: 95},
+		c: 120,
+		ab: "Inverse Toxin"
+	},
+	"Normal Yuuma": {
+		t1: "Dark",
+		t2: "Poison",
+		bs: {hp: 85, fa: 45, fd: 40, sa: 75, sd: 40, sp: 40},
+		c: 110,
+		ab: "Empowered"
+	},
+	"Power Yuuma": {
+		t1: "Dark",
+		t2: "Poison",
+		bs: {hp: 115, fa: 60, fd: 80, sa: 120, sd: 70, sp: 85},
+		c: 110,
+		ab: "Empowered"
+	},
+	"Defense Yuuma": {
+		t1: "Water",
+		t2: "Poison",
+		bs: {hp: 135, fa: 110, fd: 95, sa: 50, sd: 75, sp: 65},
+		c: 110,
+		ab: "Strong Smile"
+	},
+	"Extra Yuuma": {
+		t1: "Dark",
+		t2: "Water",
+		bs: {hp: 150, fa: 65, fd: 65, sa: 105, sd: 65, sp: 80},
+		c: 110,
+		ab: "Avarice"
+	},
+	"Extra Yuuma (Avarice)": {
+		t1: "Dark",
+		t2: "Water",
+		bs: {hp: 150, fa: 65, fd: 85, sa: 145, sd: 85, sp: 100},
+		c: 110,
+		ab: "Avarice",
+		isAlternateForme: true
+	},
 };

@@ -137,6 +137,16 @@ var ITEMS_YNK = [
 	"Ancient Lunar Sake",
 	"Hakurei Amulet",
 	"Capture Rope",
+	"Tengu Geta",
+	"Radiant Hairpin",
+	"Tsuzumi Drum",
+	"Pure Sand",
+	"Izanagi Object",
+	"Yggdrasil Seed",
+	"Crystal Mirror",
+	"Spirit Torch",
+	"Giant Bit",
+	"Absorber"
 ];
 
 function getItemType(item) { //Utilized for both boosting and type-resist items, rather than using 2 separate functions

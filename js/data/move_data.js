@@ -3211,4 +3211,69 @@ var MOVES_YNK = {
 		category: "Status",
 		bp: 0
 	},
+	"Blitzkrieg": {
+		type: "Electric",
+		category: "Focus",
+		bp: 55,
+		acc100: true
+	},
+	"Take Over": {
+		type: "Nether",
+		category: "Spread",
+		isEN: true,
+		bp: 95,
+		acc100: true
+	},
+	"Omen": {
+		type: "Illusion",
+		category: "Spread",
+		isEN: true,
+		bp: 120,
+		acc100: true
+		
+	},
+	"Flash": {
+		type: "Electric",
+		category: "Focus",
+		bp: 40,
+		acc100: true,
+		priority: 1
+	},
+	"Season [Winter]": {
+		type: "Nature",
+		category: "Status",
+		bp: 0
+	},
+	"Season [Spring]": {
+		type: "Nature",
+		category: "Status",
+		bp: 0
+	},
+	"Season [Summer]": {
+		type: "Nature",
+		category: "Status",
+		bp: 0
+	},
+	"Season [Fall]": {
+		type: "Nature",
+		category: "Status",
+		bp: 0
+	},
+	"Season [Doyou]": {
+		type: "Void",
+		category: "Status",
+		bp: 0
+	},
+	"Rainbow Shot": {
+		type: "Light",
+		category: "Focus",
+		isEN: true,
+		bp: 85,
+		acc100: true
+	},
+	"Fading Out": {
+		type: "Illusion",
+		category: "Status",
+		bp: 0
+	},
 };

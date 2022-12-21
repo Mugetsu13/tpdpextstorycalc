@@ -1,9 +1,9 @@
 ﻿function getKOChanceText(damage, attacker, defender, field, move, hits, isDreamWorld) {
 	if (isNaN(damage[0])) {
-		return 'something broke; please tell Austin';
+		return 'something broke, please ping @The_Eevee_Man';
 	}
 	if (damage[damage.length - 1] === 0) {
-		return 'aim for the horn next time';
+		return 'skill issue';
 	}
 	if (damage[0] >= defender.maxHP && (move.usedTimes === 1 && move.metronomeCount === 1)) {
 		return 'guaranteed OHKO';
@@ -11,12 +11,12 @@
 
 	var hazards = 0;
 	var hazardText = [];
-	if (field.isST && defender.ability !== "Imposing Stance") {
+	if (field.isST && defender.ability !== "Imposing Stance" && defender.item !== "Tengu Geta") {
 		var effectiveness = typeChart['Steel'][defender.type1] * (defender.type2 ? typeChart['Steel'][defender.type2] : 1);
 		hazards += Math.floor(effectiveness * defender.maxHP / 8);
 		hazardText.push('Stealth Trap');
 	}
-	if (!defender.hasType('Wind') && defender.ability !== "Air Cushion" && defender.item !== "Floating Stone") {
+	if (!defender.hasType('Wind') && defender.ability !== "Air Cushion" && defender.item !== "Floating Stone" && defender.item !== "Tengu Geta") {
 		if (field.mines === 1) {
 			hazards += Math.floor(defender.maxHP / 8);
 			hazardText.push('1 Mine Trap');
@@ -98,6 +98,23 @@
 	if (field.isAttackerSeeded && attacker.ability !== "Imposing Stance") {
 		eotGain += Math.floor(attacker.maxHP / 8);
 		eotRecovery.push('Drain Seed');
+		eotDamage.push('');
+	}
+	
+	//Spirit Torch
+	if (attacker.item === "Spirit Torch" && field.terrain == "Suzaku") {
+		eot -= Math.floor(defender.maxHP / 8);
+		eotDamage.push('Spirit Torch');
+		eotRecovery.push('');
+	}
+	
+	//Absorber
+	var effect1 = typeChart[move.type][defender.type1]
+	var effect2 = (defender.type2 ? typeChart[move.type][defender.type2] : 1)
+	var absorberEffectiveness = effect1 * effect2; //calculation behaves strangely if full conditionals are used over variables
+	if (defender.item === "Absorber" && absorberEffectiveness < 1) {
+		eotGain += Math.floor(defender.maxHP * .18);
+		eotRecovery.push('Absorber');
 		eotDamage.push('');
 	}
 

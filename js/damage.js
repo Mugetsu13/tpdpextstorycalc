@@ -16,12 +16,16 @@ function CALCULATE_ALL_MOVES_ALL(p1, p2, field) {
 	checkDeploy(p2, p1);
 	checkAggression(p1, p2);
 	checkAggression(p2, p1);
+	checkPhalanx(p1, p2);
+	checkPhalanx(p2, p1);
 	p1.stats[FA] = getModifiedStat(p1.rawStats[FA], p1.boosts[FA]);
 	p1.stats[SA] = getModifiedStat(p1.rawStats[SA], p1.boosts[SA]);
 	p2.stats[FA] = getModifiedStat(p2.rawStats[FA], p2.boosts[FA]);
 	p2.stats[SA] = getModifiedStat(p2.rawStats[SA], p2.boosts[SA]);
 	var side1 = field.getSide(1);
 	var side2 = field.getSide(0);
+	checkSecretCeremony(p1, field);
+	checkSecretCeremony(p2, field);
 	checkInfiltrator(p1, side1);
 	checkInfiltrator(p2, side2);
 	var results = [[], []];
@@ -44,6 +48,8 @@ function CALCULATE_MOVES_OF_ATTACKER_ALL(attacker, defender, field) {
 	checkWeatherResist(defender, field);
 	checkBibliophilia(attacker, field.getWeather());
 	checkBibliophilia(defender, field.getWeather());
+	checkSecretCeremony(p1, field);
+	checkSecretCeremony(p2, field);
 	checkItemless(attacker);
 	checkItemless(defender);
 	attacker.stats[SP] = getFinalSpeed(attacker, field.getWeather(), field.getTerrain());
@@ -53,6 +59,7 @@ function CALCULATE_MOVES_OF_ATTACKER_ALL(attacker, defender, field) {
 	checkDeploy(attacker, defender);
 	checkDeploy(defender, attacker);
 	checkAggression(attacker, defender);
+	checkPhalanx(attacker, defender);
 	attacker.stats[FA] = getModifiedStat(attacker.rawStats[FA], attacker.boosts[FA]);
 	attacker.stats[SA] = getModifiedStat(attacker.rawStats[SA], attacker.boosts[SA]);
 	defender.stats[FA] = getModifiedStat(defender.rawStats[FA], defender.boosts[FA]);
@@ -135,9 +142,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	}
 
 	//Form ability handler
-	var formCheck = ["Stream Form", "Natural Form", "Unyielding Form", "Gale Form", "Bright Form", "Midnight Form", "Ghost Form"].indexOf(atkAbility);
+	var formCheck = ["Stream Form", "Natural Form", "Unyielding Form", "Gale Form", "Bright Form", "Midnight Form", "Ghost Form", "Desolation Form", "General's Form"].indexOf(atkAbility);
 	if (formCheck !== -1 && move.type === "Void") {
-		move.type = ["Water", "Nature", "Steel", "Wind", "Light", "Dark", "Nether"][formCheck];
+		move.type = ["Water", "Nature", "Steel", "Wind", "Light", "Dark", "Nether", "Earth", "Fighting"][formCheck];
 		description.attackerAbility = atkAbility;
 	}
 
@@ -166,6 +173,12 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		} else if (typeChart[move.type][defender.type2] === 0) {
 			typeEffectiveness = typeEffect1;
 		}
+	}
+	
+	//Crystal Mirror Handling
+	if (attacker.item === "Crystal Mirror" && field.terrain === "Byakko" && typeEffectiveness === 0){
+		typeEffectiveness = 1;
+		description.attackerItem = attacker.item;
 	}
 
 	//Immunity Handling
@@ -223,7 +236,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	description.HPPP = defender.HPPP + " HP";
 
 	//Fixed damage moves
-	if (["Charon Ferries", "Akido Arts"].indexOf(move.name) !== -1) {
+	if (["Charon Ferries", "Aikido Arts"].indexOf(move.name) !== -1) {
 		var lv = attacker.level;
 		if (atkAbility === "Two of a Kind") {
 			lv *= 2;
@@ -271,7 +284,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	/////////////////////////////////////////
 	var attack;
 	var attackSource = move.name === "Revolving Illusions" ? defender : attacker;
+	var attackSource = move.name === "Take Over" ? defender : attacker;
 	var attackStat = move.category === "Focus" ? FA : SA;
+	
 	description.attackPP = attacker.pp[attackStat] +
             (MARKS[attacker.mark] === attackStat ? "+" : "") + " " +
             toTPDPStat(attackStat);
@@ -284,6 +299,8 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		attack = attackSource.stats[attackStat];
 		description.attackBoost = attackSource.boosts[attackStat];
 	}
+	
+	
 
 	//Attack Modifiers
 	//TODO: Do attack abilities apply in the BP step or the attack calculation step? Assume attack for now
@@ -429,6 +446,13 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		basePower = hpRat === 1 ? 120 : Math.max(1, Math.floor(hpRat * 80));
 		description.moveBP = basePower;
 		break;
+	case "Blitzkrieg":
+		if (turnOrder === "FIRST"){
+			basePower = move.bp * 2;
+		} else {
+			basePower = move.bp;
+		}
+		break;
 	default:
 		basePower = move.bp;
 	}
@@ -550,7 +574,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 			description.defenderAbility = defAbility;
 		}
 	}
-
+	//var hpRat = attacker.curHP / attacker.maxHP;
+	//basePower = hpRat === 1 ? 150 : Math.max(1, Math.floor(hpRat * 100));
+	//description.moveBP = basePower;
 	//Offense Items
 	if (move.type === atkItemType && atkItem.indexOf("Charm") === -1) { //Type-based boosting item
 		if (atkItem.indexOf("Hairpin") === -1) {
@@ -560,14 +586,19 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		}
 		description.attackerItem = atkItem;
 	//TODO: do Good Items/similar actually increase attack, or does it affect damage?
-	} else if (atkItem === "Good Ring" && move.category === "Focus" || atkItem === "Good Earrings" && move.category === "Spread" || atkItem === "Boundary Trance") {
+	} else if (atkItem === "Good Ring" && move.category === "Focus" || atkItem === "Good Earrings" && move.category === "Spread" || atkItem === "Boundary Trance" || atkItem === "Yggdrasil Seed" && field.terrain === "Seiryu") {
 		finalMods.push(1.5);
 		description.attackerItem = attacker.item;
-	} else if (atkItem === "Straw Doll") {
+	} else if (atkItem === "Straw Doll" || atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1 || atkItem === "Tsuzumi Drum" && !isSTAB) {
 		finalMods.push(1.3);
 		description.attackerItem = atkItem;
 	} else if (atkItem === "Red Ring" && move.category === "Focus" || atkItem === "Blue Earrings" && move.category === "Spread" || atkItem === "Dream Shard") {
 		finalMods.push(1.1);
+		description.attackerItem = attacker.item;
+	} else if (atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP !== 1) {
+		var percentMaxHealth = attacker.curHP / attacker.maxHP
+		var radiant = percentMaxHealth * .2
+		finalMods.push(radiant + 1);
 		description.attackerItem = attacker.item;
 	}
 
@@ -588,6 +619,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (defender.item === "Large Shield" && typeEffectiveness !== 1) {
 		//from what i've heard, Large Shield halves resisted hits, but doubles SE hits
 		finalMods.push(typeEffectiveness < 1 ? 0.5 : 2);
+		description.defenderItem = defender.item;
+	} else if (defender.item === "Yggdrasil Seed" && field.terrain === "Seiryu") {
+		finalMods.push(1.5);
 		description.defenderItem = defender.item;
 	}
 
@@ -616,6 +650,8 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 1.3;
 	} else if ((atkAbility === "Reckless" && (typeof move.hasRecoil === 'number' || move.hasRecoil === 'crash')) ||
                (atkAbility === "Western Expanse" && field.terrain === "Byakko" && move.acc100) ||
+			   (atkAbility === "Empowered" && move.isEN) ||
+			   (atkAbility === "Astronomy" && !(move.isEN)) ||
                (atkAbility === "First Hit" && turnOrder === "FIRST") ||
                 atkAbility === "Full Power") {
 		pendingMod = 1.2;
@@ -778,7 +814,7 @@ function getModifiedStat(stat, mod) {
 
 function getFinalSpeed(puppet, weather, terrain) {
 	var speed = getModifiedStat(puppet.rawStats[SP], puppet.boosts[SP]);
-	if (puppet.item === "Choice Belt" || puppet.item === "Boundary Trance") {
+	if (puppet.item === "Good Belt" || puppet.item === "Boundary Trance" || puppet.item === "Izanagi Object" && terrain === "Kohryu") {
 		speed = Math.floor(speed * 1.5);
 	} else if (puppet.item === "Iron Clogs") {
 		speed = Math.floor(speed / 2);
@@ -786,7 +822,8 @@ function getFinalSpeed(puppet, weather, terrain) {
 	if ((puppet.ability === "Flash" && weather === "Aurora") ||
         (puppet.ability === "Sand Devil" && weather === "Dust Storm") ||
         (puppet.ability === "Fog Traveler" && weather === "Heavy Fog") ||
-        (puppet.ability === "Fox's Wedding" && weather === "Sunshower")) {
+        (puppet.ability === "Fox's Wedding" && weather === "Sunshower") ||
+		(puppet.ability === "Silent Running" && weather === "Calm")) {
 		speed *= 2;
 	} else if (puppet.ability === "Northern Expanse" && terrain === "Genbu") {
 		speed *= 0.5;
@@ -819,6 +856,72 @@ function checkBibliophilia(puppet) {
 			puppet.type1 = "Void";
 		}
 		puppet.type2 = "";
+	}
+}
+
+//this is easily the worst code I have ever written.
+function checkSecretCeremony(puppet, field) {
+	var secretWeather = field.getWeather();
+	var secretTerrain = field.getTerrain();
+	if (puppet.ability === "Secret Ceremony" && puppet.name === "Extra Okina") {
+		if (secretWeather !== "" && secretTerrain === "") {
+			if (secretWeather === "Aurora") { 
+				puppet.type1 = "Light";
+			} else if (secretWeather === "Heavy Fog") { 
+				puppet.type1 = "Dark";
+			} else if (secretWeather === "Sunshower") { 
+				puppet.type1 = "Warped";
+			} else if (secretWeather === "Dust Storm") { 
+				puppet.type1 = "Earth";
+			} else {
+				puppet.type1 = "Wind";
+			}
+			puppet.type2 = "";
+		} else if (secretWeather === "" && secretTerrain !== "") {
+			if (secretTerrain === "Suzaku") {
+				puppet.type1 = "Fire";
+			} else if (secretTerrain === "Genbu") {
+				puppet.type1 = "Water";
+			} else if (secretTerrain === "Seiryu") {
+				puppet.type1 = "Nature";
+			} else if (secretTerrain === "Kohryu") {
+				puppet.type1 = "Earth";
+			} else {
+				puppet.type1 = "Steel";
+			}
+			puppet.type2 = "";
+		} else if (secretWeather !== "" && secretTerrain !== "") {
+			if (secretWeather === "Aurora") { 
+				puppet.type1 = "Light";
+			} else if (secretWeather === "Heavy Fog") { 
+				puppet.type1 = "Dark";
+			} else if (secretWeather === "Sunshower") { 
+				puppet.type1 = "Warped";
+			} else if (secretWeather === "Dust Storm" && secretTerrain !== "Kohryu") { 
+				puppet.type1 = "Earth";
+			} else {
+				puppet.type1 = "Wind";
+			}
+			if (secretTerrain === "Suzaku") {
+				puppet.type2 = "Fire";
+			} else if (secretTerrain === "Genbu") {
+				puppet.type2 = "Water";
+			} else if (secretTerrain === "Seiryu") {
+				puppet.type2 = "Nature";
+			} else if (secretTerrain === "Kohryu" && secretWeather !== "Dust Storm") {
+				puppet.type2 = "Earth";
+			} else {
+				puppet.type2 = "Steel";
+			}
+			if (secretWeather === "Dust Storm" && secretTerrain === "Kohryu") {
+				puppet.type1 = "Earth";
+				puppet.type2 = "";
+			}
+		}
+		if (secretWeather === "Dust Storm" && secretWeather === "Kohryu") {
+			puppet.type1 = "Earth";
+			puppet.type2 = "";
+		}
 	}
 }
 
@@ -864,6 +967,21 @@ function checkAggression(source, target) {
 			source.boosts[SA] = Math.min(6, source.boosts[SA] + 1);
 		} else {
 			source.boosts[FA] = Math.min(6, source.boosts[FA] + 1);
+		}
+	}
+}
+
+//Phalanx always raises FoDef if enemy attack stats are equal
+function checkPhalanx(attacker, defender) {
+	var physAtk = getModifiedStat(attacker.rawStats[FA], attacker.boosts[FD])
+	var spA = getModifiedStat(attacker.rawStats[SA], attacker.boosts[SA]);
+	if (defender.ability === "Phalanx") {
+		if (spA <= physAtk) {
+			defender.boosts[FD] = Math.min(6, defender.boosts[FD] + 1);
+			defender.stats[FD] = getModifiedStat(defender.rawStats[FD], defender.boosts[FD]);
+		} else {
+			defender.boosts[SD] = Math.min(6, defender.boosts[SD] + 1);
+			defender.stats[SD] = getModifiedStat(defender.rawStats[SD], defender.boosts[SD]);
 		}
 	}
 }

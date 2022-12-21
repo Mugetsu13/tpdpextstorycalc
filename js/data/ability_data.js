@@ -200,5 +200,15 @@ var ABILITIES_YNK = [
 	"Mindless Dance",
 	"Final Form",
 	"Brute Force",
-	"Serious"
+	"Serious",
+	"Empowered",
+	"Secret Ceremony",
+	"Stone Stacker",
+	"Desolation Form",
+	"General's Form",
+	"Phalanx",
+	"Silent Running",
+	"Astronomy",
+	"Grand Opening",
+	"Avarice"
 ];
