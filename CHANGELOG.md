@@ -1,3 +1,13 @@
+Changelog - v2.0.1
+=======================
+
+Bugfixes
+------------
+
+-Fixed ECirno's sample set incorrectly displaying as an ACirno set
+
+-Mod website is now correctly linked
+
 Changelog - v2.0.0 Release
 =======================
 
