@@ -3689,7 +3689,7 @@ var PUPPETDEX_YNK = {
 	"Power Urumi": {
 		t1: "Water",
 		t2: "Earth",
-		bs: {hp: 110, fa: 60, fd: 70, sa: 115, sd: 70, sp: 60},
+		bs: {hp: 110, fa: 60, fd: 70, sa: 115, sd: 70, sp: 65},
 		c: 90,
 		ab: "Warning Shot"
 	},
