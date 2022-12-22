@@ -10,7 +10,6 @@ var SETDEX_YNK = {
 	"Assist Cirno": {
 		//Below Contribution(s) by Damage from the TPDP Discord
 		"Support": {"ability": "Curiosity", "level": 100, "pp": {"hp": 64, "sd": 64, "sa": 2}, "ranks": {"fa": 0}, "moves": ["Mine Trap", "Puppet’s Grudge", "Lazy Mist", "Miasma"], "mark": "White", "item": "Food Rations"},
-		"Utility": {"ability": "Known Limits", "level": 100, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Stealth Trap", "Grace of Mana", "Lazy Mist", "Lightning Speed"], "mark": "Blue", "item": "Food Rations"},
 	},
 	"Assist Eirin": {
 		//Below Contribution(s) by Damage from the TPDP Discord
@@ -100,6 +99,10 @@ var SETDEX_YNK = {
 	"Extra Chen": {
 		//Below Contribution(s) by Damage from the TPDP Discord
 		"Belly Drum": {"ability": "Known Limits", "level": 100, "pp": {"fa": 64, "sp": 64, "hp": 2}, "moves": ["Inner Power", "Swallow Cut", "Shooting Press", "Flying Frenzy"], "mark": "Red", "item": "Life Charm"},
+	},
+	"Extra Cirno": {
+		//Below Contribution(s) by Damage from the TPDP Discord
+		"Utility": {"ability": "Known Limits", "level": 100, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Stealth Trap", "Grace of Mana", "Lazy Mist", "Lightning Speed"], "mark": "Blue", "item": "Food Rations"},
 	},
 	"Extra Doremy": {
 		//Below Contribution(s) by Damage from the TPDP Discord
