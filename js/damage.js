@@ -557,7 +557,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	}
 	finalMods.push(weatherMod);
 
-	//Prepare Item modifications (besides ones that explicitly modify stats like Good Ring, Golden Hairpin, Youma, etc.)
+	//Prepare Item modifications (besides ones that explicitly modify stats like Choice Ring, Golden Hairpin, Youma, etc.)
 	var atkItem = "", atkItemType = "None";
 	var defItem = "", defItemType = "None";
 	if (field.terrain !== "Kohryu" || atkAbility === "Central Expanse") {
@@ -586,7 +586,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		}
 		description.attackerItem = atkItem;
 	//TODO: do Good Items/similar actually increase attack, or does it affect damage?
-	} else if (atkItem === "Good Ring" && move.category === "Focus" || atkItem === "Good Earrings" && move.category === "Spread" || atkItem === "Boundary Trance" || atkItem === "Yggdrasil Seed" && field.terrain === "Seiryu") {
+	} else if (atkItem === "Choice Ring" && move.category === "Focus" || atkItem === "Choice Earrings" && move.category === "Spread" || atkItem === "Yggdrasil Seed" && field.terrain === "Seiryu") {
 		finalMods.push(1.5);
 		description.attackerItem = attacker.item;
 	} else if (atkItem === "Straw Doll" || atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1 || atkItem === "Tsuzumi Drum" && !isSTAB) {
@@ -600,14 +600,19 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		var radiant = percentMaxHealth * .2
 		finalMods.push(radiant + 1);
 		description.attackerItem = attacker.item;
+	} else if (atkItem === "Boundary Trance") {
+		finalMods.push(2.0);
+		description.attackerItem = attacker.item;
 	}
 
 	//Defense Items
-	if (move.type === defItemType && atkItem.indexOf("Charm") !== -1) { //Type-based charm item
+	var itemType = getItemType(defender.item);
+	var itemCharm = isItemCharm(defender.item)
+	if (move.type === itemType && itemCharm === 1) { //Type-based charm item
 		finalMods.push(0.5);
 		description.defenderItem = defItem;
 	//TODO: do Golden Hairpin/similar actually increase defense, or does it affect damage in this step?
-	} else if (defender.item === "Golden Hairpin" && defenseStat === FD || defender.item === "Silver Hairpin" && defenseStat === SD || defender.item === "Boundary Trance") {
+	} else if (defender.item === "Golden Hairpin" && defenseStat === FD || defender.item === "Silver Hairpin" && defenseStat === SD) {
 		finalMods.push(2 / 3); //1/1.5 = 2/3
 		description.defenderItem = defender.item;
 	} else if (defender.item === "Iron Will Ribbon" && ironWill) {
@@ -623,6 +628,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (defender.item === "Yggdrasil Seed" && field.terrain === "Seiryu") {
 		finalMods.push(1.5);
 		description.defenderItem = defender.item;
+	} else if (defender.item === "Boundary Trance") { 
+		finalMods.push(0.5);
+		description.defenderItem = defItem;
 	}
 
 	//Prepare Ability modifications (INCLUDING ones that make moves more "powerful")
@@ -814,10 +822,12 @@ function getModifiedStat(stat, mod) {
 
 function getFinalSpeed(puppet, weather, terrain) {
 	var speed = getModifiedStat(puppet.rawStats[SP], puppet.boosts[SP]);
-	if (puppet.item === "Good Belt" || puppet.item === "Boundary Trance" || puppet.item === "Izanagi Object" && terrain === "Kohryu") {
+	if (puppet.item === "Choice Belt" || puppet.item === "Izanagi Object" && terrain === "Kohryu") {
 		speed = Math.floor(speed * 1.5);
 	} else if (puppet.item === "Iron Clogs") {
 		speed = Math.floor(speed / 2);
+	} else if (puppet.item === "Boundary Trance") {
+		speed = Math.floor(speed * 2.0);
 	}
 	if ((puppet.ability === "Flash" && weather === "Aurora") ||
         (puppet.ability === "Sand Devil" && weather === "Dust Storm") ||
