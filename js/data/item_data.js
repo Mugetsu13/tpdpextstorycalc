@@ -66,9 +66,9 @@ var ITEMS_YNK = [
 	"Blue Earrings",
 	"Deadly Secrets",
 	"Straw Doll",
-	"Good Ring",
-	"Good Earrings",
-	"Good Belt",
+	"Choice Ring",
+	"Choice Earrings",
+	"Choice Belt",
 	"Repetitive Arts",
 	"Iron Clogs",
 	"Rosary",
@@ -216,5 +216,28 @@ function getItemType(item) { //Utilized for both boosting and type-resist items,
 		return 'Warped';
 	default:
 		return 'None';
+	}
+}
+
+function isItemCharm(item) { //the above function doesnt fucking work for charms so I did the lazy solution
+	switch (item) {
+	case "Anti-Fire Charm":
+	case "Anti-Aqua Charm":
+	case "Anti-Flora Charm":
+	case "Anti-Earth Charm":
+	case "Anti-Steel Charm":
+	case "Anti-Wind Charm":
+	case "Anti-Bolt Charm":
+	case "Anti-Light Charm":
+	case "Anti-Dark Charm":
+	case "Anti-Necro Charm":
+	case "Anti-Toxin Charm":
+	case "Anti-Fight Charm":
+	case "Anti-Veil Charm":
+	case "Anti-Sound Charm":
+	case "Anti-Warp Charm":
+		return 1;
+	default:
+		return 0;
 	}
 }
