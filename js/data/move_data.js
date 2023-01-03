@@ -3224,21 +3224,6 @@ var MOVES_YNK = {
 		bp: 95,
 		acc100: true
 	},
-	"Omen": {
-		type: "Illusion",
-		category: "Spread",
-		isEN: true,
-		bp: 120,
-		acc100: true
-		
-	},
-	"Flash": {
-		type: "Electric",
-		category: "Focus",
-		bp: 40,
-		acc100: true,
-		priority: 1
-	},
 	"Season [Winter]": {
 		type: "Nature",
 		category: "Status",
