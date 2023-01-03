@@ -1,3 +1,20 @@
+Changelog - v2.0.2
+=======================
+
+Changes
+------------
+
+-Default puppet level is now 50 to reflect the way netplay is commonly held
+
+-Sample sets are now set to level 50
+
+Removals
+------------
+
+-Removed Omen
+
+-Removed Flash (move)
+
 Changelog - v2.0.1
 =======================
 
