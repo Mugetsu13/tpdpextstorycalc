@@ -106,7 +106,7 @@ function getStats(currentpupp, rows, offset) {
 	var currentPP;
 	var currentRank;
 	var currentMark;
-	currentpupp.level = 100;
+	currentpupp.level = 50;
 	for (var x = offset; x < offset + 7; x++) {
 		var currentRow = rows[x] ? rows[x].split(/[/:]/) : '';
 		var ppall = {};
