@@ -332,7 +332,7 @@ $(".set-selector").change(function () {
 				moveObj.change();
 			}
 		} else {
-			puppObj.find(".level").val(100);
+			puppObj.find(".level").val(50);
 			puppObj.find(".hp .pp").val(0);
 			puppObj.find(".hp .ranks").val(15);
 			puppObj.find(".hp .dvs").val(15);
