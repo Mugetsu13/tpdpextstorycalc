@@ -1,3 +1,13 @@
+Changelog - v2.0.3
+=======================
+
+Bugfixes
+------------
+
+-Known Limits now applies damage reduction correctly
+
+-Blitzkrieg now properly shows its base power
+
 Changelog - v2.0.2
 =======================
 
