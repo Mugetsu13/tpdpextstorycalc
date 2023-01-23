@@ -449,8 +449,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	case "Blitzkrieg":
 		if (turnOrder === "FIRST"){
 			basePower = move.bp * 2;
+			description.moveBP = basePower;
 		} else {
 			basePower = move.bp;
+			description.moveBP = basePower;
 		}
 		break;
 	default:
@@ -669,7 +671,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 0.9;
 	} else if ((atkAbility === "Known Limits" && !isSTAB) ||
 	           (doppelganger)) { //Two of a Kind flag
-		pendingMod = 0.6;
+		pendingMod = 0.66;
 	}
 	//Skip over the entire above section's power modifications if Ascertainment is present
 	if (pendingMod !== 1 && defAbility === "Ascertainment") { //NOTE: This also blocks the power reduction from 2 of a kind, but NOT the multihit!
@@ -688,7 +690,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (defAbility === "Glamorous" && typeEffectiveness > 1) {
 		pendingMod = 0.75;
 	} else if (defAbility === "Known Limits" && !isSTAB) {
-		pendingMod = 0.6;
+		pendingMod = 0.66;
 	} else if ((defAbility === "Inverse Reaction" && (move.type === "Light" || move.type === "Dark")) ||
 		       (defAbility === "Yata no Kagami" && defender.curHP === defender.maxHP) ||
 	           (defAbility === "Unique Shield" && move.category === "Focus") ||
