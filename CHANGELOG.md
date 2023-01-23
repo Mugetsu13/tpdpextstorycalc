@@ -8,6 +8,8 @@ Bugfixes
 
 -Blitzkrieg now properly shows its base power
 
+-'Form' abilities no longer incorrectly boost the power of Void type moves
+
 Changelog - v2.0.2
 =======================
 

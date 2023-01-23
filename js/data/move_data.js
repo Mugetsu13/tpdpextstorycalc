@@ -8,43 +8,50 @@ var MOVES_YNK = {
 		type: "Void",
 		category: "Focus",
 		bp: 1,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Perfect Aim": {
 		type: "Void",
 		category: "Focus",
 		bp: 1,
-		accuracy: 30
+		accuracy: 30,
+		isVoid: true
 	},
 	"Prank": {
 		type: "Void",
 		category: "Focus",
 		bp: 1,
-		accuracy: 90
+		accuracy: 90,
+		isVoid: true
 	},
 	"Recompensate": {
 		type: "Void",
 		category: "Focus",
 		bp: 1,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Whole Being": {
 		type: "Void",
 		category: "Focus",
 		bp: 125,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Final Tribulation": {
 		type: "Void",
 		category: "Focus",
 		bp: 100,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Last Resort": {
 		type: "Void",
 		category: "Focus",
 		bp: 140,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Firm Spirit": {
 		type: "Void",
@@ -52,87 +59,100 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 130,
 		acc100: true,
-		willCharge: true
+		willCharge: true,
+		isVoid: true
 	},
 	"Overskill": {
 		type: "Void",
 		category: "Focus",
 		isEN: true,
 		bp: 120,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Spirit Rush": {
 		type: "Void",
 		category: "Focus",
 		isEN: true,
 		bp: 120,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Frenzied Joururi": {
 		type: "Void",
 		category: "Focus",
 		bp: 100,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Swallow Cut": {
 		type: "Void",
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		priority: 2
+		priority: 2,
+		isVoid: true
 	},
 	"Blow from Calamity": {
 		type: "Void",
 		category: "Focus",
 		isEN: true,
 		bp: 70,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Retaliation": {
 		type: "Void",
 		category: "Focus",
 		bp: 70,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Piercing Stab": {
 		type: "Void",
 		category: "Focus",
 		bp: 70,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Struggle": {
 		type: "Dream",
 		category: "Focus",
 		bp: 51,
-		alwaysHits: true
+		alwaysHits: true,
+		isVoid: true
 	},
 	"Cruciform": {
 		type: "Void",
 		category: "Focus",
 		bp: 50,
 		accuracy: 90,
-		isTwoHit: true
+		isTwoHit: true,
+		isVoid: true
 	},
 	"Raid": {
 		type: "Void",
 		category: "Focus",
 		bp: 40,
 		acc100: true,
-		priority: 3
+		priority: 3,
+		isVoid: true
 	},
 	"Tiger Rush": {
 		type: "Void",
 		category: "Focus",
 		bp: 40,
 		acc100: true,
-		priority: 1
+		priority: 1,
+		isVoid: true
 	},
 	"Shadow Rush": {
 		type: "Void",
 		category: "Focus",
 		bp: 30,
 		acc100: true,
-		priority: 2
+		priority: 2,
+		isVoid: true
 	},
 	"Danmaku Dance": {
 		type: "Void",
@@ -140,7 +160,8 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 120,
 		acc100: true,
-		willLock: true
+		willLock: true,
+		isVoid: true
 	},
 	"Crossbow Assault": {
 		type: "Void",
@@ -148,7 +169,8 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 85,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isVoid: true
 	},
 	"Tri-Effect": {
 		type: "Void",
@@ -156,7 +178,8 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isVoid: true
 	},
 	"Destruction": {
 		type: "Void",
@@ -164,28 +187,32 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 70,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isVoid: true
 	},
 	"Volley": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 60,
-		alwaysHits: true
+		alwaysHits: true,
+		isVoid: true
 	},
 	"Heavenly Blessing": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 50,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Earthly Blessing": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 60,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Random Shots": {
 		type: "Void",
@@ -193,90 +220,107 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 25,
 		acc100: true,
-		isMultiHit: true
+		isMultiHit: true,
+		isVoid: true
 	},
 	"False Courage": {
 		type: "Void",
 		category: "Status",
 		bp: 0,
-		priority: 4
+		priority: 4,
+		isVoid: true
 	},
 	"Supernatural Border": {
 		type: "Void",
 		category: "Status",
 		bp: 0,
-		priority: 4
+		priority: 4,
+		isVoid: true
 	},
 	"Magic Barrier": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Invoke Deity": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"First Aid": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Resourcefulness": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Power Spot": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Unconscious Mind": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Inner Power": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Camouflage": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Imposing Air": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Offensive Trance": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Battle Preparation": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Foresee": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Confine": {
 		type: "Void",
 		category: "Status",
 		bp: 0,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Backup Plan": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Yin Energy": {
 		type: "Dream",
@@ -291,7 +335,8 @@ var MOVES_YNK = {
 		isEN: true,
 		bp: 80,
 		accuracy: 85,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isVoid: true
 	},
 	"Yang Energy": {
 		type: "Dream",
@@ -305,72 +350,84 @@ var MOVES_YNK = {
 		category: "Spread",
 		isEN: true,
 		bp: 65,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Good Luck": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Shield Up": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Barrier Up": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Speedy Barrage": {
 		type: "Void",
 		category: "Focus",
 		isEN: true,
 		bp: 140,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Dense Barrage": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 140,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Overrun": {
 		type: "Void",
 		category: "Spread",
 		isEN: true,
 		bp: 100,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Focused Movement": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Eternal Record": {
 		type: "Void",
 		category: "Status",
-		bp: 0
+		bp: 0,
+		isVoid: true
 	},
 	"Recollection": {
 		type: "Void",
 		category: "Status",
 		bp: 0,
-		priority: 3
+		priority: 3,
+		isVoid: true
 	},
 	"Heavenly Influence": {
 		type: "Void",
 		category: "Focus",
 		isEN: true,
 		bp: 50,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Earthly Influence": {
 		type: "Void",
 		category: "Focus",
 		bp: 60,
-		acc100: true
+		acc100: true,
+		isVoid: true
 	},
 	"Conflagration": {
 		type: "Fire",

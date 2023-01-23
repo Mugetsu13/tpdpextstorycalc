@@ -656,7 +656,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 1.4;
 	} else if ((atkAbility === "Charge!" && move.hasSecondaryEffect) ||
 	           (atkAbility === "After Move" && turnOrder !== "FIRST") || //TODO: After Move is a stat increase? prob not
-	           (atkAbility === "On the Edge" && attacker.curHP === 1) || formCheck !== -1) {
+	           (atkAbility === "On the Edge" && attacker.curHP === 1) || formCheck !== -1 && move.isVoid === true) {
 		pendingMod = 1.3;
 	} else if ((atkAbility === "Reckless" && (typeof move.hasRecoil === 'number' || move.hasRecoil === 'crash')) ||
                (atkAbility === "Western Expanse" && field.terrain === "Byakko" && move.acc100) ||
