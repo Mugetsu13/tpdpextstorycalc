@@ -324,7 +324,7 @@ $(".set-selector").change(function () {
 				puppObj.find("." + STATS[i] + " .dvs").val((set.dvs && set.dvs[STATS[i]] !== undefined) ? set.dvs[STATS[i]] : 15);
 			}
 			setSelectValueIfValid(puppObj.find(".mark"), set.mark, "Red");
-			setSelectValueIfValid(abilityObj, puppet.ab ? puppet.ab : set.ability, "");
+			setSelectValueIfValid(abilityObj, set.ability, "");
 			setSelectValueIfValid(itemObj, set.item, "");
 			for (i = 0; i < 4; i++) {
 				moveObj = puppObj.find(".move" + (i + 1) + " select.move-selector");

@@ -257,7 +257,7 @@ function addSets(pupps) {
 					currentpupp.nameProp = "Custom Set";
 				}
 				currentpupp.isCustomSet = true;
-				currentpupp.ab = getAbility(rows[i + 1].split(":"));
+				currentpupp.ability = getAbility(rows[i + 1].split(":"));
 				currentpupp = getStats(currentpupp, rows, i + 1);
 				currentpupp = getMoves(currentpupp, rows, i);
 				addToDex(currentpupp);

@@ -283,8 +283,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	////////// Focus/Spread Attack //////////
 	/////////////////////////////////////////
 	var attack;
-	var attackSource = move.name === "Revolving Illusions" ? defender : attacker;
-	var attackSource = move.name === "Take Over" ? defender : attacker;
+	var attackSource = move.name === "Revolving Illusions" || "Take Over" ? defender : attacker;
 	var attackStat = move.category === "Focus" ? FA : SA;
 	
 	description.attackPP = attacker.pp[attackStat] +
