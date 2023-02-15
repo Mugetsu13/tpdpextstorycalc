@@ -9,7 +9,7 @@ var SETDEX_YNK = {
 	},
 	"Assist Cirno": {
 		//Below Contribution(s) by Damage
-		"Support": {"ability": "Curiosity", "level": 50, "pp": {"hp": 64, "sd": 64, "sa": 2}, "ranks": {"fa": 0}, "moves": ["Mine Trap", "Puppet’s Grudge", "Lazy Mist", "Miasma"], "mark": "White", "item": "Food Rations"},
+		"Support": {"ability": "Curiosity", "level": 50, "pp": {"hp": 64, "sd": 64, "sa": 2}, "ranks": {"fa": 0}, "moves": ["Mine Trap", "Puppet's Grudge", "Lazy Mist", "Miasma"], "mark": "White", "item": "Food Rations"},
 	},
 	"Assist Eirin": {
 		//Below Contribution(s) by Damage
@@ -140,7 +140,7 @@ var SETDEX_YNK = {
 	},
 	"Extra Cirno": {
 		//Below Contribution(s) by Damage
-		"Utility": {"ability": "Known Limits", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Stealth Trap", "Grace of Mana", "Lazy Mist", "Lightning Speed"], "mark": "Blue", "item": "Food Rations"},
+		"Utility": {"ability": "Known Limits", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Stealth Trap", "Grace of Mana", "Lazy Mist", "Lightning Speed"], "mark": "White", "item": "Food Rations"},
 	},
 	"Extra Doremy": {
 		//Below Contribution(s) by Damage
@@ -205,7 +205,11 @@ var SETDEX_YNK = {
 	},
 	"Extra Momiji": {
 		//Below Contribution(s) by Damage
-		"Defensive Utility": {"ability": "Counter Stance", "level": 50, "pp": {"hp": 64, "fd": 23, "sd": 43}, "moves": ["Stealth Trap", "Drain Seed", "Power Drain", "Impact Rebellion"], "mark": "White", "item": "Food Rations"},
+		"Defensive Utility": {"ability": "Counter Stance", "level": 50, "pp": {"hp": 64, "fd": 22, "sd": 44}, "moves": ["Stealth Trap", "Drain Seed", "Power Drain", "Impact Rebellion"], "mark": "White", "item": "Food Rations"},
+	},
+	"Extra Momoyo": {
+		//Below Contribution(s) by Mirage
+		"Bulky Utility": {"level": 50, "pp": {"hp": 62, "fd": 20, "sd": 48}, "mark": "White", "ability": "Inverse Toxin", "item": "Wolfsbane Root", "moves": ["Stealth Trap", "Shooting Press", "Supernatural Border", "Panic Call"]},
 	},
 	"Extra Remilia": {
 		//Below Contribution(s) by Damage
@@ -230,7 +234,7 @@ var SETDEX_YNK = {
 	},
 	"Extra Shizuha": {
 		//Below Contribution(s) by Eevee
-		"Choice Belt": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Charge!", "item": "Choice Belt", "moves": ["Purgatory Flicker", "Voice of Famine", "Wind Javelin", "Changeling"]},
+		"Revenge Killer": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Charge!", "item": "Choice Belt", "moves": ["Purgatory Flicker", "Voice of Famine", "Wind Javelin", "Changeling"]},
 	},
 	"Extra Suwako": {
 		//Below Contribution(s) by Damage
@@ -261,6 +265,10 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Barudo
 		"Wallbreaker": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2,}, "mark": "Black", "ability": "Telescopic", "item": "Choice Earrings", "moves": ["Macroburst", "GIGANTIC", "Spring First", "Chrome Ray"]},
 	},
+	"Extra Yuuka": {
+		//Below Contribution(s) by Eevee
+		"Status Absorber": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2}, "mark": "Black", "ability": "Pride", "item": "Silver Hairpin", "moves": ["Energy Absorb", "Moonbow", "Thunderlord's Scorn", "GIGANTIC"]},
+	},
 	"Extra Yuuma": {
 		//Below Contribution(s) by Damage
 		"Bulky Wallbreaker": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2}, "mark": "Black", "ability": "Avarice", "item": "Silver Hairpin", "moves": ["Frozen Prison", "Dark Sweets", "Dense Barrage", "Aquasonic"]},
@@ -273,10 +281,22 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Mirage
 		"Magic Barrier + 2 Attacks": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Telescopic", "item": "Jar of Poison", "moves": ["Strenuous Stance", "Magic Barrier", "Twilight Infection", "Venom Nova"]},
 	},
+	"Power Gengetsu": {
+		//Below Contribution(s) by Eevee
+		"Pursuit Trapper": {"level": 50, "pp": {"hp": 60, "fa": 64, "sp": 6}, "mark": "Red", "ability": "Insight", "item": "Clear Hairpin", "moves": ["Sneak Attack", "Pursuit", "Evil-Crushing Arrow", "Burn Strike"]},
+	},
+	"Power Ichirin": {
+		//Below Contribution(s) by Mirage
+		"Bulky Wallbreaker": {"level": 50, "pp": {"hp": 44, "fa": 64, "sp": 22}, "mark": "Red", "ability": "Duel", "item": "Golden Hairpin", "moves": ["Exploding Fist", "Panic Call", "Overtake Strike", "Shooting Press"]},
+	},
 	"Power Junko": {
 		//Below Contribution(s) by Power Junko and Damage
 		"Imposing Air Sweeper": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Green", "ability": "Unjustness", "item": "Straw Doll", "moves": ["Overdrive", "Atomic Energy", "Shooting Press", "Imposing Air"]},
 		"Bulky Rest Sweeper": {"level": 50, "pp": {"hp": 64, "fd": 2, "sd": 64}, "mark": "White", "ability": "Unjustness", "item": "Food Rations", "moves": ["Focused Movement", "Atomic Energy", "Distortion Bomb", "Continue"]},
+	},
+	"Power Koishi": {
+		//Below Contribution(s) by JollyPenguin
+		"Wallbreaker": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Black", "ability": "Charge!", "item": "Tsuzumi Drum", "moves": ["Impulse", "Cold Rain", "Inferno", "Thunderlord's Scorn"]},
 	},
 	"Power Konngara": {
 		//Below Contribution(s) by MQJinx
@@ -290,6 +310,10 @@ var SETDEX_YNK = {
 	"Power Megumu": {
 		//Below Contribution(s) by Barudo
 		"Up Tempo Sweeper": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Black", "ability": "Up Tempo", "item": "Straw Doll", "moves": ["Thunderlord's Scorn", "Macroburst", "Brave Burst", "Supernatural Border"]},
+	},
+	"Power Murasa": {
+		//Below Contribution(s) by Mirage
+		"Wallbreaker": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Red", "ability": "Stream Form", "item": "Straw Doll", "moves": ["Tiger Rush", "Raid", "Detonation Burst", "Overskill"]},
 	},
 	"Power Raiko": {
 		//Below Contribution(s) by Lightli
@@ -315,6 +339,10 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Barudo
 		"Choice Belt": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Aggressive", "item": "Choice Belt", "moves": ["Aqua Cannon", "Inferno", "Lightning Speed", "Frozen Prison"]},
 	},
+	"Speed Daiyousei": {
+		//Below Contribution(s) by Mirage
+		"Fairy Dance Sweeper": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Skilled Hand", "item": "Food Rations", "moves": ["Bewitching Pollen", "Fairy Dance", "Energy Absorb", "Macroburst"]},
+	},
 	"Speed Flandre": {
 		//Below Contribution(s) by Barudo
 		"Strenuous Stance Cleaner": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Unbound", "item": "Straw Doll", "moves": ["Twilight Infection", "Over Ray", "St. Elmo's Fire", "Strenuous Stance"]},
@@ -330,11 +358,15 @@ var SETDEX_YNK = {
 	},
 	"Speed Mike": {
 		//Below Contribution(s) by Barudo
-		"Revenge Killer": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Green", "ability": "Morale Boost", "item": "Diamond Hairpin", "moves": ["Swallow Cut", "Raid", "Changeling", "High Tone Crush"]},
+		"Extreme Killer": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Green", "ability": "Morale Boost", "item": "Diamond Hairpin", "moves": ["Swallow Cut", "Raid", "Changeling", "High Tone Crush"]},
 	},
 	"Speed Rin": {
 		//Below Contribution(s) by The_Eevee_Man
 		"Choice Ring": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Morale Boost", "item": "Choice Ring", "moves": ["Purgatory Flicker", "Shooting Press", "Stealth Kill", "Changeling"]},
+	},
+	"Speed Saki": {
+		//Below Contribution(s) by JollyPenguin
+		"Trapper": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Black", "ability": "Battle Mania", "item": "Choice Belt", "moves": ["Macroburst", "Brave Burst", "Lightning Speed", "Inferno"]},
 	},
 	"Speed Sanae": {
 		//Below Contribution(s) by MQJinx
@@ -347,7 +379,8 @@ var SETDEX_YNK = {
 	},
 	"Speed Shinki": {
 		//Below Contribution(s) by Barudo
-		"Barudo's Wife": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Cloak of Darkness", "item": "Straw Doll", "moves": ["Arclight", "Catastrophe", "Bloody Storm", "Brave Song"]},
+		//ok so apparently this set can't be called 'Barudo's wife' because apparently that's "cringe" and "makes him look bad"??? ok man whatever
+		"Brave Song": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Cloak of Darkness", "item": "Straw Doll", "moves": ["Arclight", "Catastrophe", "Bloody Storm", "Brave Song"]},
 	},
 	"Speed Shou": {
 		//Below Contribution(s) by Mirage
