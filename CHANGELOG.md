@@ -1,3 +1,25 @@
+Changelog - v2.0.5
+=======================
+
+Additions
+------------
+
+-Sample sets for the following puppets have been added: EMomoyo, EYuuka, PGengetsu, PIchirin, PKoishi, PMurasa, SDaiyousei, SSaki
+
+Bugfixes
+------------
+
+-Fixed the ECirno sample set having the wrong mark
+
+-Fixed the ACirno sample set not having Puppet's Grudge
+
+-Fixed the EMomiji sample set having incorrect IVs
+
+Removals
+------------
+
+-Removed Barudo's wife
+
 Changelog - v2.0.4
 =======================
 
@@ -9,13 +31,13 @@ Additions
 Bugfixes
 ------------
 
--Revolving Illusions and Take Over now calcuclate damage based off of the opponent's attacking stat correctly
+-Revolving Illusions and Take Over now calculate damage based off of the opponent's attacking stat correctly
 
 -Sample sets now load with the correct ability
 
 -Importing sets now correctly saves the chosen ability
 
--Fixed the moves Will-o'-Wisp, Thunderlord's Scorn and St. Elmo's Fire not properly loading on sample sets.
+-Fixed the moves Will-o'-Wisp, Thunderlord's Scorn and St. Elmo's Fire not properly loading on sample sets
 
 Changelog - v2.0.3
 =======================
