@@ -180,7 +180,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		typeEffectiveness = 1;
 		description.attackerItem = attacker.item;
 	}
-
+	
 	//Immunity Handling
 	if (typeEffectiveness === 0) { //Immunity handling
 		return {"damage": [0], "description": buildDescription(description)};
@@ -282,9 +282,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	/////////////////////////////////////////
 	////////// Focus/Spread Attack //////////
 	/////////////////////////////////////////
+	
+	//Revolving Illusions / Take Over handler
 	var attack;
-	var foulPlay = "Revolving Illusions" || "Take Over"
-	var attackSource = move.name === foulPlay ? defender : attacker;
+	var attackSource = move.isFoul === true ? defender : attacker;
 	var attackStat = move.category === "Focus" ? FA : SA;
 	
 	description.attackPP = attacker.pp[attackStat] +
@@ -591,7 +592,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (atkItem === "Choice Ring" && move.category === "Focus" || atkItem === "Choice Earrings" && move.category === "Spread" || atkItem === "Yggdrasil Seed" && field.terrain === "Seiryu") {
 		finalMods.push(1.5);
 		description.attackerItem = attacker.item;
-	} else if (atkItem === "Straw Doll" || atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1 || atkItem === "Tsuzumi Drum" && !isSTAB) {
+	} else if ((atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1) && gen === 8) {
+		finalMods.push(1.4);
+		description.attackerItem = attacker.item;
+	} else if (atkItem === "Straw Doll" || (atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1) && gen !== 8 || atkItem === "Tsuzumi Drum" && !isSTAB) {
 		finalMods.push(1.3);
 		description.attackerItem = atkItem;
 	} else if (atkItem === "Red Ring" && move.category === "Focus" || atkItem === "Blue Earrings" && move.category === "Spread" || atkItem === "Dream Shard") {
@@ -643,15 +647,25 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		//TODO: Check if FoAtk, etc. buffs are actually BP buffs
 		pendingMod = 2;
 	} else if ((atkAbility === "Strategist" && basePower <= 60) ||
-	          ((atkAbility === "Precise Aim" || (atkAbility === "Western Expanse" && field.terrain === "Byakko")) && move.alwaysHits) ||
+	          ((atkAbility === "Precise Aim" || (atkAbility === "Western Expanse" && field.terrain === "Byakko")) && move.alwaysHits && gen !== 5) ||
 	           (atkAbility === "Gentei's Water" && field.terrain === "Genbu" && move.type === "Water") ||
 	           (atkAbility === "Sutei's Fire" && field.terrain === "Suzaku" && move.type === "Fire") ||
 	           (atkAbility === "Byakutei's Metal" && field.terrain === "Byakko" && move.type === "Steel") ||
 	           (atkAbility === "Seitei's Wood" && field.terrain === "Seiryu" && move.type === "Nature") ||
 	           (atkAbility === "Koutei's Earth" && field.terrain === "Kohryu" && move.type === "Earth") ||
-	           (atkAbility === "Final Form" && isSTAB && attacker.curHP < attacker.maxHP / 3)) {
+	           (atkAbility === "Final Form" && isSTAB && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Robust Spirit" && move.type === "Steel" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Vigorous Spirit" && move.type === "Fighting" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Sparking Spirit" && move.type === "Steel" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Surging Spirit" && move.type === "Water" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Abyssal Spirit" && move.type === "Dark" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Sinister Spirit" && move.type === "Steel" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Raging Spirit" && move.type === "Wind" && attacker.curHP < attacker.maxHP / 3) ||
+	           (atkAbility === "Musical Spirit" && move.type === "Sound" && attacker.curHP < attacker.maxHP / 3)) {
 		pendingMod = 1.5;
 	} else if ((atkAbility === "Vision Bonus" && move.type === "Illusion") ||
+	           (atkAbility === "Spark Bonus" && move.type === "Electric") ||
+	           (atkAbility === "Normal Bonus" && move.type === "Void") ||
 	           (atkAbility === "Disjointed Blow" && typeEffectiveness > 1)) {
 		pendingMod = 1.4;
 	} else if ((atkAbility === "Charge!" && move.hasSecondaryEffect) ||
@@ -687,7 +701,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		pendingMod = 1.5;
 	} else if (defAbility === "Slow Tempo") {
 		pendingMod = 0.9;
-	} else if (defAbility === "Glamorous" && typeEffectiveness > 1) {
+	} else if (defAbility === "Spirit of Yin" && (move.type === "Poison" || move.type === "Dark" || move.type === "Nether") && gen !== 5 ||
+			   defAbility === "Spirit of Yang" && (move.type === "Electric" || move.type === "Light" || move.type === "Illusion") && gen !== 5) {
+		pendingMod = 0.8;
+	}else if (defAbility === "Glamorous" && typeEffectiveness > 1) {
 		pendingMod = 0.75;
 	} else if (defAbility === "Known Limits" && !isSTAB) {
 		pendingMod = 0.66;

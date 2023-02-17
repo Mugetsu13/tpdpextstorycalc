@@ -35,7 +35,10 @@
         <span class="title-text">TPDP Damage Calculator</span>
         <span aria-labelledby="selectGenInstruction" role="radiogroup" title="Select the game.">
             <span class="visually-hidden" id="selectGenInstruction">Select the game.</span>
-            <input class="gen visually-hidden" type="radio" name="gen" value="7" id="gen7" checked="checked" /><label class="btn btn-small" for="gen7">Ext.</label>
+            <input class="gen visually-hidden" type="radio" name="gen" value="5" id="gen5" /><label class="btn btn-small btn-left" for="gen5">Base</label>
+            <input class="gen visually-hidden" type="radio" name="gen" value="6" id="gen6" /><label class="btn btn-small btn-mid" for="gen6">SoD</label>
+            <input class="gen visually-hidden" type="radio" name="gen" value="7" id="gen7" checked="checked" /><label class="btn btn-small btn-right" for="gen7">Ext.</label>
+            <input class="gen visually-hidden" type="radio" name="gen" value="8" id="gen8" /><label class="btn btn-small btn-center" for="gen8">FanChr</label>
         </span>
         <span aria-labelledby="selectNotationInstruction" role="radiogroup" title="Select the output notation.">
             <span class="visually-hidden" id="selectNotationInstruction">Select the output notation.</span>
@@ -532,7 +535,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="50" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -563,7 +566,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -594,7 +597,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -625,7 +628,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -663,7 +666,7 @@
                     <span class="visually-hidden" id="selectWeatherInstruction">Select the current weather.</span>
                     <input class="visually-hidden weather-trigger calc-trigger" type="checkbox" name="weather" value="Aurora" id="aurora" /><label class="btn btn-small btn-left" for="aurora">Aurora</label>
                     <input class="visually-hidden weather-trigger calc-trigger" type="checkbox" name="weather" value="Heavy Fog" id="fog" /><label class="btn btn-wide btn-mid" for="fog">Heavy Fog</label>
-                    <input class="visually-hidden weather-trigger calc-trigger" type="checkbox" name="weather" value="Sunshower" id="sunshower" /><label class="btn btn-wide btn-mid" for="sunshower">Sunshower</label>
+                    <input class="visually-hidden weather-trigger calc-trigger gen-specific g6 g7 g8" type="checkbox" name="weather" value="Sunshower" id="sunshower" /><label class="calc-trigger gen-specific g6 g7 g8 btn btn-wide btn-mid" for="sunshower">Sunshower</label>
                     <input class="visually-hidden weather-trigger calc-trigger" type="checkbox" name="weather" value="Dust Storm" id="duststorm" /><label class="btn btn-wide btn-mid" for="duststorm">Dust Storm</label>
                     <input class="visually-hidden weather-trigger calc-trigger" type="checkbox" name="weather" value="Calm" id="calm" /><label class="btn btn-small btn-right" for="calm">Calm</label>
                 </div>
@@ -672,7 +675,7 @@
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Suzaku" id="suzaku" /><label class="btn btn-left" for="suzaku">Suzaku</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Genbu" id="genbu" /><label class="btn btn-mid" for="genbu">Genbu</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Seiryu" id="seiryu" /><label class="btn btn-mid" for="seiryu">Seiryu</label>
-                    <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Kohryu" id="kohryu" /><label class="btn btn-mid" for="kohryu">Kohryu</label>
+                    <input class="visually-hidden terrain-trigger calc-trigger gen-specific g6 g7 g8" type="checkbox" name="terrain" value="Kohryu" id="kohryu" /><label class="calc-trigger gen-specific g6 g7 g8 btn btn-mid" for="kohryu">Kohryu</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Byakko" id="byakko" /><label class="btn btn-right" for="byakko">Byakko</label>
                 </div>
                 <hr />
@@ -739,50 +742,61 @@
                         </tr>
                         <tr>
                             <td><div class="left" title="Is this Puppet protected?">
-                                <div hidden id="selectProtectInstruction">Is this Puppet protected?</div>
+                                <div hidden id="selectProtectInstruction">Is this Puppet invulnerable?</div>
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectL" />
-                                <label class="btn btn-wide" for="protectL">Protect</label>
+                                <label class="btn btn-xxxwide" for="protectL">Border</label>
                             </div></td>
                             <td style="width:3.5%"></td>
-                            <td><div class="right" title="Is this Puppet protected?">
+                            <td><div class="right" title="Is this Puppet invulnerable?">
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectR" />
-                                <label class="btn btn-wide" for="protectR">Protect</label>
+                                <label class="btn btn-xxxwide" for="protectR">Border</label>
                             </div></td>
                         </tr>
                         <tr>
-                            <td><div class="left" title="Has this Puppet been affected by Leech Seed?">
-                                <div hidden id="selectDrainSeedInstruction">Has this Puppet been affected by Leech Seed?</div>
+                            <td><div class="left" title="Has this Puppet been affected by Drain Seed?">
+                                <div hidden id="selectDrainSeedInstruction">Has this Puppet been affected by Drain Seed?</div>
                                 <input aria-describedby="selectDrainSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="drainSeedL" />
-                                <label class="btn btn-wide" for="drainSeedL">Drain Seed</label>
+                                <label class="btn btn-xxxwide" for="drainSeedL">Drain Seed</label>
                             </div></td>
                             <td style="width:3.5%"></td>
-                            <td><div class="right" title="Has this Puppet been affected by Leech Seed?">
+                            <td><div class="right" title="Has this Puppet been affected by Drain Seed?">
                                 <input aria-describedby="selectDrainSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="drainSeedR" />
-                                <label class="btn btn-wide" for="drainSeedR">Drain Seed</label>
+                                <label class="btn btn-xxxwide" for="drainSeedR">Drain Seed</label>
+                            </div></td>
+                        </tr>
+                            <td><div class="left" title="Has this Puppet been affected by Shinigami's Waltz?">
+                                <div hidden id="selectShinigamiInstruction">Has this Puppet been affected by Shinigami's Waltz?</div>
+                                <input aria-describedby="selectShinigamiInstruction" class="visually-hidden calc-trigger" type="checkbox" id="shinigamiL" />
+                                <label class="btn btn-xxxwide" for="shinigamiL">Shinigami's Waltz</label>
+                            </div></td>
+                            <td style="width:3.5%"></td>
+                            <td><div class="right" title="Has this Puppet been affected by Shinigami's Waltz?">
+                                <input aria-describedby="selectShinigamiInstruction" class="visually-hidden calc-trigger" type="checkbox" id="shinigamiR" />
+                                <label class="btn btn-xxxwide" for="shinigamiR">Shinigami's Waltz</label>
                             </div></td>
                         </tr>
                         <tr>
                             <td><div class="left" title="Has this Puppet had its typechart inverted with Element Reverse?">
                                 <div hidden id="selectReverseInstruction">Has this Puppet had its typechart inverted with Element Reverse?</div>
-                                <input aria-describedby="selectReverseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="reverseL" />
-                                <label class="btn btn-xxxwide" for="reverseL">Element Reverse</label>
+                                <input aria-describedby="selectReverseInstruction" class="visually-hidden calc-trigger gen-specific g6 g7 g8" type="checkbox" id="reverseL" />
+                                <label class="calc-trigger gen-specific g6 g7 g8 btn btn-xxxwide" for="reverseL">Element Reverse</label>
                             </div></td>
                             <td style="width:3.5%"></td>
                             <td><div class="right" title="Has this Puppet had its typechart inverted with Element Reverse?">
-                                <input aria-describedby="selectReverseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="reverseR" />
-                                <label class="btn btn-xxxwide" for="reverseR">Element Reverse</label>
+                                <input aria-describedby="selectReverseInstruction" class="visually-hidden calc-trigger gen-specific g6 g7 g8" type="checkbox" id="reverseR" />
+                                <label class="calc-trigger gen-specific g6 g7 g8 btn btn-xxxwide" for="reverseR">Element Reverse</label>
                             </div></td>
                         </tr>
                         <tr>
                             <td><div class="left" title="Has this Puppet become a ghost using Ghost Chase?">
                                 <div hidden id="selectGhostInstruction">Has this Puppet become a ghost using Ghost Chase?</div>
-                                <input aria-describedby="selectGhostInstruction" class="visually-hidden calc-trigger" type="checkbox" id="ghostChaseL" />
-                                <label class="btn btn-xwide" for="ghostChaseL">Ghost Chase</label>
+                                <input aria-describedby="selectGhostInstruction" class="visually-hidden calc-trigger gen-specific g6 g7 g8" type="checkbox" id="ghostChaseL" />
+                                <label class="calc-trigger gen-specific g6 g7 g8 btn btn-xxxwide" for="ghostChaseL">Ghost Chase</label>
                             </div></td>
                             <td style="width:3.5%"></td>
                             <td><div class="right" title="Has this Puppet become a ghost using Ghost Chase?">
-                                <input aria-describedby="selectGhostInstruction" class="visually-hidden calc-trigger" type="checkbox" id="ghostChaseR" />
-                                <label class="btn btn-xwide" for="ghostChaseR">Ghost Chase</label>
+                                <input aria-describedby="selectGhostInstruction" class="visually-hidden calc-trigger gen-specific g6 g7 g8" type="checkbox" id="ghostChaseR" />
+                                <label class="calc-trigger gen-specific g6 g7 g8 btn btn-xxxwide" for="ghostChaseR">Ghost Chase</label>
                             </div></td>
                         </tr>
                         <tr>
@@ -1233,7 +1247,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="50" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -1264,7 +1278,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -1295,7 +1309,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -1326,7 +1340,7 @@
                 <select class="move-selector calc-trigger small-select"></select>
                 <input class="move-bp calc-trigger" value="0" />
                 <select class="move-type calc-trigger"></select>
-                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7">
+                <select class="move-cat calc-trigger gen-specific g4 g5 g6 g7 g8">
                     <option value="Focus">Focus</option>
                     <option value="Spread">Spread</option>
                 </select>
@@ -1377,10 +1391,11 @@
 </div>
 
     <div style="clear:both;padding:20px;text-align:left"><p>Created by Honko for <a href="https://pokemonshowdown.com">Pokemon Showdown!</a>, modified by Choon for TPDP and modified by The_Eevee_Man for Barudo's -Extended- mod.</p>
+        <p><a href="https://github.com/Gengetsu12/tpdpextcalc/blob/master/CHANGELOG.md" target="_blank">Changelog</a></p>
 		<p><a href="https://github.com/Pikachuun/honko-damagecalc/contributors" target="_blank">Contributors</a></p>
         <p><a href="https://github.com/Gengetsu12/tpdpextcalc" target="_blank">GitHub repository</a></p>
 		<p><a href="https://github.com/Zarel/honko-damagecalc" target="_blank">Original GitHub repository</a></p>
-        <p><font size="-4">(version 2.0.3)</font></p>
+        <p><font size="-4">(version 2.1.0)</font></p>
 	</div>
 
 </body>

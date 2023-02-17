@@ -1,3 +1,48 @@
+Changelog - v2.1.0
+=======================
+
+Additions
+------------
+
+-Support for the follwing formats has been added: Basegame, Shard of Dreams, FanChara
+
+-Shinigami's Waltz can now be selected for additional residual damage during calculation
+
+-Changelog is now accessible from the calculator
+
+-Added form for Tokiko (Assist)
+
+-Added forms for Meeko (Normal, Speed, Power, Extra)
+
+-Added forms for Makura (Normal, Speed, Defense, Extra)
+
+-Added forms for Mitori (Normal, Defense, Assist, Extra)
+
+-Added forms for Fuma (Normal, Assist, Defense, Extra)
+
+-Added forms for Layla (Normal, Power, Defense, Extra)
+
+-Added forms for Youki (Normal, Speed, Power, Extra)
+
+-Added forms for Mart (Normal, Power, Speed, Extra)
+
+-Added Spark Bonus (+40% damage for Electric moves)
+
+-Added Normal Bonus (+40% damage for Void moves)
+
+Bugfixes
+------------
+
+-Spirit of Yin and Spirit of Yang now correctly lowers damage for moves of the affected type
+
+-Layla's Amulet is no longer missing in item selection
+
+-Drain Seed is no longer referred to as 'Leech Seed'
+
+-Extra Yuuma is no longer unable to switch between formes
+
+-Take Over now works properly
+
 Changelog - v2.0.5
 =======================
 

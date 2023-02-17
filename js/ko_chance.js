@@ -101,6 +101,12 @@
 		eotDamage.push('');
 	}
 	
+	//Shinigami's Waltz
+	if (field.isCursed) {
+		eot -= Math.floor(defender.maxHP / 4);
+		eotDamage.push("Shinigami's Walz");
+	}
+	
 	//Spirit Torch
 	if (attacker.item === "Spirit Torch" && field.terrain == "Suzaku") {
 		eot -= Math.floor(defender.maxHP / 8);

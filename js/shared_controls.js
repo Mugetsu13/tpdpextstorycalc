@@ -550,6 +550,7 @@ function Field() {
 	var isFieldBarrier = [$("#fieldBarrierL").prop("checked"), $("#fieldBarrierR").prop("checked")];
 	var isProtected = [$("#protectL").prop("checked"), $("#protectR").prop("checked")];
 	var isSeeded = [$("#drainSeedL").prop("checked"), $("#drainSeedR").prop("checked")];
+	var isCursed = [$("#shinigamiL").prop("checked"), $("#shinigamiR").prop("checked")];
 	var isReversed = [$("#reverseL").prop("checked"), $("#reverseR").prop("checked")];
 	var isGhost = [$("#ghostChaseL").prop("checked"), $("#ghostChaseR").prop("checked")];
 
@@ -566,11 +567,11 @@ function Field() {
 		terrain = "";
 	};
 	this.getSide = function (i) {
-		return new Side(format, terrain, weather, isST[i], mines[i], isFieldProtect[i], isFieldBarrier[i], isProtected[i], isSeeded[1 - i], isSeeded[i], isReversed[i], isGhost[i]);
+		return new Side(format, terrain, weather, isST[i], mines[i], isFieldProtect[i], isFieldBarrier[i], isProtected[i], isSeeded[1 - i], isSeeded[i], isCursed[i], isReversed[i], isGhost[i]);
 	};
 }
 
-function Side(format, terrain, weather, isST, mines, isFieldProtect, isFieldBarrier, isProtected, isAttackerSeeded, isDefenderSeeded, isReversed, isGhost) {
+function Side(format, terrain, weather, isST, mines, isFieldProtect, isFieldBarrier, isProtected, isAttackerSeeded, isDefenderSeeded, isCursed, isReversed, isGhost) {
 	this.format = format;
 	this.terrain = terrain;
 	this.weather = weather;
@@ -581,15 +582,17 @@ function Side(format, terrain, weather, isST, mines, isFieldProtect, isFieldBarr
 	this.isProtected = isProtected;
 	this.isAttackerSeeded = isAttackerSeeded;
 	this.isDefenderSeeded = isDefenderSeeded;
+	this.isCursed = isCursed;
 	this.isReversed = isReversed;
 	this.isGhost = isGhost;
 }
 
 var gen, genWasChanged, notation, puppetdex, setdex, typeChart, moves, abilities, items, STATS, calcHP, calcStat;
 $(".gen").change(function () {
-	var gen = ~~$(this).val();
-	var genWasChanged = true;
+	gen = ~~$(this).val() || 8;
+	genWasChanged = true;
 	switch (gen) {
+	//-Extended-
 	default:
 		puppetdex = PUPPETDEX_YNK;
 		setdex = SETDEX_YNK;
@@ -600,6 +603,55 @@ $(".gen").change(function () {
 		STATS = STATS_ALL;
 		calcHP = CALC_HP_ALL;
 		calcStat = CALC_STAT_ALL;
+		break;
+	//-Extended-
+	case 7:
+		puppetdex = PUPPETDEX_YNK;
+		setdex = SETDEX_YNK;
+		typeChart = TYPE_CHART_YNK;
+		moves = MOVES_YNK;
+		items = ITEMS_YNK;
+		abilities = ABILITIES_YNK;
+		STATS = STATS_ALL;
+		calcHP = CALC_HP_ALL;
+		calcStat = CALC_STAT_ALL;
+		break;
+	//Shard of Dreams
+	case 6:
+		puppetdex = PUPPETDEX_SOD;
+		setdex = SETDEX_SOD;
+		typeChart = TYPE_CHART_YNK;
+		moves = MOVES_SOD;
+		items = ITEMS_SOD;
+		abilities = ABILITIES_SOD;
+		STATS = STATS_ALL;
+		calcHP = CALC_HP_ALL;
+		calcStat = CALC_STAT_ALL;
+		break;
+	//Basegame
+	case 5:
+		puppetdex = PUPPETDEX_BASE;
+		setdex = SETDEX_YNK;
+		typeChart = TYPE_CHART_BASE;
+		moves = MOVES_BASE;
+		items = ITEMS_BASE;
+		abilities = ABILITIES_BASE;
+		STATS = STATS_ALL;
+		calcHP = CALC_HP_ALL;
+		calcStat = CALC_STAT_ALL;
+		break;
+	//FanChara
+	case 8:
+		puppetdex = PUPPETDEX_FAN;
+		setdex = SETDEX_YNK;
+		typeChart = TYPE_CHART_YNK;
+		moves = MOVES_YNK;
+		items = ITEMS_YNK;
+		abilities = ABILITIES_FAN;
+		STATS = STATS_ALL;
+		calcHP = CALC_HP_ALL;
+		calcStat = CALC_STAT_ALL;
+		break;
 	}
 	clearField();
 	$("#importedSets").prop("checked", false);
@@ -639,6 +691,8 @@ function clearField() {
 	$("#protectR").prop("checked", false);
 	$("#drainSeedL").prop("checked", false);
 	$("#drainSeedR").prop("checked", false);
+	$("#shinigamiL").prop("checked", false);
+	$("#shinigamiR").prop("checked", false);
 	$("#reversedL").prop("checked", false);
 	$("#reversedR").prop("checked", false);
 	$("#ghostChaseL").prop("checked", false);
