@@ -4,7 +4,7 @@ Changelog - v2.1.0
 Additions
 ------------
 
--Support for the follwing formats has been added: Basegame, Shard of Dreams, FanChara
+-Support for the following formats has been added: Basegame, Shard of Dreams, FanChara
 
 -Shinigami's Waltz can now be selected for additional residual damage during calculation
 
