@@ -173,7 +173,7 @@ var SETDEX_YNK = {
 	},
 	"Extra Keiki": {
 		//Below Contribution(s) by Eevee
-		"Choice Belt": {"ability": "Phalanx", "level": 50, "pp": {"fa": 64, "2d": 2, "sp": 64}, "moves": ["Power Spot", "Supernatural Border", "Miasma", "Revolving Illusions"], "mark": "Green", "item": "Choice Belt"},
+		"Choice Belt": {"ability": "Phalanx", "level": 50, "pp": {"fa": 64, "2d": 2, "sp": 64}, "moves": ["Thor's Hammer", "Rocky Barrage", "Distortion Bomb", "Trickster"], "mark": "Green", "item": "Choice Belt"},
 	},
 	"Extra Kikuri": {
 		//Below Contribution(s) by Damage
@@ -247,7 +247,7 @@ var SETDEX_YNK = {
 	},
 	"Extra Toyohime": {
 		//Below Contribution(s) by Damage
-		"Silver Hairpin Pivot": {"level": 50, "pp": {"hp": 64, "sd": 64, "fd": 2}, "ability": "Healing Power", "moves": ["Energy Absorb", "Moonbow", "Smash Spin", "Smash Spin"], "mark": "White", "item": "Silver Hairpin"},
+		"Silver Hairpin Pivot": {"level": 50, "pp": {"hp": 64, "sd": 64, "fd": 2}, "ability": "Healing Power", "moves": ["Energy Absorb", "Moonbow", "Lazy Mist", "Smash Spin"], "mark": "White", "item": "Silver Hairpin"},
 	},
 	"Extra Tsukasa": {
 		//Below Contribution(s) by Barudo
@@ -371,7 +371,7 @@ var SETDEX_YNK = {
 	"Speed Sanae": {
 		//Below Contribution(s) by MQJinx
 		"Sharp Wind": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Sharp Wind", "Waves of Earth", "Macroburst", "Pollen Mist"]},
-		"Choice Belt": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Macroburst", "Earthen Feast", "Pollen Mist", "Unknown Flare"]},
+		"Choice Belt": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Choice Belt", "moves": ["Macroburst", "Earthen Feast", "Pollen Mist", "Unknown Flare"]},
 	},
 	"Speed Sara": {
 		//Below Contribution(s) by Barudo

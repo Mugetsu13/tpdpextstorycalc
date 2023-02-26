@@ -1,10 +1,22 @@
+Changelog - v2.1.1
+=======================
+
+Bugfixes
+------------
+
+-Fixed EKeiki's sample set using the moves of EKikuri's sample set
+
+-Fixed EToyohime's sample set having Smash Spin twice
+
+-Fixed SSanae's second sample set having Black Choker instead of Choice Belt
+
 Changelog - v2.1.0
 =======================
 
 Additions
 ------------
 
--Support for the following formats has been added: Basegame, Shard of Dreams, FanChara
+-Support for the follwing formats has been added: Basegame, Shard of Dreams, FanChara
 
 -Shinigami's Waltz can now be selected for additional residual damage during calculation
 
