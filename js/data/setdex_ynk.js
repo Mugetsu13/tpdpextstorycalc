@@ -39,6 +39,10 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Damage
 		"Suicude Lead": {"ability": "Curiosity", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Stealth Trap", "Field Protect", "Field Barrier", "Puppet's Grudge"], "mark": "Blue"},
 	},
+	"Assist Mugetsu": {
+		//Below Contribution(s) by Eevee
+		"Meme Wall": {"level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "mark": "Blue", "ability": "Dark Force", "item": "Counter Bit", "moves": ["Infinite Darkness", "Thermit", "Flash Bullet", "Grace of Mana"]},
+	},
 	"Assist Satori": {
 		//Below Contribution(s) by Damage
 		"Please Free Custap": {"ability": "Shadow Stitch", "level": 50, "pp": {"hp": 64, "sd": 64, "sp": 2}, "moves": ["Cross Counter", "Moon's Reflection", "Encourage", "Lucky Rainbow"], "mark": "White", "item": "Life Charm"},
@@ -114,6 +118,10 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Damage
 		"Utility": {"ability": "Curse Return", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "moves": ["Decrescendo", "St. Elmo's Fire", "Revolving Illusions", "Miasma"], "mark": "Blue", "item": "Food Rations"},
 	},
+	"Defense Sukuna": {
+		//Below Contribution(s) by Eevee
+		"Silver Hairpin": {"level": 50, "pp": {"hp": 64, "fa": 64, "sd": 2}, "mark": "Red", "ability": "Miracle Mallet", "item": "Silver Hairpin", "moves": ["Samurai Edge", "Shooting Press", "Overtake Strike", "Break Shot"]},
+	},
 	"Defense Tokiko": {
 		//Below Contribution(s) by Damage
 		"Defensive Utility": {"ability": "Deploy Smoke", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "moves": ["Stealth Trap", "Perch", "Changeling", "Air Stamp"], "mark": "Blue", "item": "Tengu Geta"},
@@ -129,6 +137,10 @@ var SETDEX_YNK = {
 	"Extra Akyuu": {
 		//Below Contribution(s) by Damage
 		"Suicide Lead": {"ability": "Curiosity", "level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "moves": ["A Tempo", "Recall Nightmare", "Eternal Record", "Forest Record"], "mark": "Blue", "item": "Dispel Charm"},
+	},
+	"Extra Alice": {
+		"Self-Destructive Attacker": {"ability": "Jamming", "level": 50, "pp": {"hp": 64, "fa": 64, "sd": 2}, "moves": ["Purgatory Flicker", "Luminous Flux", "Lightning Cut", "Over Ray"], "mark": "Red", "item": "Life Charm"},
+		"Straw Doll Kamikaze": {"ability": "Jamming", "level": 50, "pp": {"hp": 64, "fa": 64, "sd": 2}, "moves": ["Purgatory Flicker", "Luminous Flux", "Lightning Cut", "Over Ray"], "mark": "Red", "item": "Straw Doll"},
 	},
 	"Extra Aya": {
 		//Below Contribution(s) by MQJinx
@@ -159,13 +171,15 @@ var SETDEX_YNK = {
 		"'Stallbreaker'": {"level": 50, "pp": {"hp": 64, "fd": 2, "sa": 64}, "mark": "Black", "ability": "Brutality", "item": "Choice Earrings", "moves": ["Irreversible Trick", "Darkness Dance", "Brave Burst", "Cross Counter"]},
 	},
 	"Extra Hatate": {
-		//Below Contribution(s) by Damage
+		//Below Contribution(s) by Damage and Red
 		"Unburden": {"ability": "Nimble", "level": 50, "pp": {"sa": 64, "sp": 64, "sd": 2}, "ranks": {"fa": 0}, "moves": ["Raid", "Spinning Air", "Impulse", "Brave Burst"], "mark": "Green", "item": "Diamond"},
+		"LowTierGod": {"ability": "Nimble", "level": 50, "pp": {"hp": 60, "sa": 64, "sp": 6}, "ranks": {"fa": 0}, "moves": ["Call of the Dead", "Spinning Air", "Impulse", "Brave Burst"], "mark": "Black", "item": "Thorn Charm"},
 	},
 	"Extra Hina": {
-		//Below Contribution(s) by MQJinx
+		//Below Contribution(s) by MQJinx and Red
 		"Hairpin Pivot": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Air Cushion", "item": "Silver Hairpin", "moves": ["Holy Flare", "Poison Stream", "Changeling", "Shadow Bomb"]},
 		"Drain Seed": {"level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "mark": "Blue", "ability": "Air Cushion", "item": "Jar of Poison", "moves": ["Drain Seed", "Supernatural Border", "Holy Flare", "Poison Stream"]},
+		"Spread Tank": {"level": 50, "pp": {"hp": 64, "fa": 2, "sd": 64}, "mark": "White", "ability": "Air Cushion", "item": "Jar of Poison", "moves": ["Changeling", "Supernatural Border", "Holy Flare", "Dust Bomb"]},
 	},
 	"Extra Kanako": {
 		//Below Contribution(s) by Wower
@@ -178,6 +192,11 @@ var SETDEX_YNK = {
 	"Extra Kikuri": {
 		//Below Contribution(s) by Damage
 		"Defensive": {"ability": "In Sync", "level": 50, "pp": {"hp": 11, "fd": 64, "sd": 56}, "moves": ["Power Spot", "Supernatural Border", "Miasma", "Revolving Illusions"], "mark": "Blue", "item": "Food Rations"},
+	},
+	"Extra Lily": {
+		//Below Contribution(s) by Eevee
+		"Reverse Sweeper": {"level": 50, "pp": {"hp": 64, "fa": 64, "sd": 2}, "ranks": {"sp": 0}, "mark": "Red", "ability": "Glamorous", "item": "Rebellion Tome", "moves": ["Panic Call", "High Tone Crush", "Changeling", "Terrain [Genbu]"]},
+		"Bulky Pivot": {"level": 50, "pp": {"hp": 64, "fa": 64, "sd": 2}, "mark": "Red", "ability": "Glamorous", "item": "Silver Hairpin", "moves": ["Panic Call", "High Tone Crush", "Changeling", "Shooting Press"]},
 	},
 	"Extra Luna": {
 		//Below Contribution(s) by Kyusen
@@ -210,6 +229,10 @@ var SETDEX_YNK = {
 	"Extra Momoyo": {
 		//Below Contribution(s) by Mirage
 		"Bulky Utility": {"level": 50, "pp": {"hp": 62, "fd": 20, "sd": 48}, "mark": "White", "ability": "Inverse Toxin", "item": "Wolfsbane Root", "moves": ["Stealth Trap", "Shooting Press", "Supernatural Border", "Panic Call"]},
+	},
+	"Extra Rei'sen": {
+		//Below Contribution(s) by Red
+		"Choice Belt": {"ability": "Skilled Hand", "level": 50, "pp": {"hp": 2, "fa": 64, "sp": 64}, "moves": ["Purgatory Flicker", "Spirit Rush", "Changeling", "Shark Trade"], "mark": "Red", "item": "Choice Belt"},
 	},
 	"Extra Remilia": {
 		//Below Contribution(s) by Damage
@@ -246,8 +269,9 @@ var SETDEX_YNK = {
 		"Healing Power Pivot": {"level": 50, "pp": {"hp": 64, "fd": 64, "sd": 2}, "mark": "Blue", "ability": "Healing Power", "item": "Absorber", "moves": ["Mine Trap", "Fire Wall", "Waves of Earth", "Last Slash"]},
 	},
 	"Extra Toyohime": {
-		//Below Contribution(s) by Damage
+		//Below Contribution(s) by Damage and Red
 		"Silver Hairpin Pivot": {"level": 50, "pp": {"hp": 64, "sd": 64, "fd": 2}, "ability": "Healing Power", "moves": ["Energy Absorb", "Moonbow", "Lazy Mist", "Smash Spin"], "mark": "White", "item": "Silver Hairpin"},
+		"Offensive Hairpin": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2}, "mark": "Black", "ability": "Healing Power", "item": "Silver Hairpin", "ranks": {"fa": 0}, "moves": ["Energy Absorb", "Moonbow", "Lazy Mist", "Smash Spin"]},
 	},
 	"Extra Tsukasa": {
 		//Below Contribution(s) by Barudo
@@ -273,6 +297,11 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Damage
 		"Bulky Wallbreaker": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2}, "mark": "Black", "ability": "Avarice", "item": "Silver Hairpin", "moves": ["Frozen Prison", "Dark Sweets", "Dense Barrage", "Aquasonic"]},
 	},
+	"Power Alice": {
+		//Below Contribution(s) by Red
+		"Choice Earrings": {"level": 50, "pp": {"hp": 62, "sa": 64, "sd": 4}, "mark": "Black", "ability": "After Move", "item": "Choice Earrings", "ranks": {"fa": 0}, "moves": ["Silver Rain", "Arclight", "Pollen Mist", "Unknown Flare"]},
+		"Artful Sacrifice": {"level": 50, "pp": {"hp": 62, "sa": 64, "sd": 4}, "mark": "Black", "ability": "Stubborn", "item": "Tengu Geta", "ranks": {"fa": 0}, "moves": ["Silver Rain", "Arclight", "Pollen Mist", "Mirror's Reflection"]},
+	},
 	"Power Aya": {
 		//Below Contribution(s) by Damage
 		"All-Out Attacker": {"level": 50, "pp": {"fa": 64, "sp": 64, "hp": 2}, "mark": "Green", "ability": "Salvo", "item": "Straw Doll", "moves": ["Twister", "Shooting Arts", "Godstone Frenzy", "Lightning Speed"]},
@@ -280,6 +309,10 @@ var SETDEX_YNK = {
 	"Power Elis": {
 		//Below Contribution(s) by Mirage
 		"Magic Barrier + 2 Attacks": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Telescopic", "item": "Jar of Poison", "moves": ["Strenuous Stance", "Magic Barrier", "Twilight Infection", "Venom Nova"]},
+	},
+	"Power Elly": {
+		//Below Contribution(s) by Eevee
+		"Cleaner": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Green", "ability": "Recoil Offset", "item": "Black Choker", "moves": ["Brandish", "Foehn Winds", "Overtake Strike", "Mad Rush Stance"]},
 	},
 	"Power Gengetsu": {
 		//Below Contribution(s) by Eevee
@@ -319,9 +352,14 @@ var SETDEX_YNK = {
 		//Below Contribution(s) by Lightli
 		"Wallbreaker": {"level": 50, "pp": {"hp": 64, "sa": 64, "sd": 2}, "mark": "Black", "ability": "Active", "item": "Choice Earrings", "moves": ["Thunderlord's Scorn", "Lightning Speed", "Ultra High Tone", "Eye of Laplace"]},
 	},
+	"Power Ruukoto": {
+		//Below Contribution(s) by Eevee
+		"Wallbreaker": {"level": 50, "pp": {"hp": 2, "fa": 64, "sp": 64}, "mark": "Red", "ability": "Recoil Offset", "item": "Choice Ring", "moves": ["Full Metal Crash", "Purgatory Flicker", "Meteor Impact", "Final Tribulation"]},
+	},
 	"Power Sakuya": {
-		//Below Contribution(s) by MQJinx
+		//Below Contribution(s) by MQJinx and Red
 		"All-Out Attacker": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Strategist", "item": "Golden Hairpin", "moves": ["Overtake Strike", "Brandish", "Dancing Sword", "Changeling"]},
+		"Choice Ring": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Strategist", "item": "Choice Ring", "moves": ["Overtake Strike", "Cruciform", "Dancing Sword", "Changeling"]},
 	},
 	"Power Shinki": {
 		//Below Contribution(s) by Barudo
@@ -342,6 +380,10 @@ var SETDEX_YNK = {
 	"Speed Daiyousei": {
 		//Below Contribution(s) by Mirage
 		"Fairy Dance Sweeper": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Skilled Hand", "item": "Food Rations", "moves": ["Bewitching Pollen", "Fairy Dance", "Energy Absorb", "Macroburst"]},
+	},
+	"Speed Ellen": {
+		//Below Contribution(s) by Eevee
+		"Suicide Lead": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Air Cushion", "item": "Black Choker", "moves": ["Catastrophe", "Lightning Speed", "Encourage", "Bind Trap"]},
 	},
 	"Speed Flandre": {
 		//Below Contribution(s) by Barudo
@@ -387,8 +429,9 @@ var SETDEX_YNK = {
 		"Cleaner": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "Imposing Stance", "item": "Straw Doll", "moves": ["Luminous Flux", "Over Ray", "Strenuous Stance", "Shooting Press"]},
 	},
 	"Speed Tsukasa": {
-		//Below Contribution(s) by Barudo
+		//Below Contribution(s) by Barudo and Red
 		"Choice Belt": {"level": 50, "pp": {"fa": 64, "sd": 2, "sp": 64}, "mark": "Green", "ability": "First Hit", "item": "Choice Belt", "moves": ["High Tone Crush", "Overdrive", "St. Elmo's Fire", "Changeling"]},
+		"Fairy Dance": {"level": 50, "pp": {"sa": 64, "sd": 2, "sp": 64}, "mark": "Black", "ability": "First Hit", "item": "Black Choker", "ranks": {"fa": 0}, "moves": ["Danmaku Orchestra", "Impulse", "Catastrophe", "Fairy Dance"]},
 	},
 	"Speed Utsuho": {
 		//Below Contribution(s) by Kyusen and Damage
@@ -588,5 +631,12 @@ var SETDEX_SOD = {
 		//Below Contribution(s) by MQJinx from the TPDP Discord
 		"Sharp Wind": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Sharp Wind", "Waves of Earth", "Macroburst", "Pollen Mist"]},
 		"Choice Belt": {"level": 50, "pp": {"fd": 2, "sa": 64, "sp": 64}, "mark": "Green", "ability": "Common Senseless", "item": "Black Choker", "moves": ["Macroburst", "Earthen Feast", "Pollen Mist", "Unknown Flare"]},
+	},
+};
+
+var SETDEX_BASESTORY = {
+	"Assist Chen": {
+		//placeholder for when I get the story mode update to work, whenever that would be
+		"Trapper": {"ability": "Adverse Wind", "level": 50, "pp": {"hp": 2, "sa": 64, "sp": 64}, "ranks": {"fa": 0}, "moves": ["Brave Song", "Encourage", "Swift Air-Raid", "Waves of Earth"], "mark": "Green", "item": "Black Choker"},
 	},
 };
