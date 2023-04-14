@@ -1,3 +1,11 @@
+Changelog - v2.1.2
+=======================
+
+Additions
+------------
+
+-Sample sets for the following puppets have been added: AMugetsu, DSukuna, EAlice, EHatate, EHina, ELily, ERei'sen, EToyohime, PRuukoto, PAlice, PElly, PSakuya, SEllen, STsukasa
+
 Changelog - v2.1.1
 =======================
 
