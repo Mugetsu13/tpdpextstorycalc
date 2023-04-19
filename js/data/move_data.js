@@ -471,7 +471,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Rising Sun": {
 		type: "Fire",
@@ -662,7 +663,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Reverse Splash": {
 		type: "Water",
@@ -870,7 +872,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Power Drain": {
 		type: "Nature",
@@ -1420,7 +1423,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Air Stamp": {
 		type: "Wind",
@@ -1620,7 +1624,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Plasma Ball": {
 		type: "Electric",
@@ -1795,7 +1800,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Sunbeam Dance": {
 		type: "Light",
@@ -2279,7 +2285,8 @@ var MOVES_YNK = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Soul Hound": {
 		type: "Nether",
@@ -3795,7 +3802,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Rising Sun": {
 		type: "Fire",
@@ -3986,7 +3994,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Reverse Splash": {
 		type: "Water",
@@ -4194,7 +4203,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Power Drain": {
 		type: "Nature",
@@ -4744,7 +4754,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Air Stamp": {
 		type: "Wind",
@@ -4944,7 +4955,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Plasma Ball": {
 		type: "Electric",
@@ -5119,7 +5131,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Sunbeam Dance": {
 		type: "Light",
@@ -5603,7 +5616,8 @@ var MOVES_SOD = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Soul Hound": {
 		type: "Nether",
@@ -7010,7 +7024,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Rising Sun": {
 		type: "Fire",
@@ -7201,7 +7216,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Reverse Splash": {
 		type: "Water",
@@ -7409,7 +7425,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Power Drain": {
 		type: "Nature",
@@ -7934,7 +7951,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Air Stamp": {
 		type: "Wind",
@@ -8107,7 +8125,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Plasma Ball": {
 		type: "Electric",
@@ -8262,7 +8281,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Sunbeam Dance": {
 		type: "Light",
@@ -8696,7 +8716,8 @@ var MOVES_BASE = {
 		category: "Focus",
 		bp: 80,
 		acc100: true,
-		hasSecondaryEffect: true
+		hasSecondaryEffect: true,
+		isJavelin: true
 	},
 	"Soul Hound": {
 		type: "Nether",

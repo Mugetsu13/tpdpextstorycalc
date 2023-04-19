@@ -598,6 +598,9 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	} else if (atkItem === "Straw Doll" || (atkItem === "Radiant Hairpin" && attacker.curHP / attacker.maxHP === 1) && gen !== 8 || atkItem === "Tsuzumi Drum" && !isSTAB) {
 		finalMods.push(1.3);
 		description.attackerItem = atkItem;
+	} else if (atkItem === "Javelin Arts" && move.isJavelin === true || atkItem === "Deadly Secrets" && typeEffectiveness > 1) {
+		finalMods.push(1.2);
+		description.attackerItem = atkItem;
 	} else if (atkItem === "Red Ring" && move.category === "Focus" || atkItem === "Blue Earrings" && move.category === "Spread" || atkItem === "Dream Shard") {
 		finalMods.push(1.1);
 		description.attackerItem = attacker.item;

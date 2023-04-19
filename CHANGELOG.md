@@ -1,3 +1,11 @@
+Changelog - v2.1.4
+=======================
+
+Bugfixes
+------------
+
+-Javelin Arts and Deadly Secrets now properly apply their damage boosts
+
 Changelog - v2.1.3
 =======================
 
