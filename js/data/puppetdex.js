@@ -3427,7 +3427,7 @@ var PUPPETDEX_YNK = {
 	"Extra Hecatia (Spread)": {
 		t1: "Light",
 		t2: "Dark",
-		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sd: 140, sp: 90},
+		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sp: 90, sd: 140},
 		c: 120,
 		ab: "Three Bodies",
 		isAlternateForme: true
@@ -7553,7 +7553,7 @@ var PUPPETDEX_SOD = {
 	"Extra Hecatia (Spread)": {
 		t1: "Light",
 		t2: "Dark",
-		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sd: 140, sp: 90},
+		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sp: 90, sd: 140},
 		c: 120,
 		ab: "Three Bodies",
 		isAlternateForme: true
@@ -13341,7 +13341,7 @@ var PUPPETDEX_FAN = {
 	"Extra Hecatia (Spread)": {
 		t1: "Light",
 		t2: "Dark",
-		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sd: 140, sp: 90},
+		bs: {hp: 60, fa: 60, fd: 10, sa: 140, sp: 90, sd: 140},
 		c: 120,
 		ab: "Three Bodies",
 		isAlternateForme: true
