@@ -1,3 +1,16 @@
+Changelog - v2.1.3
+=======================
+
+Bugfixes
+------------
+
+-EHecatia's Spread form now has the correct speed stat
+
+Additions
+------------
+
+-Sample sets for the following puppets have been added: 
+
 Changelog - v2.1.2
 =======================
 
