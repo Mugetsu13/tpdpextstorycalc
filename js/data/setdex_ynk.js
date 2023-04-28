@@ -333,7 +333,7 @@ var SETDEX_YNK = {
 	},
 	"Power Konngara": {
 		//Below Contribution(s) by MQJinx
-		"Hairpin": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Benefit of Fire", "item": "Silver Hairpin", "moves": ["Heavenly Ascent", "Samurai Edge", "Waterfall Drop", "Strike Shot"]},
+		"Hairpin": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Benefit of Fire", "item": "Golden Hairpin", "moves": ["Heavenly Ascent", "Samurai Edge", "Waterfall Drop", "Strike Shot"]},
 		"Strenuous Stance": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Red", "ability": "Benefit of Fire", "item": "Black Choker", "moves": ["Strenuous Stance", "Heavenly Ascent", "Samurai Edge", "Waterfall Drop"]},
 	},
 	"Power Kurumi": {
@@ -616,7 +616,7 @@ var SETDEX_SOD = {
 	},
 	"Power Konngara": {
 		//Below Contribution(s) by MQJinx from the TPDP Discord
-		"Hairpin": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Benefit of Fire", "item": "Silver Hairpin", "moves": ["Heavenly Ascent", "Samurai Edge", "Waterfall Drop", "Strike Shot"]},
+		"Hairpin": {"level": 50, "pp": {"hp": 64, "fa": 64, "fd": 2}, "mark": "Red", "ability": "Benefit of Fire", "item": "Golden Hairpin", "moves": ["Heavenly Ascent", "Samurai Edge", "Waterfall Drop", "Strike Shot"]},
 		"Strenuous Stance": {"level": 50, "pp": {"fa": 64, "fd": 2, "sp": 64}, "mark": "Red", "ability": "Benefit of Fire", "item": "Black Choker", "moves": ["Strenuous Stance", "Heavenly Ascent", "Samurai Edge", "Waterfall Drop"]},
 	},
 	"Power Sakuya": {
