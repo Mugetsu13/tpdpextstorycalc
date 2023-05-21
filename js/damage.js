@@ -253,6 +253,10 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 		if (atkAbility === "Two of a Kind") { description.attackerAbility = atkAbility; }
 		return {"damage": [lostHP], "description": buildDescription(description)};
 	}
+	if (move.name === "Boundary Rend") {
+		var dealtDamage = field.isProtected ? 0 : defender.curHP - 1;
+		return {"damage": [dealtDamage], "description": buildDescription(description)};
+	}
 
 	//Two of a Kind flag
 	var doppelganger = false;
@@ -388,6 +392,7 @@ function getDamageResult(attacker, defender, move, field, ironWill) {
 	case "Fire Wall":
 	case "Panic Call":
 	case "St. Elmo's Fire":
+	case "Score Web":
 		basePower = Math.floor(move.bp * (!resistedKnockOffDamage ? 1.5 : 1)); //NOTE: in the main games, this would be 97.5, but due to the floor operation in the damage formula, this becomes 97.
 		description.moveBP = basePower;
 		break;
@@ -842,6 +847,7 @@ function getModifiedStat(stat, mod) {
 		   mod < 0 ? Math.floor(stat * 2 / (2 - mod)) : stat;
 }
 
+var totalSpeed;
 function getFinalSpeed(puppet, weather, terrain) {
 	var speed = getModifiedStat(puppet.rawStats[SP], puppet.boosts[SP]);
 	if (puppet.item === "Choice Belt" || puppet.item === "Izanagi Object" && terrain === "Kohryu") {
@@ -860,6 +866,7 @@ function getFinalSpeed(puppet, weather, terrain) {
 	} else if (puppet.ability === "Northern Expanse" && terrain === "Genbu") {
 		speed *= 0.5;
 	}
+	totalSpeed = speed;
 	return speed;
 }
 

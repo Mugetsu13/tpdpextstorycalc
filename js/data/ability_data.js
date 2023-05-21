@@ -210,7 +210,9 @@ var ABILITIES_YNK = [
 	"Silent Running",
 	"Astronomy",
 	"Grand Opening",
-	"Avarice"
+	"Avarice",
+	"Infinite Dream",
+	"Fascination"
 ];
 
 var ABILITIES_SOD = [
@@ -787,5 +789,7 @@ var ABILITIES_FAN = [
 	"Grand Opening",
 	"Avarice",
 	"Spark Bonus",
-	"Normal Bonus"
+	"Normal Bonus",
+	"Infinite Dream",
+	"Fascination"
 ];

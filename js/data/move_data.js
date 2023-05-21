@@ -3327,6 +3327,126 @@ var MOVES_YNK = {
 		category: "Status",
 		bp: 0
 	},
+	"Score Web": {
+		type: "Sound",
+		category: "Spread",
+		isEN: true,
+		bp: 80,
+		acc100: true
+	},
+	"Dual Spark": {
+		type: "Light",
+		category: "Focus",
+		isEN: true,
+		accuracy: 80,
+		priority: -1,
+		bp: 120,
+		isTwoHit: true
+	},
+	"Bombardment": {
+		type: "Illusion",
+		category: "Spread",
+		accuracy: 90,
+		priority: 1,
+		bp: 80,
+		isTwoHit: true
+	},
+	"Stun Bomb": {
+		type: "Electric",
+		category: "Spread",
+		accuracy: 95,
+		priority: 1,
+		bp: 80,
+		hasSecondaryEffect: true
+	},
+	"Blade Dance": {
+		type: "Steel",
+		category: "Focus",
+		bp: 120,
+		alwaysHits: true
+	},
+	"Electric Heritage": {
+		type: "Electric",
+		category: "Focus",
+		accuracy: 95,
+		isEN: true,
+		bp: 130,
+	},
+	"Goddess' Decree": {
+		type: "Dream",
+		category: "Status",
+		bp: 0
+	},
+	"Supernova": {
+		type: "Dream",
+		category: "Spread",
+		bp: 160,
+		isEN: true,
+		alwaysHits: true,
+		hasSecondaryEffect: true
+	},
+	"Calamity": {
+		type: "Nature",
+		category: "Status",
+		accuracy: 80,
+		bp: 0
+	},
+	"Calamity Scythe": {
+		type: "Dark",
+		category: "Focus",
+		bp: 100,
+		acc100: true,
+		hasSecondaryEffect: true
+	},
+	"Quadruple Barrier": {
+		type: "Illusion",
+		category: "Spread",
+		bp: 80,
+		isEN: true,
+		alwaysHits: true,
+		hasSecondaryEffect: true
+	},
+	"Boundary Rend": {
+		type: "Dream",
+		category: "Status",
+		alwaysHits: true,
+		bp: 1
+	},
+	"Fantasy Seal": {
+		type: "Illusion",
+		category: "Focus",
+		bp: 40,
+		alwaysHits: true,
+		isMultiHit: true
+	},
+	"Rainbow Slash": {
+		type: "Water",
+		category: "Focus",
+		accuracy: 70,
+		bp: 130,
+		hasSecondaryEffect: true
+	},
+	"Spear The Gungnir": {
+		type: "Fire",
+		category: "Focus",
+		acc100: true,
+		bp: 100
+	},
+	"Orreries Sun": {
+		type: "Dream",
+		category: "Spread",
+		bp: 80,
+		acc100: true,
+		isEN: true,
+		hasSecondaryEffect: true
+	},
+	"Swallowtail Lance": {
+		type: "Nether",
+		category: "Spread",
+		bp: 110,
+		acc100: true,
+		isEN: true
+	},
 };
 
 var MOVES_SOD = {

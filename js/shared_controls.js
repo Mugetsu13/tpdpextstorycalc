@@ -182,9 +182,9 @@ function autosetTerrain(ability, i) {
 	// terrain input uses checkbox instead of radio, need to uncheck all first
 	$("input:checkbox[name='terrain']:checked").prop("checked", false);
 	switch (ability) {
-	case "Electric Surge":
-		lastAutoTerrain[i] = "Electric";
-		$("#electric").prop("checked", true);
+	case "Infinite Dream":
+		lastAutoTerrain[i] = "Seiryu";
+		$("#seiryu").prop("checked", true);
 		break;
 	case "Grassy Surge":
 		lastAutoTerrain[i] = "Grassy";
@@ -631,7 +631,7 @@ $(".gen").change(function () {
 	//Basegame
 	case 5:
 		puppetdex = PUPPETDEX_BASE;
-		setdex = SETDEX_YNK;
+		setdex = SETDEX_BASE;
 		typeChart = TYPE_CHART_BASE;
 		moves = MOVES_BASE;
 		items = ITEMS_BASE;
@@ -643,7 +643,7 @@ $(".gen").change(function () {
 	//FanChara
 	case 8:
 		puppetdex = PUPPETDEX_FAN;
-		setdex = SETDEX_YNK;
+		setdex = SETDEX_FAN;
 		typeChart = TYPE_CHART_YNK;
 		moves = MOVES_YNK;
 		items = ITEMS_YNK;
